@@ -76,7 +76,7 @@ module control_unit(
            `s_idle:
                 next_state = `s_fetch;
            `s_fetch:
-                next_state = `s_decode;
+                next_state = opcode;
                   
               `s_decode:
                     next_state = opcode;
@@ -105,7 +105,7 @@ module control_unit(
                     next_state = `s_idle;
                     //falta andar para trás também
               `s_jmp:
-                    next_state = `s_start; //start instead of idle because of the pcinc
+                    next_state = `s_idle; //start instead of idle because of the pcinc
 
               `s_ld:
               begin

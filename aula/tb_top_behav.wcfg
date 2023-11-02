@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="3,570.001 ns"></ZoomEndTime>
-      <Cursor1Time time="2,900.000 ns"></Cursor1Time>
+      <ZoomStartTime time="2,130.300 ns"></ZoomStartTime>
+      <ZoomEndTime time="5,780.301 ns"></ZoomEndTime>
+      <Cursor1Time time="3,300.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="167"></NameColumnWidth>
-      <ValueColumnWidth column_width="118"></ValueColumnWidth>
+      <ValueColumnWidth column_width="102"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
+   <WVObjectSize size="20" />
    <wvobject type="logic" fp_name="/tb_top/clock">
       <obj_property name="ElementShortName">clock</obj_property>
       <obj_property name="ObjectShortName">clock</obj_property>
@@ -36,13 +36,13 @@
       <obj_property name="ElementShortName">PCLoad</obj_property>
       <obj_property name="ObjectShortName">PCLoad</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/Program_Counter/PCinc">
+      <obj_property name="ElementShortName">PCinc</obj_property>
+      <obj_property name="ObjectShortName">PCinc</obj_property>
+   </wvobject>
    <wvobject type="logic" fp_name="/tb_top/uut/ctrl_unit/IRLoad">
       <obj_property name="ElementShortName">IRLoad</obj_property>
       <obj_property name="ObjectShortName">IRLoad</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/ctrl_unit/PCinc">
-      <obj_property name="ElementShortName">PCinc</obj_property>
-      <obj_property name="ObjectShortName">PCinc</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_top/uut/mem/pc">
       <obj_property name="ElementShortName">pc[31:0]</obj_property>
@@ -88,20 +88,16 @@
       <obj_property name="ElementShortName">[3][31:0]</obj_property>
       <obj_property name="ObjectShortName">[3][31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/arith_logic_unit/IMM_op">
-      <obj_property name="ElementShortName">IMM_op</obj_property>
-      <obj_property name="ObjectShortName">IMM_op</obj_property>
+   <wvobject type="array" fp_name="/tb_top/uut/register_bank/registerb[4]">
+      <obj_property name="ElementShortName">[4][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_top/uut/mem/code_output">
       <obj_property name="ElementShortName">code_output[31:0]</obj_property>
       <obj_property name="ObjectShortName">code_output[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/branch_en">
-      <obj_property name="ElementShortName">branch_en</obj_property>
-      <obj_property name="ObjectShortName">branch_en</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/ctrl_unit/branch_en">
-      <obj_property name="ElementShortName">branch_en</obj_property>
-      <obj_property name="ObjectShortName">branch_en</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/uut/ctrl_unit/ram_read_en">
+      <obj_property name="ElementShortName">ram_read_en</obj_property>
+      <obj_property name="ObjectShortName">ram_read_en</obj_property>
    </wvobject>
 </wave_config>

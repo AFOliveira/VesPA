@@ -39,11 +39,13 @@ begin
            // registerb[i] <= 32'd0;
         end
     end
-    else if(write_data == 1'b1)
+ end
+ always@(*) 
+ begin
+ if(write_data == 1'b1)
     begin
         registerb[rdst] <= in_data;
     end
-    
  end 
  
      assign operand1 = (outdata1 == 1'b1) ? registerb[rs1] : 32'hzz;

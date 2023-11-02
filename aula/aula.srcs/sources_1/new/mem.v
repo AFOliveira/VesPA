@@ -25,9 +25,15 @@ module mem(
     initial begin
     
     codemem[0] = 32'b00010000110000100001000000000000;
-    //codemem[1] = 32'b00001000110000110000000000000011;
+    codemem[1] = 32'b00001000110000110000000000000011;
+
+    codemem[2] = 32'b01011001000000000000000000000000;
     //codemem[1] = 32'b01000000000000000000000000000011;
-    //codemem[2] = 32'b01001000000000100000000000000000;
+    codemem[3] = 32'b01001000000000100000000000000000;
+    
+
+    
+    mem[0] = 32'b000000000000000000000000000001111;
     
     end
     always @(posedge clock)
@@ -35,30 +41,10 @@ module mem(
          if(reset)
          for(i=0; i < 256; i = i + 1)
          begin
-            mem[i] = 32'h00000000;
-         end
-//         else if (ram_read_en)
-//         begin
-//            mem_operand <= mem[rdst];
-//         end
-         
+           // mem[i] = 32'h00000000;
+         end     
         end
-        
-        always @(posedge clock)
-        begin
-         if(reset)
-         for(i=0; i < 256; i = i + 1)
-         begin
-            //codemem[i] = 32'h00000000;
-         end   
-         
-        end
-        
-        
-        
-    //assign ram_output = (ram_write_en == 1'b1) ? mem[rdst] : 32'hzzzz;
-    
-    //assign code_output = (code_en == 1'b1) ? codemem[pc] : 32'hzzzz;
+            
     assign code_output = codemem[pc];
     
     assign mem_operand = (ram_read_en == 1'b1) ? mem[immed23] : 32'hzzzz;

@@ -22,9 +22,13 @@ module Program_Counter(
     
     `include "opcodes.v"
 
-    always @(posedge clk)
+    always @(posedge PCinc or rst)
     begin
-        if (PCinc == 1'b1)
+        if (rst)
+        begin
+            PC = 0;
+        end
+        else if (PCinc == 1'b1)
         begin
             if (branch_en == 1'b1)
             begin
