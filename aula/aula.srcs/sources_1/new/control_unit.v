@@ -156,7 +156,7 @@ module control_unit(
     
     assign ram_read_en = (state == `s_ld) ? 1'b1:1'b0;
         
-    assign PCLoad = (state == `s_jmp) ? 1'b1:1'b0;
+    assign PCLoad = ((state == `s_jmp) || (state == `s_bxx)) ? 1'b1:1'b0;
     
     assign ram_write_en = (state == `s_st) ? 1'b1:1'b0;
     
