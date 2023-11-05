@@ -54,7 +54,7 @@ wire [31:0] pc_reg_val;
 wire [31:0] jmp_16adrr;
 wire ram_read_en;
 wire [31:0] mem_operand;
-
+wire rst_bsy;
 
 control_unit ctrl_unit (
         .clk(clk),

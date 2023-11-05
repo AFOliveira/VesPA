@@ -31,13 +31,17 @@ module Instruction_Register(
     );
     
     
-    always @(posedge IRLoad or rst)
+    always @(posedge clk)
     begin
         if(rst)
         begin
             IR<=0;
         end
-        else if(IRLoad)
+    end
+    
+    always @(posedge IRLoad)
+    begin
+        if(IRLoad)
         begin
            IR <= code_output;
         end

@@ -73,43 +73,48 @@ module control_unit(
               next_state = `s_fetch;
                                                //iniciar variáveis
                 
+           `s_extra:
+                next_state = `s_fetch;     
+                
            `s_idle:
                 next_state = `s_fetch;
+  
+  
            `s_fetch:
                 next_state = opcode;
                   
-              `s_decode:
-                    next_state = opcode;
+//              `s_decode:
+//                    next_state = opcode;
                                                              
              `s_nop:
-                    next_state = `s_idle;
+                    next_state = `s_fetch;
            
               `s_add:
                     
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               
               `s_sub:
-                    next_state = `s_idle;
+                    next_state = `s_extra;
                     
               `s_or:
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               `s_and:
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               `s_not:
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               `s_xor:
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               `s_cmp:
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               `s_bxx:
-                    next_state = `s_idle;
-                    //falta andar para trás também
+                    next_state = `s_fetch;
+                    
               `s_jmp:
-                    next_state = `s_idle; //start instead of idle because of the pcinc
+                    next_state = `s_fetch; //start instead of idle because of the pcinc
 
               `s_ld:
               begin
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               end
               `s_ldi:
                     next_state = `s_idle;
@@ -135,22 +140,25 @@ module control_unit(
      
      //case alu
      assign outdata1 = (state == `s_add | state == `s_sub | state == `s_and | state == `s_or |state == `s_not | state == `s_xor) ? 1'b1:1'b0;
-     assign outdata2 = (state == `s_add | state == `s_sub | state == `s_and | state == `s_or | state == `s_xor) ? 1'b1:1'b0;
+     assign outdata2 = ((state == `s_add | state == `s_sub | state == `s_and | state == `s_or | state == `s_xor) & (IMM_op == 1'b0)) ? 1'b1:1'b0;
 
     //case branch
     assign branch_en = (opcode == `s_bxx) ? 1'b1:1'b0;
-
+    
+  
    
     //update result on result bank
-    assign write_data = (state == `s_idle) ? 1'b1:1'b0;
+    assign write_data = (state == `s_extra) ? 1'b1:1'b0;
     
-    assign PCinc = (state == `s_idle) ? 1'b1:1'b0;
+    assign PCinc = (state == `s_fetch) ? 1'b1:1'b0;
     
     assign code_en = (state == `s_fetch) ? 1'b1:1'b0;
     
     assign ram_read_en = (state == `s_ld) ? 1'b1:1'b0;
         
-    assign PCLoad = (opcode == `s_jmp) ? 1'b1:1'b0;
+    assign PCLoad = (state == `s_jmp) ? 1'b1:1'b0;
+    
+    assign ram_write_en = (state == `s_st) ? 1'b1:1'b0;
     
 endmodule
 

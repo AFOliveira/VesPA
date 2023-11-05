@@ -22,17 +22,24 @@ module Program_Counter(
     
     `include "opcodes.v"
 
-    always @(posedge PCinc or rst)
+    always @(posedge clk)
     begin
         if (rst)
         begin
             PC = 0;
-        end
-        else if (PCinc == 1'b1)
+        end   
+    
+    end
+
+    
+    always @(posedge PCinc)
+    begin
+
+        if (PCinc == 1'b1)
         begin
             if (branch_en == 1'b1)
             begin
-                PC = PC + op_immed23;
+                PC = PC + op_immed23 - 1'b1;
             end
             else if(pc_load_en)
             begin
@@ -43,10 +50,12 @@ module Program_Counter(
                 PC = PC + 1;
             end
         end
-        else if (PCLoad == 1'b1)
-        begin
-                PC = pc_reg_val + jmp_16adrr;
-        end
+    end
+    
+    
+    always @(posedge PCLoad)
+    begin
+            PC = pc_reg_val + jmp_16adrr;
     end
 //assign PC = ((PCinc & branch_en) == 1'b1) ? (PC + immed23): (PCinc == 1'b1) ? (PC + 1): PC;
     

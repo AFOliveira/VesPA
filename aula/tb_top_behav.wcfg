@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2,130.300 ns"></ZoomStartTime>
-      <ZoomEndTime time="5,780.301 ns"></ZoomEndTime>
-      <Cursor1Time time="3,300.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="4.651217 us"></ZoomEndTime>
+      <Cursor1Time time="2.500000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="167"></NameColumnWidth>
-      <ValueColumnWidth column_width="102"></ValueColumnWidth>
+      <ValueColumnWidth column_width="98"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="20" />
    <wvobject type="logic" fp_name="/tb_top/clock">
@@ -92,9 +92,9 @@
       <obj_property name="ElementShortName">[4][31:0]</obj_property>
       <obj_property name="ObjectShortName">[4][31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/mem/code_output">
-      <obj_property name="ElementShortName">code_output[31:0]</obj_property>
-      <obj_property name="ObjectShortName">code_output[31:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_top/uut/mem/mem_operand">
+      <obj_property name="ElementShortName">mem_operand[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_operand[31:0]</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/tb_top/uut/ctrl_unit/ram_read_en">
       <obj_property name="ElementShortName">ram_read_en</obj_property>

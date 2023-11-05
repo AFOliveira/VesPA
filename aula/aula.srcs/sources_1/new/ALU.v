@@ -48,9 +48,7 @@ module ALU(
                     end
                     else begin
                     result = operand1 + op_immed16;
-                    end
-                    
-                 
+                    end                 
             end
             `s_sub: 
             begin
@@ -63,6 +61,7 @@ module ALU(
                     end
              end             
             `s_and:
+            begin
                     if(IMM_op == 1'b0)
                     begin
                     result = operand1 && operand2;
@@ -70,7 +69,9 @@ module ALU(
                     else begin
                     result = operand1 && op_immed16;
                     end
+            end
             `s_or:
+            begin
                     if(IMM_op == 1'b0)
                     begin
                     result = operand1 | operand2;
@@ -78,8 +79,9 @@ module ALU(
                     else begin
                     result = operand1 | op_immed16;
                     end
-
+            end
             `s_xor:
+            begin
                     if(IMM_op == 1'b0)
                     begin
                     result = operand1 ^ operand2;
@@ -87,6 +89,7 @@ module ALU(
                     else begin
                     result = operand1 ^ op_immed16;
                     end
+            end        
             `s_bxx:
             begin
 
@@ -102,16 +105,19 @@ module ALU(
                     result = mem_operand;
              end
              default:
-                     result = result;  
+             begin
+                     result = 32'hZZZZ;  
+             end
        endcase    
+       
+       
        
        case(opcode)
            `s_add:
            begin
                 C = result[32];
                 Z = ~(|result[31:0]);
-                V = ( result[31] & ~operand1[31] & ~(subt ^ operand2[31])) | (~result[31] & operand1[31] & (subt ^ operand2[31]));
-                                                                                               
+                V = ( result[31] & ~operand1[31] & ~(subt ^ operand2[31])) | (~result[31] & operand1[31] & (subt ^ operand2[31]));                                                                                               
            end
             (`s_sub):
             begin

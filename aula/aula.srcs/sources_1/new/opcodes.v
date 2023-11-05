@@ -43,9 +43,10 @@
 `define s_idle 5'b10010
 `define s_fetch 5'b10011
 `define s_decode 5'b10100
+`define s_extra 5'b11110
 
 
-//Branch Logig
+//Branch Logic
 `define BRA 4'b0000
 `define BNV 4'b1000
 `define BCC 4'b0001
