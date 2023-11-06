@@ -89,8 +89,12 @@ read_mem /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/ROM.mem
 read_verilog -library xil_defaultlib {
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/opcodes.v
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/ALU.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/Instruction_Register.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/Program_Counter.v
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/control_unit.v
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/datapath.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/mem.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/register_bank.v
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/top.v
 }
 OPTRACE "Adding files" END { }
@@ -102,7 +106,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc /home/afonso/vivadoprojects/aula/aula.srcs/constrs_1/new/constraints.xdc
+set_property used_in_implementation false [get_files /home/afonso/vivadoprojects/aula/aula.srcs/constrs_1/new/constraints.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental /home/afonso/vivadoprojects/aula/aula.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

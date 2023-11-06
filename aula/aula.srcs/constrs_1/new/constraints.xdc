@@ -67,6 +67,3 @@ set_property PACKAGE_PIN J16 [get_ports {result[5]}]
 set_property PACKAGE_PIN J15 [get_ports {result[4]}]
 set_property PACKAGE_PIN G14 [get_ports {result[2]}]
 set_property PACKAGE_PIN D18 [get_ports {result[3]}]
-
-set_property IOSTANDARD LVCMOS33 [get_ports {result[32]}]
-set_property PACKAGE_PIN B20 [get_ports {result[32]}]

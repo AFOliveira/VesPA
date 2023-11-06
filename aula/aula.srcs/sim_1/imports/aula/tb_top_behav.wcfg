@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="3,830.001 ns"></ZoomEndTime>
-      <Cursor1Time time="1,795.000 ns"></Cursor1Time>
+      <ZoomEndTime time="1,953.228 ns"></ZoomEndTime>
+      <Cursor1Time time="990.254 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="167"></NameColumnWidth>
+      <NameColumnWidth column_width="155"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
+   <WVObjectSize size="24" />
    <wvobject type="logic" fp_name="/tb_top/uut/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -63,6 +63,7 @@
    <wvobject type="array" fp_name="/tb_top/uut/arith_logic_unit/operand1">
       <obj_property name="ElementShortName">operand1[31:0]</obj_property>
       <obj_property name="ObjectShortName">operand1[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_top/uut/arith_logic_unit/operand2">
       <obj_property name="ElementShortName">operand2[31:0]</obj_property>
@@ -71,14 +72,11 @@
    <wvobject type="array" fp_name="/tb_top/uut/result">
       <obj_property name="ElementShortName">result[31:0]</obj_property>
       <obj_property name="ObjectShortName">result[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/register_bank/registerb[3]">
-      <obj_property name="ElementShortName">[3][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/register_bank/registerb[4]">
-      <obj_property name="ElementShortName">[4][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_top/uut/register_bank/registerb[5]">
+      <obj_property name="ElementShortName">[5][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_top/uut/mem/mem_operand">
       <obj_property name="ElementShortName">mem_operand[31:0]</obj_property>
@@ -99,5 +97,25 @@
    <wvobject type="logic" fp_name="/tb_top/uut/Program_Counter/branch_en">
       <obj_property name="ElementShortName">branch_en</obj_property>
       <obj_property name="ObjectShortName">branch_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/register_bank/registerb[4]">
+      <obj_property name="ElementShortName">[4][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/arith_logic_unit/V">
+      <obj_property name="ElementShortName">V</obj_property>
+      <obj_property name="ObjectShortName">V</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/arith_logic_unit/N">
+      <obj_property name="ElementShortName">N</obj_property>
+      <obj_property name="ObjectShortName">N</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/arith_logic_unit/Z">
+      <obj_property name="ElementShortName">Z</obj_property>
+      <obj_property name="ObjectShortName">Z</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/arith_logic_unit/C">
+      <obj_property name="ElementShortName">C</obj_property>
+      <obj_property name="ObjectShortName">C</obj_property>
    </wvobject>
 </wave_config>

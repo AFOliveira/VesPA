@@ -1,23 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/16/2023 09:22:05 AM
-// Design Name: 
-// Module Name: arith_logic_unit
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -37,111 +18,78 @@ module ALU(
     input [3:0] cond,
     input [31:0] operand1,
     input [31:0] operand2,
+    input [31:0] mem_operand,
+    
+    input b_add,           //Control bits for ALU
+    input b_sub,
+    input b_and,
+    input b_or,
+    input b_xor,
+    input b_not,
+    input b_cmp,
+    input b_ld,
 
-    output reg[32:0] result
+    output [31:0]op_immed23,
+    output [32:0] result
     );
     
     `include "opcodes.v"
     
-//    reg [31:0] PC;
 
-    
+    reg C;
+    reg Z;
+    reg N;
+    reg V;
+    wire subt;
+    wire checkcc;
+    wire [31:0] op_immed16; 
 
-//    begin
-//        case(cond)
-//        `BRA:
-//        begin
-//            checkcc = 1;
-//        end
-//        `BNV:
-//        begin
-//            checkcc = 0;
-//        end
-//        `BCC:
-//        begin
-//            checkcc = ~C;
-//        end
-//        `BCS:
-//        begin
-//            checkcc = C;
-//        end
-//        `BVC:
-//        begin
-//            checkcc = ~V;
-//        end
-//        `BVS:
-//        begin
-//            checkcc = V;
-//        end
-//        `BEQ:
-//        begin
-//            checkcc = Z;
-//        end
-//        `BNE:
-//        begin
-//            checkcc = ~Z;
-//        end
-//        `BGE:
-//        begin
-//            checkcc = (~N & ~V) | (N & V);
-//        end
-//        `BLT:
-//        begin
-//            checkcc = (N & ~V) | (~N & V);
-//        end
-//        `BGT:
-//        begin
-//            checkcc = ~Z & ((~N & ~V) | (N & V));
-//        end
-//        `BLE:
-//        begin
-//            checkcc = Z & ((N & ~V) | (~N & V));
-//        end 
-//        `BPL:
-//        begin
-//            checkcc = ~N;
-//        end  
-//        `BMI:
-//        begin
-//            checkcc = N;
-//        end 
-//        endcase   
-//    end
-//    endfunction
-    
+
     always @(posedge clock)
     begin
-        case (opcode)
-        
-            `s_add: 
-                    result = operand1 + operand2;
-            `s_sub: 
+       if(b_add)
+           begin
+                C = result[32];
+                Z = ~(|result[31:0]);
+                V = ( result[31] & ~operand1[31] & ~(subt ^ operand2[31])) | (~result[31] & operand1[31] & (subt ^ operand2[31]));                                                                                               
+           end
+        if(b_sub || b_cmp)
             begin
-                    result = operand1 - operand2;    
-             end             
-            `s_and:
-                    result = operand1 && operand2;
-            `s_or:
-                    result = operand1 | operand2;
-
-            `s_xor:
-                    result = operand1 ^ operand2;
-//            `s_bxx:
-//                    if (checkcc(C,Z,N,V) == 1)
-//                    begin
-//                        PC = PC + immed23; //fazer a concatenação 
-//                    end
-            `s_not:
-                    result = ~operand1;
-//            `s_cmp: 
-            
-//             begin
-//                    result = operand1 - operand2;
-//                    //setcc
-//             end
-             default:
-                     result = result;  
-       endcase       
+            Z = ~(|result[31:0]);
+            N = result[31];
+            V = ( result[31] & ~operand1[31] & ~(subt ^ operand2[31])) | (~result[31] & operand1[31] & (subt ^ operand2[31]));
+            end
+                
     end
     
+     assign result = (b_add && ~IMM_op) ? (operand1 + operand2) : (b_add && IMM_op) ? (operand1 + op_immed16) :
+                       (b_sub && ~IMM_op) ? (operand1 - operand2) : (b_sub && IMM_op) ? (operand1 - op_immed16) :
+                       (b_and && ~IMM_op) ? (operand1 && operand2) : (b_and && IMM_op) ? (operand1 & op_immed16) :
+                       (b_or && ~IMM_op) ? (operand1 | operand2) : (b_or && IMM_op) ? (operand1 | op_immed16) :
+                       (b_xor && ~IMM_op) ? (operand1 ^ operand2) : (b_xor && IMM_op) ? (operand1 ^ op_immed16) : 
+                       (b_not) ? ~operand1 :
+                       (b_cmp) ? (operand1 - operand2) :
+                       (b_ld) ? mem_operand : 32'hZZZZ;
+
+    assign subt = (opcode == `s_sub) ? 1'b1:1'b0;
+
+    assign checkcc =  (cond == `BRA) ? 1'b1 : 
+                  (cond == `BNV) ? 1'b0 : 
+                  (cond == `BCC) ? ~C : 
+                  (cond == `BCS) ? C : 
+                  (cond == `BVC) ? ~V :
+                  (cond == `BVS) ? V :
+                  (cond == `BEQ) ? Z :
+                  (cond == `BNE) ? ~Z :
+                  (cond == `BGE) ? ((N & V) | (~N & ~V)) :
+                  (cond == `BLT) ? ((N & ~V) | (~N & V)) :
+                  (cond == `BGT) ? (~Z & ((N & V) | (~N & ~V))) :
+                  (cond == `BLE) ? (Z | ((N & ~V) | (~N & V))) :
+                  (cond == `BPL) ? ~N : 
+                  (cond == `BMI) ? N : 1'b0;
+   
+    
+    
+    assign op_immed16 = {{16{immed16[15]}}, immed16};
+    assign op_immed23 = {{8{immed23[22]}}, immed23};
 endmodule
