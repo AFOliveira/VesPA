@@ -76,8 +76,8 @@ module control_unit(
            `s_extra:
                 next_state = `s_fetch;     
                 
-           `s_idle:
-                next_state = `s_fetch;
+//           `s_idle:
+//                next_state = `s_fetch;
   
   
            `s_fetch:
@@ -117,19 +117,19 @@ module control_unit(
                     next_state = `s_extra;
               end
               `s_ldi:
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               `s_ldx:
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               `s_st:
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               `s_stx:
-                    next_state = `s_idle;
+                    next_state = `s_extra;
               `s_halt:
                     next_state = `s_halt;   
                  
            
            default:
-            next_state = `s_idle;
+            next_state = `s_extra;
            
                    
         endcase        

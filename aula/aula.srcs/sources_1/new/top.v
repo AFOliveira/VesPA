@@ -22,7 +22,7 @@
 module top(
         input clk,
         input rst,
-        output [31:0]result
+        output [32:0]result
     );
     
 wire [4:0] opcode;
