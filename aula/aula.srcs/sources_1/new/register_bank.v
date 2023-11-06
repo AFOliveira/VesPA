@@ -31,7 +31,7 @@ integer i; //contador
     
     //test overflow sub
     registerb[3] = 32'h7FFFFFFF;
-    registerb[4] = 32'h80000001;
+   // registerb[4] = 32'h80000001;
     
     end
     

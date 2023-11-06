@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date                      : Mon Nov  6 09:06:48 2023
+| Date                      : Mon Nov  6 12:54:21 2023
 | Host                      : afonso-Modern-14-B10MW running 64-bit Ubuntu 22.04.3 LTS
 | Command                   : report_io -file top_io_placed.rpt
 | Design                    : top
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            35 |
+|            34 |
 +---------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 | B17        |             |            | PS_MIO22_501            | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | B18        |             |            | PS_MIO18_501            | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | B19        |             | High Range | IO_L2P_T0_AD8P_35       | User IO       |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| B20        | result[32]  | High Range | IO_L1N_T0_AD0N_35       | OUTPUT        | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| B20        |             | High Range | IO_L1N_T0_AD0N_35       | User IO       |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | C1         |             |            | PS_DDR_DQ6_502          | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | C2         |             |            | PS_DDR_DQS_P0_502       | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | C3         |             |            | PS_DDR_DQ0_502          | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |

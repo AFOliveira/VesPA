@@ -101,21 +101,21 @@ module control_unit(
            
               `s_add:
                     
-                    next_state = `s_extra;
+                    next_state = `s_fetch;
               
               `s_sub:
-                    next_state = `s_extra;
+                    next_state = `s_fetch;
                     
               `s_or:
-                    next_state = `s_extra;
+                    next_state = `s_fetch;
               `s_and:
-                    next_state = `s_extra;
+                    next_state = `s_fetch;
               `s_not:
-                    next_state = `s_extra;
+                    next_state = `s_fetch;
               `s_xor:
-                    next_state = `s_extra;
+                    next_state = `s_fetch;
               `s_cmp:
-                    next_state = `s_extra;
+                    next_state = `s_fetch;
               `s_bxx:
                     next_state = `s_fetch;
                     
@@ -124,16 +124,16 @@ module control_unit(
 
               `s_ld:
               begin
-                    next_state = `s_extra;
+                    next_state = `s_fetch;
               end
               `s_ldi:
-                    next_state = `s_idle;
+                    next_state = `s_fetch;
               `s_ldx:
-                    next_state = `s_idle;
+                    next_state = `s_fetch;
               `s_st:
-                    next_state = `s_idle;
+                    next_state = `s_fetch;
               `s_stx:
-                    next_state = `s_idle;
+                    next_state = `s_fetch;
               `s_halt:
                     next_state = `s_halt;   
                  
@@ -158,7 +158,7 @@ module control_unit(
   
    
     //update result on result bank
-    assign write_data = (b_add | b_sub | b_cmp) ? 1'b1:1'b0;
+    assign write_data = (b_add | b_sub | b_cmp | b_and | b_or | b_xor | b_not | b_ld) ? 1'b1:1'b0;
     
     assign PCinc = (state == `s_fetch) ? 1'b1:1'b0;
     

@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/afonso/vivadoprojects/aula/aula.srcs/constrs_1/new/constraints.xdc rfile:../../../aula.srcs/constrs_1/new/constraints.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/constrs_1/new/constraints.xdc rfile:../../../aula.srcs/constrs_1/new/constraints.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN K17 [get_ports clk]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
@@ -67,5 +67,3 @@ set_property src_info {type:XDC file:1 line:68 export:INPUT save:INPUT read:READ
 set_property PACKAGE_PIN G14 [get_ports {result[2]}]
 set_property src_info {type:XDC file:1 line:69 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN D18 [get_ports {result[3]}]
-set_property src_info {type:XDC file:1 line:72 export:INPUT save:INPUT read:READ} [current_design]
-set_property PACKAGE_PIN B20 [get_ports {result[32]}]
