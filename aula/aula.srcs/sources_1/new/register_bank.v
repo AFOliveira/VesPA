@@ -12,10 +12,6 @@ input [4:0] rs1,
 input [4:0] rs2,
 input [4:0] rdst,
 input [31:0] in_data,
-input [31:0] pc,
-input PCLoad,
-
-output [31:0]pc_reg_val,
 output [31:0] operand1,
 output [31:0] operand2
 );
@@ -26,7 +22,7 @@ integer i; //contador
 
     initial begin
     
-    registerb[1] = 32'h00000000;
+    registerb[1] = 32'h00000001;
     registerb[2] = 32'h00000001;
     
     end
@@ -39,18 +35,15 @@ begin
            // registerb[i] <= 32'd0;
         end
     end
- end
- always@(*) 
- begin
- if(write_data == 1'b1)
+    else if(write_data)
     begin
         registerb[rdst] <= in_data;
     end
+    
  end 
  
      assign operand1 = (outdata1 == 1'b1) ? registerb[rs1] : 32'hzz;
      assign operand2 = (outdata2 == 1'b1) ? registerb[rs2] : 32'hzz;
-     
-     assign pc_reg_val = (PCLoad == 1'b1) ? registerb[rs1]:32'hzz;
-    
+
+   
 endmodule

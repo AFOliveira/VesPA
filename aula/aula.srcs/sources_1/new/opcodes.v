@@ -43,23 +43,22 @@
 `define s_idle 5'b10010
 `define s_fetch 5'b10011
 `define s_decode 5'b10100
-`define s_extra 5'b11110
 
 
-//Branch Logic
-`define BRA 4'b0000
-`define BNV 4'b1000
-`define BCC 4'b0001
-`define BCS 4'b1001
-`define BVC 4'b0010
-`define BVS 4'b1010
-`define BEQ 4'b0011
-`define BNE 4'b1011
-`define BGE 4'b0100
-`define BLT 4'b1100
-`define BGT 4'b0101
-`define BLE 4'b1101
-`define BPL 4'b0110
-`define BMI 4'b1101
+//Branch Logig
+`define BRA 'b0000
+`define BNV 'b1000
+`define BCC 'b0001
+`define BCS 'b1001
+`define BVC 'b0010
+`define BVS 'b1010
+`define BEQ 'b0011
+`define BNE 'b1011
+`define BGE 'b0100
+`define BLT 'b1100
+`define BGT 'b0101
+`define BLE 'b1101
+`define BPL 'b0110
+`define BMI 'b1101
 
 `endif 

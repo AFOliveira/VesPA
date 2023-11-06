@@ -1,63 +1,45 @@
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/23/2023 10:17:55 AM
+// Design Name: 
+// Module Name: Program_Counter
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
 
 module Program_Counter(
-    input clk,
-    input rst,
     input PCinc,
     input PCLoad,
-    input [31:0]op_immed23,
-    input branch_en,
-    input [31:0]jmp_16adrr,
-    input [31:0]pc_reg_val,
-    
+    input Rst,
+    input Clk,
+    input mux1,
     output reg [31:0] PC
     );
     
-    wire pc_load_en;
-    
-    initial begin
-    PC = 32'b0;
-    end
+  //  assign PC = (mux1) ? (PC+4): PC;
     
     `include "opcodes.v"
-
-    always @(posedge clk)
-    begin
-        if (rst)
-        begin
-            PC = 0;
-        end   
-    
-    end
-
-    
-    always @(posedge PCinc)
-    begin
-
-        if (PCinc == 1'b1)
-            begin
-                PC = PC + 1;
-            end
-        
-    end
     
     
-    always @(posedge PCLoad)
-    begin
-            if(branch_en)
-            begin 
-                 PC = PC + op_immed23 - 1'b1;
-            end
-            else
-            begin
-            PC = pc_reg_val + jmp_16adrr;
-            end
-    end
-//assign PC = ((PCinc & branch_en) == 1'b1) ? (PC + immed23): (PCinc == 1'b1) ? (PC + 1): PC;
     
     
- assign pc_load_en = (PCLoad == 1'b1) ? 1'b1:1'b0;   
+    
+    
+    
+    
     
     
 endmodule

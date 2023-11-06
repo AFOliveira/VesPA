@@ -1,52 +1,49 @@
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/23/2023 10:06:17 AM
+// Design Name: 
+// Module Name: mem
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
 
 module mem(
     input clock,
     input reset,
-//    input ram_write_en,
+    input ram_write_en,
     input ram_read_en,
-//    input [31:0]ram_input,
-    input [4:0] rdst,
-    input [22:0] immed23,
-    input [31:0] pc,
-    input code_en,
-    
-    output [31:0] mem_operand,
-    output [31:0] code_output
+    input [31:0]ram_input,
+    input [4:0] rdst
     );
     
     
     reg[31:0] mem [255:0];
-    reg[31:0] codemem[128:0];
     integer i;
     
     
-    initial begin
-    codemem[0] = 32'b00010000110000100001000000000000;
-    codemem[1] = 32'b00001000110000110000000000000011;
-
-    codemem[2] = 32'b01011001000000000000000000000000;
-    //codemem[1] = 32'b01000000000000000000000000000010;
-    codemem[3] = 32'b01001000000000100000000000000000;
-        //codemem[4] = 32'b01001000000000100000000000000000;
-
-
     
-    mem[0] = 32'b000000000000000000000000000001111;
-    
-    end
     always @(posedge clock)
         begin
          if(reset)
          for(i=0; i < 256; i = i + 1)
          begin
-           // mem[i] = 32'h00000000;
-         end     
+            mem[i] = 32'h00000000;
+         end
         end
-            
-    assign code_output = codemem[pc];
-    
-    assign mem_operand = (ram_read_en == 1'b1) ? mem[immed23] : 32'hzzzz;
+        
+        
         
 endmodule
