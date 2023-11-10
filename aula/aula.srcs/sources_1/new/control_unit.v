@@ -28,7 +28,7 @@ module control_unit(
     input [4:0]opcode,
     input IMM_op,
 
-
+    output ram_write_en,
     output ram_read_en,
     output branch_en,
     output IRLoad,
@@ -36,6 +36,7 @@ module control_unit(
     output PCLoad,
     output outdata1,
     output outdata2,
+    output outdataram,
     output write_data,
     output code_en,
     
@@ -46,7 +47,8 @@ module control_unit(
     output b_xor,
     output b_not,
     output b_cmp,
-    output b_ld
+    output b_ld,
+    output b_st
     
     );
     
@@ -93,8 +95,8 @@ module control_unit(
            `s_fetch:
                 next_state = opcode;
                   
-//              `s_decode:
-//                    next_state = opcode;
+              `s_decode:
+                    next_state = opcode;
                                                              
              `s_nop:
                     next_state = `s_fetch;
@@ -152,6 +154,9 @@ module control_unit(
      assign outdata1 = (state == `s_add | state == `s_sub | state == `s_and | state == `s_or |state == `s_not | state == `s_xor) ? 1'b1:1'b0;
      assign outdata2 = ((state == `s_add | state == `s_sub | state == `s_and | state == `s_or | state == `s_xor) & (IMM_op == 1'b0)) ? 1'b1:1'b0;
 
+
+     assign outdataram = (state == `s_st) ? 1'b1:1'b0;
+
     //case branch
     assign branch_en = (opcode == `s_bxx) ? 1'b1:1'b0;
     
@@ -177,7 +182,8 @@ module control_unit(
     assign b_xor =  (state == `s_xor) ? 1'b1:1'b0;   
     assign b_not =  (state == `s_not) ? 1'b1:1'b0;   
     assign b_cmp =  (state == `s_cmp) ? 1'b1:1'b0;   
-    assign b_ld =   (state == `s_ld) ? 1'b1:1'b0;   
+    assign b_ld =   (state == `s_ld) ? 1'b1:1'b0;
+    assign b_st =   (state == `s_st) ? 1'b1:1'b0;  
     
     
 endmodule

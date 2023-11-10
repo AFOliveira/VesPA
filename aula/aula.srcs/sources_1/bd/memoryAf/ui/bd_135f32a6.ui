@@ -1,0 +1,37 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-462,-63",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port port-id_clka_0 -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port port-id_ena_0 -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
+preplace port port-id_clkb_0 -pg 1 -lvl 0 -x 0 -y 220 -defaultsOSRD
+preplace port port-id_enb_0 -pg 1 -lvl 0 -x 0 -y 280 -defaultsOSRD
+preplace portBus addra_0 -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace portBus dina_0 -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace portBus wea_0 -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
+preplace portBus addrb_0 -pg 1 -lvl 0 -x 0 -y 200 -defaultsOSRD
+preplace portBus dinb_0 -pg 1 -lvl 0 -x 0 -y 240 -defaultsOSRD
+preplace portBus doutb_0 -pg 1 -lvl 2 -x 280 -y 360 -defaultsOSRD
+preplace portBus web_0 -pg 1 -lvl 0 -x 0 -y 300 -defaultsOSRD
+preplace inst axi_bram_ctrl_0_bram -pg 1 -lvl 1 -x 150 -y 190 -defaultsOSRD
+preplace netloc addra_0_1 1 0 1 N 80
+preplace netloc addrb_0_1 1 0 1 40 200n
+preplace netloc axi_bram_ctrl_0_bram_doutb 1 0 2 40 380 260J
+preplace netloc clka_0_1 1 0 1 N 100
+preplace netloc clkb_0_1 1 0 1 30 220n
+preplace netloc dina_0_1 1 0 1 N 120
+preplace netloc dinb_0_1 1 0 1 20 240n
+preplace netloc ena_0_1 1 0 1 40 140n
+preplace netloc enb_0_1 1 0 1 30 280n
+preplace netloc wea_0_1 1 0 1 30 160n
+preplace netloc web_0_1 1 0 1 20 300n
+levelinfo -pg 1 0 150 280
+pagesize -pg 1 -db -bbox -sgen -150 0 430 390
+"
+}
+{
+   "da_bram_cntlr_cnt":"4"
+}

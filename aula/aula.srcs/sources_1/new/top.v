@@ -22,7 +22,7 @@
 module top(
         input clk,
         input rst,
-        output [31:0]result
+        output [32:0]result
     );
     
 wire [4:0] opcode;
@@ -30,7 +30,6 @@ wire [4:0]rdst;
 wire [4:0] rs1;
 wire IMM_op;
 wire [4:0] rs2;
-wire [4:0] rstore;
 wire [22:0] immed23;
 wire [21:0] immed22;
 wire [16:0] immed17;
@@ -38,8 +37,10 @@ wire [15:0] immed16;
 wire [3:0] cond;
 wire [31:0] operand1;
 wire [31:0] operand2;
+wire [31:0] operandoutram;
 wire outdata1;
 wire outdata2;
+wire outdataram;
 wire write_data;
 //wire [31:0] result;
 wire C;
@@ -55,6 +56,9 @@ wire [31:0] jmp_16adrr;
 wire ram_read_en;
 wire [31:0] mem_operand;
 wire rst_bsy;
+wire ram_write_en;
+
+
 
 wire b_add;          //Control bits for ALU
 wire b_sub;
@@ -64,12 +68,14 @@ wire b_xor;
 wire b_not;
 wire b_cmp;
 wire b_ld;
+wire b_st;
 
 control_unit ctrl_unit (
         .clk(clk),
         .rst(rst),
         .opcode(opcode),
         .IMM_op (IMM_op),
+        .ram_write_en(ram_write_en),
         .ram_read_en(ram_read_en),
         .branch_en (branch_en),
         .IRLoad(IRLoad),
@@ -77,6 +83,7 @@ control_unit ctrl_unit (
         .PCLoad(PCLoad),
         .outdata1(outdata1),
         .outdata2(outdata2),
+         .outdataram(outdataram),
         .write_data(write_data),
         .code_en(code_en),
         .b_add(b_add),
@@ -86,7 +93,8 @@ control_unit ctrl_unit (
         .b_xor(b_xor),
         .b_not(b_not),
         .b_cmp(b_cmp),
-        .b_ld(b_ld)
+        .b_ld(b_ld),
+        .b_st(b_st)
  );
 
 datapath data_path  (
@@ -102,7 +110,6 @@ datapath data_path  (
           .rs1(rs1),
           .IMM_op(IMM_op),
           .rs2(rs2),
-          .rstore(rstore),
           .immed23(immed23),
           .immed22(immed22),
           .immed17(immed17),
@@ -126,6 +133,7 @@ ALU arith_logic_unit (
           .cond(cond),
           .operand1(operand1),
           .operand2(operand2),
+          .operandoutram(operandoutram),
           .mem_operand(mem_operand),
           .b_add(b_add),
           .b_sub(b_sub),
@@ -135,6 +143,7 @@ ALU arith_logic_unit (
           .b_not(b_not),
           .b_cmp(b_cmp),
           .b_ld(b_ld),
+          .b_st(b_st),
           .op_immed23(op_immed23),
           .result(result)
 );
@@ -145,6 +154,7 @@ register_bank register_bank (
            .write_data(write_data),
            .outdata1(outdata1),
            .outdata2(outdata2),
+           .outdataram(outdataram),
            .rs1(rs1),
            .rs2(rs2),
            .rdst(rdst),
@@ -152,7 +162,8 @@ register_bank register_bank (
            .PCLoad(PCLoad),
            .pc_reg_val(pc_reg_val),
            .operand1(operand1),
-           .operand2(operand2)
+           .operand2(operand2),
+           .operandoutram(operandoutram)
            );
            
            
@@ -170,16 +181,10 @@ Program_Counter Program_Counter(
     
     
 mem mem(
-    .clock(clk),
     .reset(rst),
-    .ram_read_en(ram_read_en),
-    .rdst(rdst),
-    .immed23(immed23),
+    .clock(clk),
     .pc(PC),
-    .code_en(code_en),
-    .mem_operand(mem_operand),
-    .code_output(code_output)
-    
+    .code_output(code_output)    
 );
 
 Instruction_Register Instruction_Register(
@@ -190,6 +195,19 @@ Instruction_Register Instruction_Register(
    .jmp_16adrr(jmp_16adrr),
    .IR(IR)
 );
+
+     memoryAf_wrapper memoryAf_wrapper
+   (.addra_0(immed22),
+    .addrb_0(immed22),
+    .clka_0(clk),
+    .clkb_0(clk),
+    .dina_0(result),
+    .doutb_0(mem_operand),
+    .ena_0(ram_write_en),
+    .enb_0(ram_read_en),
+    .wea_0(ram_write_en)
+    
+);    
 
  
 endmodule

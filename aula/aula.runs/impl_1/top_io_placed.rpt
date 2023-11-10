@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date                      : Mon Nov  6 12:54:21 2023
+| Date                      : Fri Nov 10 18:49:58 2023
 | Host                      : afonso-Modern-14-B10MW running 64-bit Ubuntu 22.04.3 LTS
 | Command                   : report_io -file top_io_placed.rpt
 | Design                    : top
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            34 |
+|            35 |
 +---------------+
 
 
@@ -73,7 +73,7 @@ Table of Contents
 | B16        |             |            | VCCO_MIO1_501           | VCCO          |             |         |            |      |                     |                      |   any** |            |           |          |      |                  |              |                   |              |
 | B17        |             |            | PS_MIO22_501            | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | B18        |             |            | PS_MIO18_501            | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| B19        |             | High Range | IO_L2P_T0_AD8P_35       | User IO       |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| B19        | result[31]  | High Range | IO_L2P_T0_AD8P_35       | TRISTATE      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | B20        |             | High Range | IO_L1N_T0_AD0N_35       | User IO       |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | C1         |             |            | PS_DDR_DQ6_502          | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | C2         |             |            | PS_DDR_DQS_P0_502       | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
@@ -233,7 +233,7 @@ Table of Contents
 | K16        | result[6]   | High Range | IO_L24P_T3_AD15P_35     | TRISTATE      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | K17        | clk         | High Range | IO_L12P_T1_MRCC_35      | INPUT         | LVCMOS33    |      35 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | K18        | result[27]  | High Range | IO_L12N_T1_MRCC_35      | TRISTATE      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
-| K19        | result[31]  | High Range | IO_L10P_T1_AD11P_35     | TRISTATE      | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| K19        | result[32]  | High Range | IO_L10P_T1_AD11P_35     | OUTPUT        | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | K20        |             | High Range | VCCO_35                 | VCCO          |             |      35 |            |      |                     |                      |    3.30 |            |           |          |      |                  |              |                   |              |
 | L1         |             |            | PS_DDR_A5_502           | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | L2         |             |            | PS_DDR_CKP_502          | PSS IO        |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |

@@ -28,24 +28,13 @@ module Program_Counter(
         begin
             PC = 0;
         end   
-    
-    end
-
-    
-    always @(posedge PCinc)
-    begin
-
-        if (PCinc == 1'b1)
+        else if (PCinc == 1'b1)
             begin
                 PC = PC + 1;
             end
-        
-    end
-    
-    
-    always @(posedge PCLoad)
-    begin
-            if(branch_en)
+        else if (PCLoad)
+        begin
+             if(branch_en)
             begin 
                  PC = PC + op_immed23 - 1'b1;
             end
@@ -53,7 +42,14 @@ module Program_Counter(
             begin
             PC = pc_reg_val + jmp_16adrr;
             end
+        end
+    
+    
+    
     end
+
+    
+
 //assign PC = ((PCinc & branch_en) == 1'b1) ? (PC + immed23): (PCinc == 1'b1) ? (PC + 1): PC;
     
     

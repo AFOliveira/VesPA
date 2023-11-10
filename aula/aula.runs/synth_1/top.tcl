@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/afonso/Documents/GitHub/gitvivado/aula/aula.runs/synth_1/top.tcl"
+  variable script "/home/afonso/vivadoprojects/aula/aula.runs/synth_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -76,27 +76,35 @@ create_project -in_memory -part xc7z010clg400-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/afonso/Documents/GitHub/gitvivado/aula/aula.cache/wt [current_project]
-set_property parent.project_path /home/afonso/Documents/GitHub/gitvivado/aula/aula.xpr [current_project]
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
+set_property webtalk.parent_dir /home/afonso/vivadoprojects/aula/aula.cache/wt [current_project]
+set_property parent.project_path /home/afonso/vivadoprojects/aula/aula.xpr [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:zybo-z7-10:part0:1.2 [current_project]
-set_property ip_output_repo /home/afonso/Documents/GitHub/gitvivado/aula/aula.cache/ip [current_project]
+set_property ip_output_repo /home/afonso/vivadoprojects/aula/aula.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_mem /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/sources_1/new/ROM.mem
+add_files /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/bd/memoryAf/ip/memoryAf_axi_bram_ctrl_0_bram_0/load_ram.coe
+read_mem /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/ROM.mem
 read_verilog -library xil_defaultlib {
-  /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/sources_1/new/opcodes.v
-  /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/sources_1/new/ALU.v
-  /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/sources_1/new/Instruction_Register.v
-  /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/sources_1/new/Program_Counter.v
-  /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/sources_1/new/control_unit.v
-  /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/sources_1/new/datapath.v
-  /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/sources_1/new/mem.v
-  /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/sources_1/new/register_bank.v
-  /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/sources_1/new/top.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/opcodes.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/ALU.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/Instruction_Register.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/Program_Counter.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/control_unit.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/datapath.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/mem.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/imports/hdl/memoryAf_wrapper.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/register_bank.v
+  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/top.v
 }
+add_files /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/bd/memoryAf/memoryAf.bd
+set_property used_in_implementation false [get_files -all /home/afonso/vivadoprojects/aula/aula.gen/sources_1/bd/memoryAf/ip/memoryAf_axi_bram_ctrl_0_bram_0/memoryAf_axi_bram_ctrl_0_bram_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/afonso/vivadoprojects/aula/aula.gen/sources_1/bd/memoryAf/memoryAf_ooc.xdc]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -106,12 +114,14 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/constrs_1/new/constraints.xdc
-set_property used_in_implementation false [get_files /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/constrs_1/new/constraints.xdc]
+read_xdc /home/afonso/vivadoprojects/aula/aula.srcs/constrs_1/new/constraints.xdc
+set_property used_in_implementation false [get_files /home/afonso/vivadoprojects/aula/aula.srcs/constrs_1/new/constraints.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/afonso/Documents/GitHub/gitvivado/aula/aula.srcs/utils_1/imports/synth_1/top.dcp
+read_checkpoint -auto_incremental -incremental /home/afonso/vivadoprojects/aula/aula.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

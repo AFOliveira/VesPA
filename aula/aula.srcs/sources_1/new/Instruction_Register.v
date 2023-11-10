@@ -31,22 +31,19 @@ module Instruction_Register(
     );
     
     
-    always @(posedge clk)
+    always @(negedge clk)
     begin
         if(rst)
         begin
             IR<=0;
         end
-    end
-    
-    always @(posedge IRLoad)
-    begin
-        if(IRLoad)
+        else if(IRLoad)
         begin
            IR <= code_output;
         end
-                
     end
+    
+
 
     assign jmp_16adrr = {{16 {IR[15]}},IR[15:0]};
 

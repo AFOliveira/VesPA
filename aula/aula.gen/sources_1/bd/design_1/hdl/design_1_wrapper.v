@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-//Date        : Sun Nov  5 17:38:49 2023
+//Date        : Mon Nov  6 14:06:45 2023
 //Host        : afonso-Modern-14-B10MW running 64-bit Ubuntu 22.04.3 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -11,14 +11,17 @@
 `timescale 1 ps / 1 ps
 
 module design_1_wrapper
-   (bram_addr_a_0,
-    bram_clk_a_0,
-    bram_en_a_0,
-    bram_rddata_a_0,
-    bram_rst_a_0,
-    bram_we_a_0,
-    bram_wrdata_a_0,
+   (addra_0,
+    addrb_0,
+    clka_0,
+    clkb_0,
+    dina_0,
+    dinb_0,
     douta_0,
+    douta_1,
+    doutb_0,
+    ena_0,
+    enb_0,
     s_axi_aclk_0,
     s_axi_araddr_0,
     s_axi_aresetn_0,
@@ -39,15 +42,20 @@ module design_1_wrapper
     s_axi_wdata_0,
     s_axi_wready_0,
     s_axi_wstrb_0,
-    s_axi_wvalid_0);
-  output [14:0]bram_addr_a_0;
-  output bram_clk_a_0;
-  output bram_en_a_0;
-  input [31:0]bram_rddata_a_0;
-  output bram_rst_a_0;
-  output [3:0]bram_we_a_0;
-  output [31:0]bram_wrdata_a_0;
+    s_axi_wvalid_0,
+    wea_0,
+    web_0);
+  input [12:0]addra_0;
+  input [12:0]addrb_0;
+  input clka_0;
+  input clkb_0;
+  input [31:0]dina_0;
+  input [31:0]dinb_0;
   output [31:0]douta_0;
+  output [31:0]douta_1;
+  output [31:0]doutb_0;
+  input ena_0;
+  input enb_0;
   input s_axi_aclk_0;
   input [14:0]s_axi_araddr_0;
   input s_axi_aresetn_0;
@@ -69,15 +77,20 @@ module design_1_wrapper
   output s_axi_wready_0;
   input [3:0]s_axi_wstrb_0;
   input s_axi_wvalid_0;
+  input [0:0]wea_0;
+  input [0:0]web_0;
 
-  wire [14:0]bram_addr_a_0;
-  wire bram_clk_a_0;
-  wire bram_en_a_0;
-  wire [31:0]bram_rddata_a_0;
-  wire bram_rst_a_0;
-  wire [3:0]bram_we_a_0;
-  wire [31:0]bram_wrdata_a_0;
+  wire [12:0]addra_0;
+  wire [12:0]addrb_0;
+  wire clka_0;
+  wire clkb_0;
+  wire [31:0]dina_0;
+  wire [31:0]dinb_0;
   wire [31:0]douta_0;
+  wire [31:0]douta_1;
+  wire [31:0]doutb_0;
+  wire ena_0;
+  wire enb_0;
   wire s_axi_aclk_0;
   wire [14:0]s_axi_araddr_0;
   wire s_axi_aresetn_0;
@@ -99,16 +112,21 @@ module design_1_wrapper
   wire s_axi_wready_0;
   wire [3:0]s_axi_wstrb_0;
   wire s_axi_wvalid_0;
+  wire [0:0]wea_0;
+  wire [0:0]web_0;
 
   design_1 design_1_i
-       (.bram_addr_a_0(bram_addr_a_0),
-        .bram_clk_a_0(bram_clk_a_0),
-        .bram_en_a_0(bram_en_a_0),
-        .bram_rddata_a_0(bram_rddata_a_0),
-        .bram_rst_a_0(bram_rst_a_0),
-        .bram_we_a_0(bram_we_a_0),
-        .bram_wrdata_a_0(bram_wrdata_a_0),
+       (.addra_0(addra_0),
+        .addrb_0(addrb_0),
+        .clka_0(clka_0),
+        .clkb_0(clkb_0),
+        .dina_0(dina_0),
+        .dinb_0(dinb_0),
         .douta_0(douta_0),
+        .douta_1(douta_1),
+        .doutb_0(doutb_0),
+        .ena_0(ena_0),
+        .enb_0(enb_0),
         .s_axi_aclk_0(s_axi_aclk_0),
         .s_axi_araddr_0(s_axi_araddr_0),
         .s_axi_aresetn_0(s_axi_aresetn_0),
@@ -129,5 +147,7 @@ module design_1_wrapper
         .s_axi_wdata_0(s_axi_wdata_0),
         .s_axi_wready_0(s_axi_wready_0),
         .s_axi_wstrb_0(s_axi_wstrb_0),
-        .s_axi_wvalid_0(s_axi_wvalid_0));
+        .s_axi_wvalid_0(s_axi_wvalid_0),
+        .wea_0(wea_0),
+        .web_0(web_0));
 endmodule

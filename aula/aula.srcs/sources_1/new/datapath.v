@@ -16,7 +16,6 @@
         output [4:0] rs1,
         output IMM_op,
         output [4:0] rs2,
-        output [4:0] rstore,
         output  [22:0] immed23,
         output [21:0] immed22,
         output [16:0] immed17,
@@ -40,6 +39,7 @@
     assign immed17 = IR[16:0];
     assign immed16 = IR[15:0];
     assign cond = IR [26:23];
+    
     
 
    // assign index = PC;
