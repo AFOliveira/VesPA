@@ -29,6 +29,7 @@
 `define s_ldi 5'b01100
 `define s_ldx 5'b01101
 `define s_st 5'b01110
+`define s_st2 5'b11011
 `define s_stx 5'b01111
 
 `define s_nop     5'b00000
@@ -40,10 +41,11 @@
 
 
 `define s_start 5'b10001
-`define s_idle 5'b10010
+`define s_fetch2 5'b10010
 `define s_fetch 5'b10011
 `define s_decode 5'b10100
 `define s_extra 5'b11110
+`define s_jextra 5'b11100
 
 
 //Branch Logic

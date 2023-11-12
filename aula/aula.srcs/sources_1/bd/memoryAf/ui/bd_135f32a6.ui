@@ -1,35 +1,38 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"-462,-63",
+   "Default View_TopLeft":"-332,-43",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace port port-id_clka_0 -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
-preplace port port-id_ena_0 -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
-preplace port port-id_clkb_0 -pg 1 -lvl 0 -x 0 -y 220 -defaultsOSRD
-preplace port port-id_enb_0 -pg 1 -lvl 0 -x 0 -y 280 -defaultsOSRD
-preplace portBus addra_0 -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
-preplace portBus dina_0 -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
-preplace portBus wea_0 -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
-preplace portBus addrb_0 -pg 1 -lvl 0 -x 0 -y 200 -defaultsOSRD
-preplace portBus dinb_0 -pg 1 -lvl 0 -x 0 -y 240 -defaultsOSRD
-preplace portBus doutb_0 -pg 1 -lvl 2 -x 280 -y 360 -defaultsOSRD
-preplace portBus web_0 -pg 1 -lvl 0 -x 0 -y 300 -defaultsOSRD
-preplace inst axi_bram_ctrl_0_bram -pg 1 -lvl 1 -x 150 -y 190 -defaultsOSRD
-preplace netloc addra_0_1 1 0 1 N 80
-preplace netloc addrb_0_1 1 0 1 40 200n
-preplace netloc axi_bram_ctrl_0_bram_doutb 1 0 2 40 380 260J
-preplace netloc clka_0_1 1 0 1 N 100
-preplace netloc clkb_0_1 1 0 1 30 220n
-preplace netloc dina_0_1 1 0 1 N 120
-preplace netloc dinb_0_1 1 0 1 20 240n
-preplace netloc ena_0_1 1 0 1 40 140n
-preplace netloc enb_0_1 1 0 1 30 280n
-preplace netloc wea_0_1 1 0 1 30 160n
-preplace netloc web_0_1 1 0 1 20 300n
-levelinfo -pg 1 0 150 280
-pagesize -pg 1 -db -bbox -sgen -150 0 430 390
+preplace port port-id_clka_0 -pg 1 -lvl 0 -x 0 -y 260 -defaultsOSRD
+preplace port port-id_ena_0 -pg 1 -lvl 0 -x 0 -y 220 -defaultsOSRD
+preplace port port-id_clkb_0 -pg 1 -lvl 0 -x 0 -y 300 -defaultsOSRD
+preplace port port-id_enb_0 -pg 1 -lvl 0 -x 0 -y 340 -defaultsOSRD
+preplace port port-id_clka_1 -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace portBus addra_0 -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
+preplace portBus dina_0 -pg 1 -lvl 0 -x 0 -y 200 -defaultsOSRD
+preplace portBus wea_0 -pg 1 -lvl 0 -x 0 -y 240 -defaultsOSRD
+preplace portBus addrb_0 -pg 1 -lvl 0 -x 0 -y 280 -defaultsOSRD
+preplace portBus doutb_0 -pg 1 -lvl 3 -x 520 -y 400 -defaultsOSRD
+preplace portBus douta_0 -pg 1 -lvl 3 -x 520 -y 180 -defaultsOSRD
+preplace portBus addra_1 -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace inst axi_bram_ctrl_0_bram -pg 1 -lvl 1 -x 130 -y 240 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -x 370 -y 90 -defaultsOSRD
+preplace netloc addra_0_1 1 0 1 N 160
+preplace netloc addra_1_1 1 0 2 NJ 80 NJ
+preplace netloc addrb_0_1 1 0 1 N 280
+preplace netloc axi_bram_ctrl_0_bram_doutb 1 0 3 20 400 NJ 400 N
+preplace netloc blk_mem_gen_0_douta 1 1 2 260 180 NJ
+preplace netloc clka_0_1 1 0 1 20 180n
+preplace netloc clka_1_1 1 0 2 NJ 60 240J
+preplace netloc clkb_0_1 1 0 1 N 300
+preplace netloc dina_0_1 1 0 1 N 200
+preplace netloc ena_0_1 1 0 1 N 220
+preplace netloc enb_0_1 1 0 1 N 340
+preplace netloc wea_0_1 1 0 1 N 240
+levelinfo -pg 1 0 130 370 520
+pagesize -pg 1 -db -bbox -sgen -150 0 670 420
 "
 }
 {

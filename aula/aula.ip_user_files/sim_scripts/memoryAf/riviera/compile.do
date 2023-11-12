@@ -20,6 +20,7 @@ vlog -work blk_mem_gen_v8_4_6  -incr -v2k5 -l xpm -l blk_mem_gen_v8_4_6 -l xil_d
 
 vlog -work xil_defaultlib  -incr -v2k5 -l xpm -l blk_mem_gen_v8_4_6 -l xil_defaultlib \
 "../../../bd/memoryAf/ip/memoryAf_axi_bram_ctrl_0_bram_0/sim/memoryAf_axi_bram_ctrl_0_bram_0.v" \
+"../../../bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/sim/memoryAf_blk_mem_gen_0_1.v" \
 "../../../bd/memoryAf/sim/memoryAf.v" \
 
 vlog -work xil_defaultlib \

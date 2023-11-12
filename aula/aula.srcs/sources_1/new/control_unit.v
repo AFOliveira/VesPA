@@ -62,7 +62,7 @@ module control_unit(
    
     
     initial begin
-    state = `s_start;
+    state = `s_fetch;
     end
     
     always @(posedge clk)
@@ -84,19 +84,20 @@ module control_unit(
            `s_start:
               next_state = `s_fetch;
                                                //iniciar variáveis
+                    
                 
-           `s_extra:
-                next_state = `s_fetch;     
-                
-           `s_idle:
-                next_state = `s_fetch;
+           `s_fetch2:
+                next_state = `s_decode;
   
   
            `s_fetch:
-                next_state = opcode;
+                next_state = `s_decode;
                   
               `s_decode:
                     next_state = opcode;
+                    
+              `s_jextra:
+                    next_state = `s_fetch2;
                                                              
              `s_nop:
                     next_state = `s_fetch;
@@ -119,20 +120,24 @@ module control_unit(
               `s_cmp:
                     next_state = `s_fetch;
               `s_bxx:
-                    next_state = `s_fetch;
+                    next_state = `s_jextra;
                     
               `s_jmp:
-                    next_state = `s_fetch; //start instead of idle because of the pcinc
+                    next_state = `s_jextra; //start instead of idle because of the pcinc
 
               `s_ld:
-              begin
+                    next_state = `s_extra;
+                    
+               `s_extra:
                     next_state = `s_fetch;
-              end
+                    
               `s_ldi:
                     next_state = `s_fetch;
               `s_ldx:
                     next_state = `s_fetch;
               `s_st:
+                    next_state = `s_st2;
+              `s_st2:
                     next_state = `s_fetch;
               `s_stx:
                     next_state = `s_fetch;
@@ -141,14 +146,14 @@ module control_unit(
                  
            
            default:
-            next_state = `s_idle;
+            next_state = `s_start;
            
                    
         endcase        
  
     end
     //case fetch
-     assign IRLoad = (state == `s_fetch) ? 1'b1:1'b0;
+     assign IRLoad = (state == `s_fetch || state == `s_fetch2) ? 1'b1:1'b0;
      
      //case alu
      assign outdata1 = (state == `s_add | state == `s_sub | state == `s_and | state == `s_or |state == `s_not | state == `s_xor) ? 1'b1:1'b0;
@@ -167,7 +172,7 @@ module control_unit(
     
     assign PCinc = (state == `s_fetch) ? 1'b1:1'b0;
     
-    assign code_en = (state == `s_fetch) ? 1'b1:1'b0;
+    assign code_en = (state == `s_fetch || state == `s_fetch2) ? 1'b1:1'b0;
     
     assign ram_read_en = (state == `s_ld) ? 1'b1:1'b0;
         
@@ -182,7 +187,7 @@ module control_unit(
     assign b_xor =  (state == `s_xor) ? 1'b1:1'b0;   
     assign b_not =  (state == `s_not) ? 1'b1:1'b0;   
     assign b_cmp =  (state == `s_cmp) ? 1'b1:1'b0;   
-    assign b_ld =   (state == `s_ld) ? 1'b1:1'b0;
+    assign b_ld =   (state == `s_extra) ? 1'b1:1'b0;
     assign b_st =   (state == `s_st) ? 1'b1:1'b0;  
     
     

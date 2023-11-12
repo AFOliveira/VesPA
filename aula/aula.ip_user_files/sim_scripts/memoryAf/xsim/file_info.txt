@@ -1,3 +1,4 @@
 memoryAf_axi_bram_ctrl_0_bram_0.v,verilog,xil_defaultlib,../../../bd/memoryAf/ip/memoryAf_axi_bram_ctrl_0_bram_0/sim/memoryAf_axi_bram_ctrl_0_bram_0.v,
+memoryAf_blk_mem_gen_0_1.v,verilog,xil_defaultlib,../../../bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/sim/memoryAf_blk_mem_gen_0_1.v,
 memoryAf.v,verilog,xil_defaultlib,../../../bd/memoryAf/sim/memoryAf.v,
 glbl.v,Verilog,xil_defaultlib,glbl.v

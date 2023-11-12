@@ -28,7 +28,8 @@ integer i; //contador
 
     initial begin
     
-    registerb[1] = 32'hFFFFFFF0;
+    registerb[0] = 32'h00000000;
+    registerb[1] = 32'hFFFFFFFF;
     registerb[2] = 32'h00000001;
     
     //test overflow sub

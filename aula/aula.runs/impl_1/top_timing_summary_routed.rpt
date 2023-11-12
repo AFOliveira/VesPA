@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Fri Nov 10 18:50:11 2023
+| Date         : Sun Nov 12 19:38:34 2023
 | Host         : afonso-Modern-14-B10MW running 64-bit Ubuntu 22.04.3 LTS
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file top_timing_summary_routed.rpt -pb top_timing_summary_routed.pb -rpx top_timing_summary_routed.rpx -warn_on_violation
 | Design       : top
@@ -42,7 +42,7 @@ Timing Summary Report
 
 Rule       Severity          Description                  Violations  
 ---------  ----------------  ---------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell  148         
+TIMING-17  Critical Warning  Non-clocked sequential cell  176         
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
 
@@ -52,10 +52,10 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (148)
+1. checking no_clock (176)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (607)
+4. checking unconstrained_internal_endpoints (1084)
 5. checking no_input_delay (1)
 6. checking no_output_delay (33)
 7. checking multiple_clock (0)
@@ -65,9 +65,9 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (148)
+1. checking no_clock (176)
 --------------------------
- There are 148 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+ There are 176 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
 
 2. checking constant_clock (0)
@@ -80,9 +80,9 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (607)
---------------------------------------------------
- There are 607 pins that are not constrained for maximum delay. (HIGH)
+4. checking unconstrained_internal_endpoints (1084)
+---------------------------------------------------
+ There are 1084 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -141,7 +141,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-        inf        0.000                      0                  640          inf        0.000                      0                  640           NA           NA                      NA                    NA  
+        inf        0.000                      0                 1117          inf        0.000                      0                 1117           NA           NA                      NA                    NA  
 
 
 There are no user specified timing constraints.
@@ -210,583 +210,493 @@ Path Group:  (none)
 From Clock:  
   To Clock:  
 
-Max Delay           640 Endpoints
-Min Delay           640 Endpoints
+Max Delay          1117 Endpoints
+Min Delay          1117 Endpoints
 --------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 ctrl_unit/state_reg[2]/C
+  Source:                 ctrl_unit/state_reg[1]/C
                             (rising edge-triggered cell FDRE)
   Destination:            result[31]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.788ns  (logic 7.246ns (36.618%)  route 12.542ns (63.382%))
-  Logic Levels:           17  (CARRY4=9 FDRE=1 LUT2=2 LUT5=1 LUT6=3 OBUFT=1)
+  Data Path Delay:        18.997ns  (logic 6.823ns (35.916%)  route 12.174ns (64.084%))
+  Logic Levels:           14  (CARRY4=6 FDRE=1 LUT2=2 LUT6=4 OBUFT=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X36Y58         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
-    SLICE_X36Y58         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[2]/Q
-                         net (fo=129, routed)         3.216     3.672    ctrl_unit/state[2]
-    SLICE_X34Y66         LUT6 (Prop_lut6_I3_O)        0.124     3.796 r  ctrl_unit/i__carry_i_13/O
-                         net (fo=32, routed)          2.036     5.832    register_bank/i__carry__6_i_5
-    SLICE_X35Y60         LUT2 (Prop_lut2_I1_O)        0.124     5.956 r  register_bank/i__carry_i_11/O
-                         net (fo=6, routed)           1.370     7.325    ctrl_unit/operand2[1]
-    SLICE_X40Y63         LUT2 (Prop_lut2_I1_O)        0.124     7.449 r  ctrl_unit/i__carry_i_7/O
-                         net (fo=1, routed)           0.000     7.449    arith_logic_unit/S[1]
-    SLICE_X40Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.999 r  arith_logic_unit/result3_inferred__0/i__carry/CO[3]
-                         net (fo=1, routed)           0.000     7.999    arith_logic_unit/result3_inferred__0/i__carry_n_0
-    SLICE_X40Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     8.113 r  arith_logic_unit/result3_inferred__0/i__carry__0/CO[3]
-                         net (fo=1, routed)           0.000     8.113    arith_logic_unit/result3_inferred__0/i__carry__0_n_0
-    SLICE_X40Y65         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     8.426 r  arith_logic_unit/result3_inferred__0/i__carry__1/O[3]
-                         net (fo=2, routed)           1.133     9.559    ctrl_unit/data1[11]
-    SLICE_X37Y62         LUT6 (Prop_lut6_I5_O)        0.306     9.865 r  ctrl_unit/result_OBUFT[11]_inst_i_19/O
-                         net (fo=1, routed)           1.340    11.206    ctrl_unit/result_OBUFT[11]_inst_i_19_n_0
-    SLICE_X43Y64         LUT6 (Prop_lut6_I1_O)        0.124    11.330 r  ctrl_unit/result_OBUFT[11]_inst_i_10/O
-                         net (fo=1, routed)           0.809    12.138    ctrl_unit/result_OBUFT[11]_inst_i_10_n_0
-    SLICE_X41Y65         LUT5 (Prop_lut5_I3_O)        0.124    12.262 r  ctrl_unit/result_OBUFT[11]_inst_i_6/O
-                         net (fo=1, routed)           0.000    12.262    register_bank/result[11][3]
-    SLICE_X41Y65         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    12.663 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.663    register_bank/result_OBUFT[11]_inst_i_1_n_0
-    SLICE_X41Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.777 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.777    register_bank/result_OBUFT[15]_inst_i_1_n_0
-    SLICE_X41Y67         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.891 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.891    register_bank/result_OBUFT[19]_inst_i_1_n_0
-    SLICE_X41Y68         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.005 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.005    register_bank/result_OBUFT[23]_inst_i_1_n_0
-    SLICE_X41Y69         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.119 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.119    register_bank/result_OBUFT[27]_inst_i_1_n_0
-    SLICE_X41Y70         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313    13.432 r  register_bank/result_OBUFT[31]_inst_i_1/O[3]
-                         net (fo=2, routed)           2.639    16.071    result_OBUF[31]
-    B19                  OBUFT (Prop_obuft_I_O)       3.717    19.788 r  result_OBUFT[31]_inst/O
-                         net (fo=0)                   0.000    19.788    result[31]
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         2.436     2.892    ctrl_unit/state[1]
+    SLICE_X32Y59         LUT6 (Prop_lut6_I2_O)        0.124     3.016 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          2.377     5.393    register_bank/i__carry__6_i_5
+    SLICE_X43Y58         LUT2 (Prop_lut2_I1_O)        0.124     5.517 r  register_bank/i__carry__2_i_11/O
+                         net (fo=6, routed)           1.571     7.088    ctrl_unit/operand2[13]
+    SLICE_X37Y59         LUT2 (Prop_lut2_I1_O)        0.124     7.212 r  ctrl_unit/i__carry__2_i_7/O
+                         net (fo=1, routed)           0.000     7.212    arith_logic_unit/result_OBUFT[15]_inst_i_33[1]
+    SLICE_X37Y59         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.762 r  arith_logic_unit/result3_inferred__0/i__carry__2/CO[3]
+                         net (fo=1, routed)           0.000     7.762    arith_logic_unit/result3_inferred__0/i__carry__2_n_0
+    SLICE_X37Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     8.001 r  arith_logic_unit/result3_inferred__0/i__carry__3/O[2]
+                         net (fo=2, routed)           1.083     9.083    ctrl_unit/data1[18]
+    SLICE_X33Y60         LUT6 (Prop_lut6_I0_O)        0.302     9.385 r  ctrl_unit/result_OBUFT[19]_inst_i_27/O
+                         net (fo=1, routed)           0.867    10.252    ctrl_unit/result_OBUFT[19]_inst_i_27_n_0
+    SLICE_X32Y60         LUT6 (Prop_lut6_I0_O)        0.124    10.376 r  ctrl_unit/result_OBUFT[19]_inst_i_14/O
+                         net (fo=1, routed)           1.006    11.383    ctrl_unit/result_OBUFT[19]_inst_i_14_n_0
+    SLICE_X41Y60         LUT6 (Prop_lut6_I4_O)        0.124    11.507 r  ctrl_unit/result_OBUFT[19]_inst_i_7/O
+                         net (fo=1, routed)           0.000    11.507    register_bank/result[19][2]
+    SLICE_X41Y60         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    11.905 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.905    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X41Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.019 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.019    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X41Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.133 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.133    register_bank/result_OBUFT[27]_inst_i_1_n_0
+    SLICE_X41Y63         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313    12.446 r  register_bank/result_OBUFT[31]_inst_i_1/O[3]
+                         net (fo=2, routed)           2.834    15.280    result_OBUF[31]
+    B19                  OBUFT (Prop_obuft_I_O)       3.717    18.997 r  result_OBUFT[31]_inst/O
+                         net (fo=0)                   0.000    18.997    result[31]
     B19                                                               r  result[31] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ctrl_unit/state_reg[2]/C
+  Source:                 ctrl_unit/state_reg[1]/C
                             (rising edge-triggered cell FDRE)
   Destination:            result[29]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.370ns  (logic 7.275ns (37.558%)  route 12.095ns (62.442%))
-  Logic Levels:           17  (CARRY4=9 FDRE=1 LUT2=2 LUT5=1 LUT6=3 OBUFT=1)
+  Data Path Delay:        18.496ns  (logic 6.852ns (37.047%)  route 11.644ns (62.953%))
+  Logic Levels:           14  (CARRY4=6 FDRE=1 LUT2=2 LUT6=4 OBUFT=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X36Y58         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
-    SLICE_X36Y58         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[2]/Q
-                         net (fo=129, routed)         3.216     3.672    ctrl_unit/state[2]
-    SLICE_X34Y66         LUT6 (Prop_lut6_I3_O)        0.124     3.796 r  ctrl_unit/i__carry_i_13/O
-                         net (fo=32, routed)          2.036     5.832    register_bank/i__carry__6_i_5
-    SLICE_X35Y60         LUT2 (Prop_lut2_I1_O)        0.124     5.956 r  register_bank/i__carry_i_11/O
-                         net (fo=6, routed)           1.370     7.325    ctrl_unit/operand2[1]
-    SLICE_X40Y63         LUT2 (Prop_lut2_I1_O)        0.124     7.449 r  ctrl_unit/i__carry_i_7/O
-                         net (fo=1, routed)           0.000     7.449    arith_logic_unit/S[1]
-    SLICE_X40Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.999 r  arith_logic_unit/result3_inferred__0/i__carry/CO[3]
-                         net (fo=1, routed)           0.000     7.999    arith_logic_unit/result3_inferred__0/i__carry_n_0
-    SLICE_X40Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     8.113 r  arith_logic_unit/result3_inferred__0/i__carry__0/CO[3]
-                         net (fo=1, routed)           0.000     8.113    arith_logic_unit/result3_inferred__0/i__carry__0_n_0
-    SLICE_X40Y65         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     8.426 r  arith_logic_unit/result3_inferred__0/i__carry__1/O[3]
-                         net (fo=2, routed)           1.133     9.559    ctrl_unit/data1[11]
-    SLICE_X37Y62         LUT6 (Prop_lut6_I5_O)        0.306     9.865 r  ctrl_unit/result_OBUFT[11]_inst_i_19/O
-                         net (fo=1, routed)           1.340    11.206    ctrl_unit/result_OBUFT[11]_inst_i_19_n_0
-    SLICE_X43Y64         LUT6 (Prop_lut6_I1_O)        0.124    11.330 r  ctrl_unit/result_OBUFT[11]_inst_i_10/O
-                         net (fo=1, routed)           0.809    12.138    ctrl_unit/result_OBUFT[11]_inst_i_10_n_0
-    SLICE_X41Y65         LUT5 (Prop_lut5_I3_O)        0.124    12.262 r  ctrl_unit/result_OBUFT[11]_inst_i_6/O
-                         net (fo=1, routed)           0.000    12.262    register_bank/result[11][3]
-    SLICE_X41Y65         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    12.663 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.663    register_bank/result_OBUFT[11]_inst_i_1_n_0
-    SLICE_X41Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.777 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.777    register_bank/result_OBUFT[15]_inst_i_1_n_0
-    SLICE_X41Y67         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.891 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.891    register_bank/result_OBUFT[19]_inst_i_1_n_0
-    SLICE_X41Y68         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.005 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.005    register_bank/result_OBUFT[23]_inst_i_1_n_0
-    SLICE_X41Y69         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.119 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.119    register_bank/result_OBUFT[27]_inst_i_1_n_0
-    SLICE_X41Y70         CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334    13.453 r  register_bank/result_OBUFT[31]_inst_i_1/O[1]
-                         net (fo=2, routed)           2.192    15.645    result_OBUF[29]
-    L16                  OBUFT (Prop_obuft_I_O)       3.725    19.370 r  result_OBUFT[29]_inst/O
-                         net (fo=0)                   0.000    19.370    result[29]
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         2.436     2.892    ctrl_unit/state[1]
+    SLICE_X32Y59         LUT6 (Prop_lut6_I2_O)        0.124     3.016 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          2.377     5.393    register_bank/i__carry__6_i_5
+    SLICE_X43Y58         LUT2 (Prop_lut2_I1_O)        0.124     5.517 r  register_bank/i__carry__2_i_11/O
+                         net (fo=6, routed)           1.571     7.088    ctrl_unit/operand2[13]
+    SLICE_X37Y59         LUT2 (Prop_lut2_I1_O)        0.124     7.212 r  ctrl_unit/i__carry__2_i_7/O
+                         net (fo=1, routed)           0.000     7.212    arith_logic_unit/result_OBUFT[15]_inst_i_33[1]
+    SLICE_X37Y59         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.762 r  arith_logic_unit/result3_inferred__0/i__carry__2/CO[3]
+                         net (fo=1, routed)           0.000     7.762    arith_logic_unit/result3_inferred__0/i__carry__2_n_0
+    SLICE_X37Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     8.001 r  arith_logic_unit/result3_inferred__0/i__carry__3/O[2]
+                         net (fo=2, routed)           1.083     9.083    ctrl_unit/data1[18]
+    SLICE_X33Y60         LUT6 (Prop_lut6_I0_O)        0.302     9.385 r  ctrl_unit/result_OBUFT[19]_inst_i_27/O
+                         net (fo=1, routed)           0.867    10.252    ctrl_unit/result_OBUFT[19]_inst_i_27_n_0
+    SLICE_X32Y60         LUT6 (Prop_lut6_I0_O)        0.124    10.376 r  ctrl_unit/result_OBUFT[19]_inst_i_14/O
+                         net (fo=1, routed)           1.006    11.383    ctrl_unit/result_OBUFT[19]_inst_i_14_n_0
+    SLICE_X41Y60         LUT6 (Prop_lut6_I4_O)        0.124    11.507 r  ctrl_unit/result_OBUFT[19]_inst_i_7/O
+                         net (fo=1, routed)           0.000    11.507    register_bank/result[19][2]
+    SLICE_X41Y60         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    11.905 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.905    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X41Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.019 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.019    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X41Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.133 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.133    register_bank/result_OBUFT[27]_inst_i_1_n_0
+    SLICE_X41Y63         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    12.467 r  register_bank/result_OBUFT[31]_inst_i_1/O[1]
+                         net (fo=2, routed)           2.304    14.771    result_OBUF[29]
+    L16                  OBUFT (Prop_obuft_I_O)       3.725    18.496 r  result_OBUFT[29]_inst/O
+                         net (fo=0)                   0.000    18.496    result[29]
     L16                                                               r  result[29] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ctrl_unit/state_reg[2]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[30]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.284ns  (logic 7.179ns (37.227%)  route 12.105ns (62.773%))
-  Logic Levels:           17  (CARRY4=9 FDRE=1 LUT2=2 LUT5=1 LUT6=3 OBUFT=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X36Y58         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
-    SLICE_X36Y58         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[2]/Q
-                         net (fo=129, routed)         3.216     3.672    ctrl_unit/state[2]
-    SLICE_X34Y66         LUT6 (Prop_lut6_I3_O)        0.124     3.796 r  ctrl_unit/i__carry_i_13/O
-                         net (fo=32, routed)          2.036     5.832    register_bank/i__carry__6_i_5
-    SLICE_X35Y60         LUT2 (Prop_lut2_I1_O)        0.124     5.956 r  register_bank/i__carry_i_11/O
-                         net (fo=6, routed)           1.370     7.325    ctrl_unit/operand2[1]
-    SLICE_X40Y63         LUT2 (Prop_lut2_I1_O)        0.124     7.449 r  ctrl_unit/i__carry_i_7/O
-                         net (fo=1, routed)           0.000     7.449    arith_logic_unit/S[1]
-    SLICE_X40Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.999 r  arith_logic_unit/result3_inferred__0/i__carry/CO[3]
-                         net (fo=1, routed)           0.000     7.999    arith_logic_unit/result3_inferred__0/i__carry_n_0
-    SLICE_X40Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     8.113 r  arith_logic_unit/result3_inferred__0/i__carry__0/CO[3]
-                         net (fo=1, routed)           0.000     8.113    arith_logic_unit/result3_inferred__0/i__carry__0_n_0
-    SLICE_X40Y65         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     8.426 r  arith_logic_unit/result3_inferred__0/i__carry__1/O[3]
-                         net (fo=2, routed)           1.133     9.559    ctrl_unit/data1[11]
-    SLICE_X37Y62         LUT6 (Prop_lut6_I5_O)        0.306     9.865 r  ctrl_unit/result_OBUFT[11]_inst_i_19/O
-                         net (fo=1, routed)           1.340    11.206    ctrl_unit/result_OBUFT[11]_inst_i_19_n_0
-    SLICE_X43Y64         LUT6 (Prop_lut6_I1_O)        0.124    11.330 r  ctrl_unit/result_OBUFT[11]_inst_i_10/O
-                         net (fo=1, routed)           0.809    12.138    ctrl_unit/result_OBUFT[11]_inst_i_10_n_0
-    SLICE_X41Y65         LUT5 (Prop_lut5_I3_O)        0.124    12.262 r  ctrl_unit/result_OBUFT[11]_inst_i_6/O
-                         net (fo=1, routed)           0.000    12.262    register_bank/result[11][3]
-    SLICE_X41Y65         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    12.663 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.663    register_bank/result_OBUFT[11]_inst_i_1_n_0
-    SLICE_X41Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.777 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.777    register_bank/result_OBUFT[15]_inst_i_1_n_0
-    SLICE_X41Y67         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.891 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.891    register_bank/result_OBUFT[19]_inst_i_1_n_0
-    SLICE_X41Y68         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.005 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.005    register_bank/result_OBUFT[23]_inst_i_1_n_0
-    SLICE_X41Y69         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.119 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.119    register_bank/result_OBUFT[27]_inst_i_1_n_0
-    SLICE_X41Y70         CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    13.358 r  register_bank/result_OBUFT[31]_inst_i_1/O[2]
-                         net (fo=2, routed)           2.202    15.560    result_OBUF[30]
-    J19                  OBUFT (Prop_obuft_I_O)       3.724    19.284 r  result_OBUFT[30]_inst/O
-                         net (fo=0)                   0.000    19.284    result[30]
-    J19                                                               r  result[30] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 ctrl_unit/state_reg[2]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[32]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.125ns  (logic 7.270ns (38.012%)  route 11.855ns (61.988%))
-  Logic Levels:           18  (CARRY4=10 FDRE=1 LUT2=2 LUT5=1 LUT6=3 OBUF=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X36Y58         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
-    SLICE_X36Y58         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[2]/Q
-                         net (fo=129, routed)         3.216     3.672    ctrl_unit/state[2]
-    SLICE_X34Y66         LUT6 (Prop_lut6_I3_O)        0.124     3.796 r  ctrl_unit/i__carry_i_13/O
-                         net (fo=32, routed)          2.036     5.832    register_bank/i__carry__6_i_5
-    SLICE_X35Y60         LUT2 (Prop_lut2_I1_O)        0.124     5.956 r  register_bank/i__carry_i_11/O
-                         net (fo=6, routed)           1.370     7.325    ctrl_unit/operand2[1]
-    SLICE_X40Y63         LUT2 (Prop_lut2_I1_O)        0.124     7.449 r  ctrl_unit/i__carry_i_7/O
-                         net (fo=1, routed)           0.000     7.449    arith_logic_unit/S[1]
-    SLICE_X40Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.999 r  arith_logic_unit/result3_inferred__0/i__carry/CO[3]
-                         net (fo=1, routed)           0.000     7.999    arith_logic_unit/result3_inferred__0/i__carry_n_0
-    SLICE_X40Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     8.113 r  arith_logic_unit/result3_inferred__0/i__carry__0/CO[3]
-                         net (fo=1, routed)           0.000     8.113    arith_logic_unit/result3_inferred__0/i__carry__0_n_0
-    SLICE_X40Y65         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     8.426 r  arith_logic_unit/result3_inferred__0/i__carry__1/O[3]
-                         net (fo=2, routed)           1.133     9.559    ctrl_unit/data1[11]
-    SLICE_X37Y62         LUT6 (Prop_lut6_I5_O)        0.306     9.865 r  ctrl_unit/result_OBUFT[11]_inst_i_19/O
-                         net (fo=1, routed)           1.340    11.206    ctrl_unit/result_OBUFT[11]_inst_i_19_n_0
-    SLICE_X43Y64         LUT6 (Prop_lut6_I1_O)        0.124    11.330 r  ctrl_unit/result_OBUFT[11]_inst_i_10/O
-                         net (fo=1, routed)           0.809    12.138    ctrl_unit/result_OBUFT[11]_inst_i_10_n_0
-    SLICE_X41Y65         LUT5 (Prop_lut5_I3_O)        0.124    12.262 r  ctrl_unit/result_OBUFT[11]_inst_i_6/O
-                         net (fo=1, routed)           0.000    12.262    register_bank/result[11][3]
-    SLICE_X41Y65         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    12.663 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.663    register_bank/result_OBUFT[11]_inst_i_1_n_0
-    SLICE_X41Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.777 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.777    register_bank/result_OBUFT[15]_inst_i_1_n_0
-    SLICE_X41Y67         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.891 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.891    register_bank/result_OBUFT[19]_inst_i_1_n_0
-    SLICE_X41Y68         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.005 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.005    register_bank/result_OBUFT[23]_inst_i_1_n_0
-    SLICE_X41Y69         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.119 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.119    register_bank/result_OBUFT[27]_inst_i_1_n_0
-    SLICE_X41Y70         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.233 r  register_bank/result_OBUFT[31]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.233    ctrl_unit/CO[0]
-    SLICE_X41Y71         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222    13.455 r  ctrl_unit/result_OBUF[32]_inst_i_1/O[0]
-                         net (fo=1, routed)           1.952    15.407    result_OBUF[32]
-    K19                  OBUF (Prop_obuf_I_O)         3.718    19.125 r  result_OBUF[32]_inst/O
-                         net (fo=0)                   0.000    19.125    result[32]
-    K19                                                               r  result[32] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 ctrl_unit/state_reg[2]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[28]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.117ns  (logic 7.162ns (37.464%)  route 11.955ns (62.536%))
-  Logic Levels:           17  (CARRY4=9 FDRE=1 LUT2=2 LUT5=1 LUT6=3 OBUFT=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X36Y58         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
-    SLICE_X36Y58         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[2]/Q
-                         net (fo=129, routed)         3.216     3.672    ctrl_unit/state[2]
-    SLICE_X34Y66         LUT6 (Prop_lut6_I3_O)        0.124     3.796 r  ctrl_unit/i__carry_i_13/O
-                         net (fo=32, routed)          2.036     5.832    register_bank/i__carry__6_i_5
-    SLICE_X35Y60         LUT2 (Prop_lut2_I1_O)        0.124     5.956 r  register_bank/i__carry_i_11/O
-                         net (fo=6, routed)           1.370     7.325    ctrl_unit/operand2[1]
-    SLICE_X40Y63         LUT2 (Prop_lut2_I1_O)        0.124     7.449 r  ctrl_unit/i__carry_i_7/O
-                         net (fo=1, routed)           0.000     7.449    arith_logic_unit/S[1]
-    SLICE_X40Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.999 r  arith_logic_unit/result3_inferred__0/i__carry/CO[3]
-                         net (fo=1, routed)           0.000     7.999    arith_logic_unit/result3_inferred__0/i__carry_n_0
-    SLICE_X40Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     8.113 r  arith_logic_unit/result3_inferred__0/i__carry__0/CO[3]
-                         net (fo=1, routed)           0.000     8.113    arith_logic_unit/result3_inferred__0/i__carry__0_n_0
-    SLICE_X40Y65         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     8.426 r  arith_logic_unit/result3_inferred__0/i__carry__1/O[3]
-                         net (fo=2, routed)           1.133     9.559    ctrl_unit/data1[11]
-    SLICE_X37Y62         LUT6 (Prop_lut6_I5_O)        0.306     9.865 r  ctrl_unit/result_OBUFT[11]_inst_i_19/O
-                         net (fo=1, routed)           1.340    11.206    ctrl_unit/result_OBUFT[11]_inst_i_19_n_0
-    SLICE_X43Y64         LUT6 (Prop_lut6_I1_O)        0.124    11.330 r  ctrl_unit/result_OBUFT[11]_inst_i_10/O
-                         net (fo=1, routed)           0.809    12.138    ctrl_unit/result_OBUFT[11]_inst_i_10_n_0
-    SLICE_X41Y65         LUT5 (Prop_lut5_I3_O)        0.124    12.262 r  ctrl_unit/result_OBUFT[11]_inst_i_6/O
-                         net (fo=1, routed)           0.000    12.262    register_bank/result[11][3]
-    SLICE_X41Y65         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    12.663 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.663    register_bank/result_OBUFT[11]_inst_i_1_n_0
-    SLICE_X41Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.777 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.777    register_bank/result_OBUFT[15]_inst_i_1_n_0
-    SLICE_X41Y67         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.891 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.891    register_bank/result_OBUFT[19]_inst_i_1_n_0
-    SLICE_X41Y68         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.005 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.005    register_bank/result_OBUFT[23]_inst_i_1_n_0
-    SLICE_X41Y69         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.119 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.119    register_bank/result_OBUFT[27]_inst_i_1_n_0
-    SLICE_X41Y70         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222    13.341 r  register_bank/result_OBUFT[31]_inst_i_1/O[0]
-                         net (fo=2, routed)           2.052    15.393    result_OBUF[28]
-    L17                  OBUFT (Prop_obuft_I_O)       3.724    19.117 r  result_OBUFT[28]_inst/O
-                         net (fo=0)                   0.000    19.117    result[28]
-    L17                                                               r  result[28] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 ctrl_unit/state_reg[2]/C
+  Source:                 ctrl_unit/state_reg[1]/C
                             (rising edge-triggered cell FDRE)
   Destination:            result[27]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.103ns  (logic 7.141ns (37.380%)  route 11.962ns (62.620%))
-  Logic Levels:           16  (CARRY4=8 FDRE=1 LUT2=2 LUT5=1 LUT6=3 OBUFT=1)
+  Data Path Delay:        18.332ns  (logic 6.718ns (36.644%)  route 11.614ns (63.356%))
+  Logic Levels:           13  (CARRY4=5 FDRE=1 LUT2=2 LUT6=4 OBUFT=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X36Y58         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
-    SLICE_X36Y58         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[2]/Q
-                         net (fo=129, routed)         3.216     3.672    ctrl_unit/state[2]
-    SLICE_X34Y66         LUT6 (Prop_lut6_I3_O)        0.124     3.796 r  ctrl_unit/i__carry_i_13/O
-                         net (fo=32, routed)          2.036     5.832    register_bank/i__carry__6_i_5
-    SLICE_X35Y60         LUT2 (Prop_lut2_I1_O)        0.124     5.956 r  register_bank/i__carry_i_11/O
-                         net (fo=6, routed)           1.370     7.325    ctrl_unit/operand2[1]
-    SLICE_X40Y63         LUT2 (Prop_lut2_I1_O)        0.124     7.449 r  ctrl_unit/i__carry_i_7/O
-                         net (fo=1, routed)           0.000     7.449    arith_logic_unit/S[1]
-    SLICE_X40Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.999 r  arith_logic_unit/result3_inferred__0/i__carry/CO[3]
-                         net (fo=1, routed)           0.000     7.999    arith_logic_unit/result3_inferred__0/i__carry_n_0
-    SLICE_X40Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     8.113 r  arith_logic_unit/result3_inferred__0/i__carry__0/CO[3]
-                         net (fo=1, routed)           0.000     8.113    arith_logic_unit/result3_inferred__0/i__carry__0_n_0
-    SLICE_X40Y65         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     8.426 r  arith_logic_unit/result3_inferred__0/i__carry__1/O[3]
-                         net (fo=2, routed)           1.133     9.559    ctrl_unit/data1[11]
-    SLICE_X37Y62         LUT6 (Prop_lut6_I5_O)        0.306     9.865 r  ctrl_unit/result_OBUFT[11]_inst_i_19/O
-                         net (fo=1, routed)           1.340    11.206    ctrl_unit/result_OBUFT[11]_inst_i_19_n_0
-    SLICE_X43Y64         LUT6 (Prop_lut6_I1_O)        0.124    11.330 r  ctrl_unit/result_OBUFT[11]_inst_i_10/O
-                         net (fo=1, routed)           0.809    12.138    ctrl_unit/result_OBUFT[11]_inst_i_10_n_0
-    SLICE_X41Y65         LUT5 (Prop_lut5_I3_O)        0.124    12.262 r  ctrl_unit/result_OBUFT[11]_inst_i_6/O
-                         net (fo=1, routed)           0.000    12.262    register_bank/result[11][3]
-    SLICE_X41Y65         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    12.663 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.663    register_bank/result_OBUFT[11]_inst_i_1_n_0
-    SLICE_X41Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.777 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.777    register_bank/result_OBUFT[15]_inst_i_1_n_0
-    SLICE_X41Y67         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.891 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.891    register_bank/result_OBUFT[19]_inst_i_1_n_0
-    SLICE_X41Y68         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.005 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.005    register_bank/result_OBUFT[23]_inst_i_1_n_0
-    SLICE_X41Y69         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313    13.318 r  register_bank/result_OBUFT[27]_inst_i_1/O[3]
-                         net (fo=2, routed)           2.059    15.377    result_OBUF[27]
-    K18                  OBUFT (Prop_obuft_I_O)       3.726    19.103 r  result_OBUFT[27]_inst/O
-                         net (fo=0)                   0.000    19.103    result[27]
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         2.436     2.892    ctrl_unit/state[1]
+    SLICE_X32Y59         LUT6 (Prop_lut6_I2_O)        0.124     3.016 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          2.377     5.393    register_bank/i__carry__6_i_5
+    SLICE_X43Y58         LUT2 (Prop_lut2_I1_O)        0.124     5.517 r  register_bank/i__carry__2_i_11/O
+                         net (fo=6, routed)           1.571     7.088    ctrl_unit/operand2[13]
+    SLICE_X37Y59         LUT2 (Prop_lut2_I1_O)        0.124     7.212 r  ctrl_unit/i__carry__2_i_7/O
+                         net (fo=1, routed)           0.000     7.212    arith_logic_unit/result_OBUFT[15]_inst_i_33[1]
+    SLICE_X37Y59         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.762 r  arith_logic_unit/result3_inferred__0/i__carry__2/CO[3]
+                         net (fo=1, routed)           0.000     7.762    arith_logic_unit/result3_inferred__0/i__carry__2_n_0
+    SLICE_X37Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     8.001 r  arith_logic_unit/result3_inferred__0/i__carry__3/O[2]
+                         net (fo=2, routed)           1.083     9.083    ctrl_unit/data1[18]
+    SLICE_X33Y60         LUT6 (Prop_lut6_I0_O)        0.302     9.385 r  ctrl_unit/result_OBUFT[19]_inst_i_27/O
+                         net (fo=1, routed)           0.867    10.252    ctrl_unit/result_OBUFT[19]_inst_i_27_n_0
+    SLICE_X32Y60         LUT6 (Prop_lut6_I0_O)        0.124    10.376 r  ctrl_unit/result_OBUFT[19]_inst_i_14/O
+                         net (fo=1, routed)           1.006    11.383    ctrl_unit/result_OBUFT[19]_inst_i_14_n_0
+    SLICE_X41Y60         LUT6 (Prop_lut6_I4_O)        0.124    11.507 r  ctrl_unit/result_OBUFT[19]_inst_i_7/O
+                         net (fo=1, routed)           0.000    11.507    register_bank/result[19][2]
+    SLICE_X41Y60         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    11.905 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.905    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X41Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.019 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.019    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X41Y62         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313    12.332 r  register_bank/result_OBUFT[27]_inst_i_1/O[3]
+                         net (fo=2, routed)           2.275    14.606    result_OBUF[27]
+    K18                  OBUFT (Prop_obuft_I_O)       3.726    18.332 r  result_OBUFT[27]_inst/O
+                         net (fo=0)                   0.000    18.332    result[27]
     K18                                                               r  result[27] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ctrl_unit/state_reg[2]/C
+  Source:                 ctrl_unit/state_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[26]
+  Destination:            result[32]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        19.013ns  (logic 7.031ns (36.981%)  route 11.982ns (63.019%))
-  Logic Levels:           16  (CARRY4=8 FDRE=1 LUT2=2 LUT5=1 LUT6=3 OBUFT=1)
+  Data Path Delay:        18.329ns  (logic 6.847ns (37.356%)  route 11.482ns (62.644%))
+  Logic Levels:           15  (CARRY4=7 FDRE=1 LUT2=2 LUT6=4 OBUF=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X36Y58         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
-    SLICE_X36Y58         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[2]/Q
-                         net (fo=129, routed)         3.216     3.672    ctrl_unit/state[2]
-    SLICE_X34Y66         LUT6 (Prop_lut6_I3_O)        0.124     3.796 r  ctrl_unit/i__carry_i_13/O
-                         net (fo=32, routed)          2.036     5.832    register_bank/i__carry__6_i_5
-    SLICE_X35Y60         LUT2 (Prop_lut2_I1_O)        0.124     5.956 r  register_bank/i__carry_i_11/O
-                         net (fo=6, routed)           1.370     7.325    ctrl_unit/operand2[1]
-    SLICE_X40Y63         LUT2 (Prop_lut2_I1_O)        0.124     7.449 r  ctrl_unit/i__carry_i_7/O
-                         net (fo=1, routed)           0.000     7.449    arith_logic_unit/S[1]
-    SLICE_X40Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.999 r  arith_logic_unit/result3_inferred__0/i__carry/CO[3]
-                         net (fo=1, routed)           0.000     7.999    arith_logic_unit/result3_inferred__0/i__carry_n_0
-    SLICE_X40Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     8.113 r  arith_logic_unit/result3_inferred__0/i__carry__0/CO[3]
-                         net (fo=1, routed)           0.000     8.113    arith_logic_unit/result3_inferred__0/i__carry__0_n_0
-    SLICE_X40Y65         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     8.426 r  arith_logic_unit/result3_inferred__0/i__carry__1/O[3]
-                         net (fo=2, routed)           1.133     9.559    ctrl_unit/data1[11]
-    SLICE_X37Y62         LUT6 (Prop_lut6_I5_O)        0.306     9.865 r  ctrl_unit/result_OBUFT[11]_inst_i_19/O
-                         net (fo=1, routed)           1.340    11.206    ctrl_unit/result_OBUFT[11]_inst_i_19_n_0
-    SLICE_X43Y64         LUT6 (Prop_lut6_I1_O)        0.124    11.330 r  ctrl_unit/result_OBUFT[11]_inst_i_10/O
-                         net (fo=1, routed)           0.809    12.138    ctrl_unit/result_OBUFT[11]_inst_i_10_n_0
-    SLICE_X41Y65         LUT5 (Prop_lut5_I3_O)        0.124    12.262 r  ctrl_unit/result_OBUFT[11]_inst_i_6/O
-                         net (fo=1, routed)           0.000    12.262    register_bank/result[11][3]
-    SLICE_X41Y65         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    12.663 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.663    register_bank/result_OBUFT[11]_inst_i_1_n_0
-    SLICE_X41Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.777 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.777    register_bank/result_OBUFT[15]_inst_i_1_n_0
-    SLICE_X41Y67         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.891 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.891    register_bank/result_OBUFT[19]_inst_i_1_n_0
-    SLICE_X41Y68         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.005 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.005    register_bank/result_OBUFT[23]_inst_i_1_n_0
-    SLICE_X41Y69         CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239    13.244 r  register_bank/result_OBUFT[27]_inst_i_1/O[2]
-                         net (fo=2, routed)           2.078    15.323    result_OBUF[26]
-    H16                  OBUFT (Prop_obuft_I_O)       3.690    19.013 r  result_OBUFT[26]_inst/O
-                         net (fo=0)                   0.000    19.013    result[26]
-    H16                                                               r  result[26] (OUT)
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         2.436     2.892    ctrl_unit/state[1]
+    SLICE_X32Y59         LUT6 (Prop_lut6_I2_O)        0.124     3.016 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          2.377     5.393    register_bank/i__carry__6_i_5
+    SLICE_X43Y58         LUT2 (Prop_lut2_I1_O)        0.124     5.517 r  register_bank/i__carry__2_i_11/O
+                         net (fo=6, routed)           1.571     7.088    ctrl_unit/operand2[13]
+    SLICE_X37Y59         LUT2 (Prop_lut2_I1_O)        0.124     7.212 r  ctrl_unit/i__carry__2_i_7/O
+                         net (fo=1, routed)           0.000     7.212    arith_logic_unit/result_OBUFT[15]_inst_i_33[1]
+    SLICE_X37Y59         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.762 r  arith_logic_unit/result3_inferred__0/i__carry__2/CO[3]
+                         net (fo=1, routed)           0.000     7.762    arith_logic_unit/result3_inferred__0/i__carry__2_n_0
+    SLICE_X37Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     8.001 r  arith_logic_unit/result3_inferred__0/i__carry__3/O[2]
+                         net (fo=2, routed)           1.083     9.083    ctrl_unit/data1[18]
+    SLICE_X33Y60         LUT6 (Prop_lut6_I0_O)        0.302     9.385 r  ctrl_unit/result_OBUFT[19]_inst_i_27/O
+                         net (fo=1, routed)           0.867    10.252    ctrl_unit/result_OBUFT[19]_inst_i_27_n_0
+    SLICE_X32Y60         LUT6 (Prop_lut6_I0_O)        0.124    10.376 r  ctrl_unit/result_OBUFT[19]_inst_i_14/O
+                         net (fo=1, routed)           1.006    11.383    ctrl_unit/result_OBUFT[19]_inst_i_14_n_0
+    SLICE_X41Y60         LUT6 (Prop_lut6_I4_O)        0.124    11.507 r  ctrl_unit/result_OBUFT[19]_inst_i_7/O
+                         net (fo=1, routed)           0.000    11.507    register_bank/result[19][2]
+    SLICE_X41Y60         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    11.905 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.905    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X41Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.019 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.019    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X41Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.133 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.133    register_bank/result_OBUFT[27]_inst_i_1_n_0
+    SLICE_X41Y63         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.247 r  register_bank/result_OBUFT[31]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.247    ctrl_unit/CO[0]
+    SLICE_X41Y64         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222    12.469 r  ctrl_unit/result_OBUF[32]_inst_i_1/O[0]
+                         net (fo=1, routed)           2.142    14.611    result_OBUF[32]
+    K19                  OBUF (Prop_obuf_I_O)         3.718    18.329 r  result_OBUF[32]_inst/O
+                         net (fo=0)                   0.000    18.329    result[32]
+    K19                                                               r  result[32] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ctrl_unit/state_reg[2]/C
+  Source:                 ctrl_unit/state_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            result[30]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        18.263ns  (logic 6.756ns (36.992%)  route 11.507ns (63.008%))
+  Logic Levels:           14  (CARRY4=6 FDRE=1 LUT2=2 LUT6=4 OBUFT=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         2.436     2.892    ctrl_unit/state[1]
+    SLICE_X32Y59         LUT6 (Prop_lut6_I2_O)        0.124     3.016 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          2.377     5.393    register_bank/i__carry__6_i_5
+    SLICE_X43Y58         LUT2 (Prop_lut2_I1_O)        0.124     5.517 r  register_bank/i__carry__2_i_11/O
+                         net (fo=6, routed)           1.571     7.088    ctrl_unit/operand2[13]
+    SLICE_X37Y59         LUT2 (Prop_lut2_I1_O)        0.124     7.212 r  ctrl_unit/i__carry__2_i_7/O
+                         net (fo=1, routed)           0.000     7.212    arith_logic_unit/result_OBUFT[15]_inst_i_33[1]
+    SLICE_X37Y59         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.762 r  arith_logic_unit/result3_inferred__0/i__carry__2/CO[3]
+                         net (fo=1, routed)           0.000     7.762    arith_logic_unit/result3_inferred__0/i__carry__2_n_0
+    SLICE_X37Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     8.001 r  arith_logic_unit/result3_inferred__0/i__carry__3/O[2]
+                         net (fo=2, routed)           1.083     9.083    ctrl_unit/data1[18]
+    SLICE_X33Y60         LUT6 (Prop_lut6_I0_O)        0.302     9.385 r  ctrl_unit/result_OBUFT[19]_inst_i_27/O
+                         net (fo=1, routed)           0.867    10.252    ctrl_unit/result_OBUFT[19]_inst_i_27_n_0
+    SLICE_X32Y60         LUT6 (Prop_lut6_I0_O)        0.124    10.376 r  ctrl_unit/result_OBUFT[19]_inst_i_14/O
+                         net (fo=1, routed)           1.006    11.383    ctrl_unit/result_OBUFT[19]_inst_i_14_n_0
+    SLICE_X41Y60         LUT6 (Prop_lut6_I4_O)        0.124    11.507 r  ctrl_unit/result_OBUFT[19]_inst_i_7/O
+                         net (fo=1, routed)           0.000    11.507    register_bank/result[19][2]
+    SLICE_X41Y60         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    11.905 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.905    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X41Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.019 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.019    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X41Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.133 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.133    register_bank/result_OBUFT[27]_inst_i_1_n_0
+    SLICE_X41Y63         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    12.372 r  register_bank/result_OBUFT[31]_inst_i_1/O[2]
+                         net (fo=2, routed)           2.167    14.539    result_OBUF[30]
+    J19                  OBUFT (Prop_obuft_I_O)       3.724    18.263 r  result_OBUFT[30]_inst/O
+                         net (fo=0)                   0.000    18.263    result[30]
+    J19                                                               r  result[30] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            result[28]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        18.242ns  (logic 6.739ns (36.943%)  route 11.503ns (63.057%))
+  Logic Levels:           14  (CARRY4=6 FDRE=1 LUT2=2 LUT6=4 OBUFT=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         2.436     2.892    ctrl_unit/state[1]
+    SLICE_X32Y59         LUT6 (Prop_lut6_I2_O)        0.124     3.016 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          2.377     5.393    register_bank/i__carry__6_i_5
+    SLICE_X43Y58         LUT2 (Prop_lut2_I1_O)        0.124     5.517 r  register_bank/i__carry__2_i_11/O
+                         net (fo=6, routed)           1.571     7.088    ctrl_unit/operand2[13]
+    SLICE_X37Y59         LUT2 (Prop_lut2_I1_O)        0.124     7.212 r  ctrl_unit/i__carry__2_i_7/O
+                         net (fo=1, routed)           0.000     7.212    arith_logic_unit/result_OBUFT[15]_inst_i_33[1]
+    SLICE_X37Y59         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.762 r  arith_logic_unit/result3_inferred__0/i__carry__2/CO[3]
+                         net (fo=1, routed)           0.000     7.762    arith_logic_unit/result3_inferred__0/i__carry__2_n_0
+    SLICE_X37Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     8.001 r  arith_logic_unit/result3_inferred__0/i__carry__3/O[2]
+                         net (fo=2, routed)           1.083     9.083    ctrl_unit/data1[18]
+    SLICE_X33Y60         LUT6 (Prop_lut6_I0_O)        0.302     9.385 r  ctrl_unit/result_OBUFT[19]_inst_i_27/O
+                         net (fo=1, routed)           0.867    10.252    ctrl_unit/result_OBUFT[19]_inst_i_27_n_0
+    SLICE_X32Y60         LUT6 (Prop_lut6_I0_O)        0.124    10.376 r  ctrl_unit/result_OBUFT[19]_inst_i_14/O
+                         net (fo=1, routed)           1.006    11.383    ctrl_unit/result_OBUFT[19]_inst_i_14_n_0
+    SLICE_X41Y60         LUT6 (Prop_lut6_I4_O)        0.124    11.507 r  ctrl_unit/result_OBUFT[19]_inst_i_7/O
+                         net (fo=1, routed)           0.000    11.507    register_bank/result[19][2]
+    SLICE_X41Y60         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    11.905 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.905    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X41Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.019 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.019    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X41Y62         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.133 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.133    register_bank/result_OBUFT[27]_inst_i_1_n_0
+    SLICE_X41Y63         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222    12.355 r  register_bank/result_OBUFT[31]_inst_i_1/O[0]
+                         net (fo=2, routed)           2.163    14.518    result_OBUF[28]
+    L17                  OBUFT (Prop_obuft_I_O)       3.724    18.242 r  result_OBUFT[28]_inst/O
+                         net (fo=0)                   0.000    18.242    result[28]
+    L17                                                               r  result[28] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            result[21]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        18.123ns  (logic 6.600ns (36.417%)  route 11.523ns (63.583%))
+  Logic Levels:           12  (CARRY4=4 FDRE=1 LUT2=2 LUT6=4 OBUFT=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         2.436     2.892    ctrl_unit/state[1]
+    SLICE_X32Y59         LUT6 (Prop_lut6_I2_O)        0.124     3.016 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          2.377     5.393    register_bank/i__carry__6_i_5
+    SLICE_X43Y58         LUT2 (Prop_lut2_I1_O)        0.124     5.517 r  register_bank/i__carry__2_i_11/O
+                         net (fo=6, routed)           1.571     7.088    ctrl_unit/operand2[13]
+    SLICE_X37Y59         LUT2 (Prop_lut2_I1_O)        0.124     7.212 r  ctrl_unit/i__carry__2_i_7/O
+                         net (fo=1, routed)           0.000     7.212    arith_logic_unit/result_OBUFT[15]_inst_i_33[1]
+    SLICE_X37Y59         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.762 r  arith_logic_unit/result3_inferred__0/i__carry__2/CO[3]
+                         net (fo=1, routed)           0.000     7.762    arith_logic_unit/result3_inferred__0/i__carry__2_n_0
+    SLICE_X37Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     8.001 r  arith_logic_unit/result3_inferred__0/i__carry__3/O[2]
+                         net (fo=2, routed)           1.083     9.083    ctrl_unit/data1[18]
+    SLICE_X33Y60         LUT6 (Prop_lut6_I0_O)        0.302     9.385 r  ctrl_unit/result_OBUFT[19]_inst_i_27/O
+                         net (fo=1, routed)           0.867    10.252    ctrl_unit/result_OBUFT[19]_inst_i_27_n_0
+    SLICE_X32Y60         LUT6 (Prop_lut6_I0_O)        0.124    10.376 r  ctrl_unit/result_OBUFT[19]_inst_i_14/O
+                         net (fo=1, routed)           1.006    11.383    ctrl_unit/result_OBUFT[19]_inst_i_14_n_0
+    SLICE_X41Y60         LUT6 (Prop_lut6_I4_O)        0.124    11.507 r  ctrl_unit/result_OBUFT[19]_inst_i_7/O
+                         net (fo=1, routed)           0.000    11.507    register_bank/result[19][2]
+    SLICE_X41Y60         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    11.905 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.905    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X41Y61         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    12.239 r  register_bank/result_OBUFT[23]_inst_i_1/O[1]
+                         net (fo=2, routed)           2.183    14.422    result_OBUF[21]
+    F20                  OBUFT (Prop_obuft_I_O)       3.701    18.123 r  result_OBUFT[21]_inst/O
+                         net (fo=0)                   0.000    18.123    result[21]
+    F20                                                               r  result[21] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[1]/C
                             (rising edge-triggered cell FDRE)
   Destination:            result[25]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        18.897ns  (logic 7.128ns (37.722%)  route 11.769ns (62.278%))
-  Logic Levels:           16  (CARRY4=8 FDRE=1 LUT2=2 LUT5=1 LUT6=3 OBUFT=1)
+  Data Path Delay:        18.114ns  (logic 6.705ns (37.017%)  route 11.409ns (62.983%))
+  Logic Levels:           13  (CARRY4=5 FDRE=1 LUT2=2 LUT6=4 OBUFT=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X36Y58         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
-    SLICE_X36Y58         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[2]/Q
-                         net (fo=129, routed)         3.216     3.672    ctrl_unit/state[2]
-    SLICE_X34Y66         LUT6 (Prop_lut6_I3_O)        0.124     3.796 r  ctrl_unit/i__carry_i_13/O
-                         net (fo=32, routed)          2.036     5.832    register_bank/i__carry__6_i_5
-    SLICE_X35Y60         LUT2 (Prop_lut2_I1_O)        0.124     5.956 r  register_bank/i__carry_i_11/O
-                         net (fo=6, routed)           1.370     7.325    ctrl_unit/operand2[1]
-    SLICE_X40Y63         LUT2 (Prop_lut2_I1_O)        0.124     7.449 r  ctrl_unit/i__carry_i_7/O
-                         net (fo=1, routed)           0.000     7.449    arith_logic_unit/S[1]
-    SLICE_X40Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.999 r  arith_logic_unit/result3_inferred__0/i__carry/CO[3]
-                         net (fo=1, routed)           0.000     7.999    arith_logic_unit/result3_inferred__0/i__carry_n_0
-    SLICE_X40Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     8.113 r  arith_logic_unit/result3_inferred__0/i__carry__0/CO[3]
-                         net (fo=1, routed)           0.000     8.113    arith_logic_unit/result3_inferred__0/i__carry__0_n_0
-    SLICE_X40Y65         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     8.426 r  arith_logic_unit/result3_inferred__0/i__carry__1/O[3]
-                         net (fo=2, routed)           1.133     9.559    ctrl_unit/data1[11]
-    SLICE_X37Y62         LUT6 (Prop_lut6_I5_O)        0.306     9.865 r  ctrl_unit/result_OBUFT[11]_inst_i_19/O
-                         net (fo=1, routed)           1.340    11.206    ctrl_unit/result_OBUFT[11]_inst_i_19_n_0
-    SLICE_X43Y64         LUT6 (Prop_lut6_I1_O)        0.124    11.330 r  ctrl_unit/result_OBUFT[11]_inst_i_10/O
-                         net (fo=1, routed)           0.809    12.138    ctrl_unit/result_OBUFT[11]_inst_i_10_n_0
-    SLICE_X41Y65         LUT5 (Prop_lut5_I3_O)        0.124    12.262 r  ctrl_unit/result_OBUFT[11]_inst_i_6/O
-                         net (fo=1, routed)           0.000    12.262    register_bank/result[11][3]
-    SLICE_X41Y65         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    12.663 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.663    register_bank/result_OBUFT[11]_inst_i_1_n_0
-    SLICE_X41Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.777 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.777    register_bank/result_OBUFT[15]_inst_i_1_n_0
-    SLICE_X41Y67         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.891 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.891    register_bank/result_OBUFT[19]_inst_i_1_n_0
-    SLICE_X41Y68         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.005 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.005    register_bank/result_OBUFT[23]_inst_i_1_n_0
-    SLICE_X41Y69         CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334    13.339 r  register_bank/result_OBUFT[27]_inst_i_1/O[1]
-                         net (fo=2, routed)           1.865    15.205    result_OBUF[25]
-    H17                  OBUFT (Prop_obuft_I_O)       3.692    18.897 r  result_OBUFT[25]_inst/O
-                         net (fo=0)                   0.000    18.897    result[25]
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         2.436     2.892    ctrl_unit/state[1]
+    SLICE_X32Y59         LUT6 (Prop_lut6_I2_O)        0.124     3.016 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          2.377     5.393    register_bank/i__carry__6_i_5
+    SLICE_X43Y58         LUT2 (Prop_lut2_I1_O)        0.124     5.517 r  register_bank/i__carry__2_i_11/O
+                         net (fo=6, routed)           1.571     7.088    ctrl_unit/operand2[13]
+    SLICE_X37Y59         LUT2 (Prop_lut2_I1_O)        0.124     7.212 r  ctrl_unit/i__carry__2_i_7/O
+                         net (fo=1, routed)           0.000     7.212    arith_logic_unit/result_OBUFT[15]_inst_i_33[1]
+    SLICE_X37Y59         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.762 r  arith_logic_unit/result3_inferred__0/i__carry__2/CO[3]
+                         net (fo=1, routed)           0.000     7.762    arith_logic_unit/result3_inferred__0/i__carry__2_n_0
+    SLICE_X37Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     8.001 r  arith_logic_unit/result3_inferred__0/i__carry__3/O[2]
+                         net (fo=2, routed)           1.083     9.083    ctrl_unit/data1[18]
+    SLICE_X33Y60         LUT6 (Prop_lut6_I0_O)        0.302     9.385 r  ctrl_unit/result_OBUFT[19]_inst_i_27/O
+                         net (fo=1, routed)           0.867    10.252    ctrl_unit/result_OBUFT[19]_inst_i_27_n_0
+    SLICE_X32Y60         LUT6 (Prop_lut6_I0_O)        0.124    10.376 r  ctrl_unit/result_OBUFT[19]_inst_i_14/O
+                         net (fo=1, routed)           1.006    11.383    ctrl_unit/result_OBUFT[19]_inst_i_14_n_0
+    SLICE_X41Y60         LUT6 (Prop_lut6_I4_O)        0.124    11.507 r  ctrl_unit/result_OBUFT[19]_inst_i_7/O
+                         net (fo=1, routed)           0.000    11.507    register_bank/result[19][2]
+    SLICE_X41Y60         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    11.905 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.905    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X41Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.019 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.019    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X41Y62         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    12.353 r  register_bank/result_OBUFT[27]_inst_i_1/O[1]
+                         net (fo=2, routed)           2.069    14.422    result_OBUF[25]
+    H17                  OBUFT (Prop_obuft_I_O)       3.692    18.114 r  result_OBUFT[25]_inst/O
+                         net (fo=0)                   0.000    18.114    result[25]
     H17                                                               r  result[25] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ctrl_unit/state_reg[2]/C
+  Source:                 ctrl_unit/state_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[24]
+  Destination:            result[26]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        18.816ns  (logic 7.033ns (37.375%)  route 11.784ns (62.625%))
-  Logic Levels:           16  (CARRY4=8 FDRE=1 LUT2=2 LUT5=1 LUT6=3 OBUFT=1)
+  Data Path Delay:        18.039ns  (logic 6.608ns (36.632%)  route 11.431ns (63.368%))
+  Logic Levels:           13  (CARRY4=5 FDRE=1 LUT2=2 LUT6=4 OBUFT=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X36Y58         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
-    SLICE_X36Y58         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[2]/Q
-                         net (fo=129, routed)         3.216     3.672    ctrl_unit/state[2]
-    SLICE_X34Y66         LUT6 (Prop_lut6_I3_O)        0.124     3.796 r  ctrl_unit/i__carry_i_13/O
-                         net (fo=32, routed)          2.036     5.832    register_bank/i__carry__6_i_5
-    SLICE_X35Y60         LUT2 (Prop_lut2_I1_O)        0.124     5.956 r  register_bank/i__carry_i_11/O
-                         net (fo=6, routed)           1.370     7.325    ctrl_unit/operand2[1]
-    SLICE_X40Y63         LUT2 (Prop_lut2_I1_O)        0.124     7.449 r  ctrl_unit/i__carry_i_7/O
-                         net (fo=1, routed)           0.000     7.449    arith_logic_unit/S[1]
-    SLICE_X40Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.999 r  arith_logic_unit/result3_inferred__0/i__carry/CO[3]
-                         net (fo=1, routed)           0.000     7.999    arith_logic_unit/result3_inferred__0/i__carry_n_0
-    SLICE_X40Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     8.113 r  arith_logic_unit/result3_inferred__0/i__carry__0/CO[3]
-                         net (fo=1, routed)           0.000     8.113    arith_logic_unit/result3_inferred__0/i__carry__0_n_0
-    SLICE_X40Y65         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     8.426 r  arith_logic_unit/result3_inferred__0/i__carry__1/O[3]
-                         net (fo=2, routed)           1.133     9.559    ctrl_unit/data1[11]
-    SLICE_X37Y62         LUT6 (Prop_lut6_I5_O)        0.306     9.865 r  ctrl_unit/result_OBUFT[11]_inst_i_19/O
-                         net (fo=1, routed)           1.340    11.206    ctrl_unit/result_OBUFT[11]_inst_i_19_n_0
-    SLICE_X43Y64         LUT6 (Prop_lut6_I1_O)        0.124    11.330 r  ctrl_unit/result_OBUFT[11]_inst_i_10/O
-                         net (fo=1, routed)           0.809    12.138    ctrl_unit/result_OBUFT[11]_inst_i_10_n_0
-    SLICE_X41Y65         LUT5 (Prop_lut5_I3_O)        0.124    12.262 r  ctrl_unit/result_OBUFT[11]_inst_i_6/O
-                         net (fo=1, routed)           0.000    12.262    register_bank/result[11][3]
-    SLICE_X41Y65         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    12.663 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.663    register_bank/result_OBUFT[11]_inst_i_1_n_0
-    SLICE_X41Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.777 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.777    register_bank/result_OBUFT[15]_inst_i_1_n_0
-    SLICE_X41Y67         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.891 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.891    register_bank/result_OBUFT[19]_inst_i_1_n_0
-    SLICE_X41Y68         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    13.005 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    13.005    register_bank/result_OBUFT[23]_inst_i_1_n_0
-    SLICE_X41Y69         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222    13.227 r  register_bank/result_OBUFT[27]_inst_i_1/O[0]
-                         net (fo=2, routed)           1.880    15.108    result_OBUF[24]
-    J18                  OBUFT (Prop_obuft_I_O)       3.709    18.816 r  result_OBUFT[24]_inst/O
-                         net (fo=0)                   0.000    18.816    result[24]
-    J18                                                               r  result[24] (OUT)
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         2.436     2.892    ctrl_unit/state[1]
+    SLICE_X32Y59         LUT6 (Prop_lut6_I2_O)        0.124     3.016 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          2.377     5.393    register_bank/i__carry__6_i_5
+    SLICE_X43Y58         LUT2 (Prop_lut2_I1_O)        0.124     5.517 r  register_bank/i__carry__2_i_11/O
+                         net (fo=6, routed)           1.571     7.088    ctrl_unit/operand2[13]
+    SLICE_X37Y59         LUT2 (Prop_lut2_I1_O)        0.124     7.212 r  ctrl_unit/i__carry__2_i_7/O
+                         net (fo=1, routed)           0.000     7.212    arith_logic_unit/result_OBUFT[15]_inst_i_33[1]
+    SLICE_X37Y59         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.762 r  arith_logic_unit/result3_inferred__0/i__carry__2/CO[3]
+                         net (fo=1, routed)           0.000     7.762    arith_logic_unit/result3_inferred__0/i__carry__2_n_0
+    SLICE_X37Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     8.001 r  arith_logic_unit/result3_inferred__0/i__carry__3/O[2]
+                         net (fo=2, routed)           1.083     9.083    ctrl_unit/data1[18]
+    SLICE_X33Y60         LUT6 (Prop_lut6_I0_O)        0.302     9.385 r  ctrl_unit/result_OBUFT[19]_inst_i_27/O
+                         net (fo=1, routed)           0.867    10.252    ctrl_unit/result_OBUFT[19]_inst_i_27_n_0
+    SLICE_X32Y60         LUT6 (Prop_lut6_I0_O)        0.124    10.376 r  ctrl_unit/result_OBUFT[19]_inst_i_14/O
+                         net (fo=1, routed)           1.006    11.383    ctrl_unit/result_OBUFT[19]_inst_i_14_n_0
+    SLICE_X41Y60         LUT6 (Prop_lut6_I4_O)        0.124    11.507 r  ctrl_unit/result_OBUFT[19]_inst_i_7/O
+                         net (fo=1, routed)           0.000    11.507    register_bank/result[19][2]
+    SLICE_X41Y60         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    11.905 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.905    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X41Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.019 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.019    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X41Y62         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    12.258 r  register_bank/result_OBUFT[27]_inst_i_1/O[2]
+                         net (fo=2, routed)           2.092    14.349    result_OBUF[26]
+    H16                  OBUFT (Prop_obuft_I_O)       3.690    18.039 r  result_OBUFT[26]_inst/O
+                         net (fo=0)                   0.000    18.039    result[26]
+    H16                                                               r  result[26] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 ctrl_unit/state_reg[2]/C
+  Source:                 ctrl_unit/state_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[17]
+  Destination:            result[22]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        18.776ns  (logic 6.904ns (36.769%)  route 11.872ns (63.231%))
-  Logic Levels:           14  (CARRY4=6 FDRE=1 LUT2=2 LUT5=1 LUT6=3 OBUFT=1)
+  Data Path Delay:        18.025ns  (logic 6.504ns (36.084%)  route 11.521ns (63.916%))
+  Logic Levels:           12  (CARRY4=4 FDRE=1 LUT2=2 LUT6=4 OBUFT=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X36Y58         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
-    SLICE_X36Y58         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[2]/Q
-                         net (fo=129, routed)         3.216     3.672    ctrl_unit/state[2]
-    SLICE_X34Y66         LUT6 (Prop_lut6_I3_O)        0.124     3.796 r  ctrl_unit/i__carry_i_13/O
-                         net (fo=32, routed)          2.036     5.832    register_bank/i__carry__6_i_5
-    SLICE_X35Y60         LUT2 (Prop_lut2_I1_O)        0.124     5.956 r  register_bank/i__carry_i_11/O
-                         net (fo=6, routed)           1.370     7.325    ctrl_unit/operand2[1]
-    SLICE_X40Y63         LUT2 (Prop_lut2_I1_O)        0.124     7.449 r  ctrl_unit/i__carry_i_7/O
-                         net (fo=1, routed)           0.000     7.449    arith_logic_unit/S[1]
-    SLICE_X40Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     7.999 r  arith_logic_unit/result3_inferred__0/i__carry/CO[3]
-                         net (fo=1, routed)           0.000     7.999    arith_logic_unit/result3_inferred__0/i__carry_n_0
-    SLICE_X40Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     8.113 r  arith_logic_unit/result3_inferred__0/i__carry__0/CO[3]
-                         net (fo=1, routed)           0.000     8.113    arith_logic_unit/result3_inferred__0/i__carry__0_n_0
-    SLICE_X40Y65         CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     8.426 r  arith_logic_unit/result3_inferred__0/i__carry__1/O[3]
-                         net (fo=2, routed)           1.133     9.559    ctrl_unit/data1[11]
-    SLICE_X37Y62         LUT6 (Prop_lut6_I5_O)        0.306     9.865 r  ctrl_unit/result_OBUFT[11]_inst_i_19/O
-                         net (fo=1, routed)           1.340    11.206    ctrl_unit/result_OBUFT[11]_inst_i_19_n_0
-    SLICE_X43Y64         LUT6 (Prop_lut6_I1_O)        0.124    11.330 r  ctrl_unit/result_OBUFT[11]_inst_i_10/O
-                         net (fo=1, routed)           0.809    12.138    ctrl_unit/result_OBUFT[11]_inst_i_10_n_0
-    SLICE_X41Y65         LUT5 (Prop_lut5_I3_O)        0.124    12.262 r  ctrl_unit/result_OBUFT[11]_inst_i_6/O
-                         net (fo=1, routed)           0.000    12.262    register_bank/result[11][3]
-    SLICE_X41Y65         CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401    12.663 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.663    register_bank/result_OBUFT[11]_inst_i_1_n_0
-    SLICE_X41Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.777 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
-                         net (fo=1, routed)           0.000    12.777    register_bank/result_OBUFT[15]_inst_i_1_n_0
-    SLICE_X41Y67         CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334    13.111 r  register_bank/result_OBUFT[19]_inst_i_1/O[1]
-                         net (fo=2, routed)           1.969    15.080    result_OBUF[17]
-    H20                  OBUFT (Prop_obuft_I_O)       3.696    18.776 r  result_OBUFT[17]_inst/O
-                         net (fo=0)                   0.000    18.776    result[17]
-    H20                                                               r  result[17] (OUT)
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.456     0.456 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         2.436     2.892    ctrl_unit/state[1]
+    SLICE_X32Y59         LUT6 (Prop_lut6_I2_O)        0.124     3.016 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          2.377     5.393    register_bank/i__carry__6_i_5
+    SLICE_X43Y58         LUT2 (Prop_lut2_I1_O)        0.124     5.517 r  register_bank/i__carry__2_i_11/O
+                         net (fo=6, routed)           1.571     7.088    ctrl_unit/operand2[13]
+    SLICE_X37Y59         LUT2 (Prop_lut2_I1_O)        0.124     7.212 r  ctrl_unit/i__carry__2_i_7/O
+                         net (fo=1, routed)           0.000     7.212    arith_logic_unit/result_OBUFT[15]_inst_i_33[1]
+    SLICE_X37Y59         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.762 r  arith_logic_unit/result3_inferred__0/i__carry__2/CO[3]
+                         net (fo=1, routed)           0.000     7.762    arith_logic_unit/result3_inferred__0/i__carry__2_n_0
+    SLICE_X37Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     8.001 r  arith_logic_unit/result3_inferred__0/i__carry__3/O[2]
+                         net (fo=2, routed)           1.083     9.083    ctrl_unit/data1[18]
+    SLICE_X33Y60         LUT6 (Prop_lut6_I0_O)        0.302     9.385 r  ctrl_unit/result_OBUFT[19]_inst_i_27/O
+                         net (fo=1, routed)           0.867    10.252    ctrl_unit/result_OBUFT[19]_inst_i_27_n_0
+    SLICE_X32Y60         LUT6 (Prop_lut6_I0_O)        0.124    10.376 r  ctrl_unit/result_OBUFT[19]_inst_i_14/O
+                         net (fo=1, routed)           1.006    11.383    ctrl_unit/result_OBUFT[19]_inst_i_14_n_0
+    SLICE_X41Y60         LUT6 (Prop_lut6_I4_O)        0.124    11.507 r  ctrl_unit/result_OBUFT[19]_inst_i_7/O
+                         net (fo=1, routed)           0.000    11.507    register_bank/result[19][2]
+    SLICE_X41Y60         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.398    11.905 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    11.905    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X41Y61         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    12.144 r  register_bank/result_OBUFT[23]_inst_i_1/O[2]
+                         net (fo=2, routed)           2.181    14.325    result_OBUF[22]
+    F19                  OBUFT (Prop_obuft_I_O)       3.700    18.025 r  result_OBUFT[22]_inst/O
+                         net (fo=0)                   0.000    18.025    result[22]
+    F19                                                               r  result[22] (OUT)
   -------------------------------------------------------------------    -------------------
 
 
@@ -796,195 +706,196 @@ Slack:                    inf
 Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 Program_Counter/PC_reg[2]/C
+  Source:                 Instruction_Register/IR_reg[27]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            Instruction_Register/IR_reg[2]/D
+  Destination:            ctrl_unit/state_reg[0]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.393ns  (logic 0.209ns (53.159%)  route 0.184ns (46.841%))
-  Logic Levels:           2  (FDRE=1 LUT4=1)
+  Data Path Delay:        0.288ns  (logic 0.191ns (66.369%)  route 0.097ns (33.631%))
+  Logic Levels:           2  (FDRE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X32Y58         FDRE                         0.000     0.000 r  Program_Counter/PC_reg[2]/C
-    SLICE_X32Y58         FDRE (Prop_fdre_C_Q)         0.164     0.164 r  Program_Counter/PC_reg[2]/Q
-                         net (fo=9, routed)           0.184     0.348    Program_Counter/PC[2]
-    SLICE_X34Y58         LUT4 (Prop_lut4_I1_O)        0.045     0.393 r  Program_Counter/IR[2]_i_1/O
-                         net (fo=1, routed)           0.000     0.393    Instruction_Register/D[1]
-    SLICE_X34Y58         FDRE                                         r  Instruction_Register/IR_reg[2]/D
+    SLICE_X26Y56         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[27]/C
+    SLICE_X26Y56         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[27]/Q
+                         net (fo=2, routed)           0.097     0.243    ctrl_unit/IR[17]
+    SLICE_X27Y56         LUT6 (Prop_lut6_I1_O)        0.045     0.288 r  ctrl_unit/state[0]_i_1/O
+                         net (fo=1, routed)           0.000     0.288    ctrl_unit/next_state[0]
+    SLICE_X27Y56         FDSE                                         r  ctrl_unit/state_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 Program_Counter/PC_reg[2]/C
+  Source:                 Instruction_Register/IR_reg[29]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            Instruction_Register/IR_reg[3]/D
+  Destination:            ctrl_unit/state_reg[2]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.397ns  (logic 0.213ns (53.631%)  route 0.184ns (46.369%))
-  Logic Levels:           2  (FDRE=1 LUT4=1)
+  Data Path Delay:        0.311ns  (logic 0.191ns (61.390%)  route 0.120ns (38.610%))
+  Logic Levels:           2  (FDRE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X32Y58         FDRE                         0.000     0.000 r  Program_Counter/PC_reg[2]/C
-    SLICE_X32Y58         FDRE (Prop_fdre_C_Q)         0.164     0.164 r  Program_Counter/PC_reg[2]/Q
-                         net (fo=9, routed)           0.184     0.348    Program_Counter/PC[2]
-    SLICE_X34Y58         LUT4 (Prop_lut4_I0_O)        0.049     0.397 r  Program_Counter/IR[3]_i_1/O
-                         net (fo=1, routed)           0.000     0.397    Instruction_Register/code_output[1]
-    SLICE_X34Y58         FDRE                                         r  Instruction_Register/IR_reg[3]/D
+    SLICE_X26Y56         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[29]/C
+    SLICE_X26Y56         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[29]/Q
+                         net (fo=2, routed)           0.120     0.266    ctrl_unit/IR[19]
+    SLICE_X27Y57         LUT6 (Prop_lut6_I0_O)        0.045     0.311 r  ctrl_unit/state[2]_i_1/O
+                         net (fo=1, routed)           0.000     0.311    ctrl_unit/next_state[2]
+    SLICE_X27Y57         FDRE                                         r  ctrl_unit/state_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 Program_Counter/PC_reg[0]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            Instruction_Register/IR_reg[27]/D
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            ctrl_unit/state_reg[3]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.442ns  (logic 0.210ns (47.517%)  route 0.232ns (52.483%))
-  Logic Levels:           2  (FDRE=1 LUT3=1)
+  Data Path Delay:        0.354ns  (logic 0.186ns (52.469%)  route 0.168ns (47.531%))
+  Logic Levels:           2  (FDSE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X32Y58         FDRE                         0.000     0.000 r  Program_Counter/PC_reg[0]/C
-    SLICE_X32Y58         FDRE (Prop_fdre_C_Q)         0.164     0.164 r  Program_Counter/PC_reg[0]/Q
-                         net (fo=5, routed)           0.232     0.396    Program_Counter/PC_reg[0]_0[0]
-    SLICE_X34Y58         LUT3 (Prop_lut3_I2_O)        0.046     0.442 r  Program_Counter/IR[27]_i_1/O
-                         net (fo=1, routed)           0.000     0.442    Instruction_Register/code_output[3]
-    SLICE_X34Y58         FDRE                                         r  Instruction_Register/IR_reg[27]/D
+    SLICE_X27Y57         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y57         FDSE (Prop_fdse_C_Q)         0.141     0.141 r  ctrl_unit/state_reg[4]/Q
+                         net (fo=185, routed)         0.168     0.309    ctrl_unit/state[4]
+    SLICE_X27Y57         LUT6 (Prop_lut6_I1_O)        0.045     0.354 r  ctrl_unit/state[3]_i_1/O
+                         net (fo=1, routed)           0.000     0.354    ctrl_unit/next_state[3]
+    SLICE_X27Y57         FDRE                                         r  ctrl_unit/state_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 Program_Counter/PC_reg[0]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            Instruction_Register/IR_reg[29]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.442ns  (logic 0.211ns (47.743%)  route 0.231ns (52.257%))
-  Logic Levels:           2  (FDRE=1 LUT3=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X32Y58         FDRE                         0.000     0.000 r  Program_Counter/PC_reg[0]/C
-    SLICE_X32Y58         FDRE (Prop_fdre_C_Q)         0.164     0.164 f  Program_Counter/PC_reg[0]/Q
-                         net (fo=5, routed)           0.231     0.395    Program_Counter/PC_reg[0]_0[0]
-    SLICE_X34Y58         LUT3 (Prop_lut3_I0_O)        0.047     0.442 r  Program_Counter/IR[29]_i_2/O
-                         net (fo=1, routed)           0.000     0.442    Instruction_Register/code_output[5]
-    SLICE_X34Y58         FDRE                                         r  Instruction_Register/IR_reg[29]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 Program_Counter/PC_reg[3]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            Instruction_Register/IR_reg[0]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.445ns  (logic 0.209ns (46.931%)  route 0.236ns (53.069%))
-  Logic Levels:           2  (FDRE=1 LUT3=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X32Y58         FDRE                         0.000     0.000 r  Program_Counter/PC_reg[3]/C
-    SLICE_X32Y58         FDRE (Prop_fdre_C_Q)         0.164     0.164 f  Program_Counter/PC_reg[3]/Q
-                         net (fo=6, routed)           0.236     0.400    Program_Counter/PC[3]
-    SLICE_X34Y58         LUT3 (Prop_lut3_I2_O)        0.045     0.445 r  Program_Counter/IR[0]_i_1/O
-                         net (fo=1, routed)           0.000     0.445    Instruction_Register/D[0]
-    SLICE_X34Y58         FDRE                                         r  Instruction_Register/IR_reg[0]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 Program_Counter/PC_reg[3]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            Program_Counter/PC_reg[3]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.445ns  (logic 0.273ns (61.283%)  route 0.172ns (38.717%))
-  Logic Levels:           3  (CARRY4=1 FDRE=1 LUT3=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X32Y58         FDRE                         0.000     0.000 r  Program_Counter/PC_reg[3]/C
-    SLICE_X32Y58         FDRE (Prop_fdre_C_Q)         0.164     0.164 r  Program_Counter/PC_reg[3]/Q
-                         net (fo=6, routed)           0.172     0.336    Program_Counter/PC[3]
-    SLICE_X32Y58         LUT3 (Prop_lut3_I0_O)        0.045     0.381 r  Program_Counter/PC[0]_i_3/O
-                         net (fo=1, routed)           0.000     0.381    Program_Counter/PC[0]_i_3_n_0
-    SLICE_X32Y58         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.064     0.445 r  Program_Counter/PC_reg[0]_i_2/O[3]
-                         net (fo=1, routed)           0.000     0.445    Program_Counter/PC_reg[0]_i_2_n_4
-    SLICE_X32Y58         FDRE                                         r  Program_Counter/PC_reg[3]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 Program_Counter/PC_reg[0]/C
+  Source:                 Instruction_Register/IR_reg[0]/C
                             (rising edge-triggered cell FDRE)
   Destination:            Program_Counter/PC_reg[0]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.454ns  (logic 0.279ns (61.421%)  route 0.175ns (38.579%))
-  Logic Levels:           3  (CARRY4=1 FDRE=1 LUT4=1)
+  Data Path Delay:        0.362ns  (logic 0.261ns (72.171%)  route 0.101ns (27.829%))
+  Logic Levels:           3  (CARRY4=1 FDRE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X32Y58         FDRE                         0.000     0.000 r  Program_Counter/PC_reg[0]/C
-    SLICE_X32Y58         FDRE (Prop_fdre_C_Q)         0.164     0.164 f  Program_Counter/PC_reg[0]/Q
-                         net (fo=5, routed)           0.175     0.339    ctrl_unit/PC_reg[3][0]
-    SLICE_X32Y58         LUT4 (Prop_lut4_I2_O)        0.045     0.384 r  ctrl_unit/PC[0]_i_6/O
-                         net (fo=1, routed)           0.000     0.384    Program_Counter/PC_reg[3]_1[0]
-    SLICE_X32Y58         CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.070     0.454 r  Program_Counter/PC_reg[0]_i_2/O[0]
-                         net (fo=1, routed)           0.000     0.454    Program_Counter/PC_reg[0]_i_2_n_7
-    SLICE_X32Y58         FDRE                                         r  Program_Counter/PC_reg[0]/D
+    SLICE_X29Y55         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[0]/C
+    SLICE_X29Y55         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[0]/Q
+                         net (fo=7, routed)           0.101     0.247    ctrl_unit/IR[0]
+    SLICE_X28Y55         LUT6 (Prop_lut6_I2_O)        0.045     0.292 r  ctrl_unit/PC[0]_i_10/O
+                         net (fo=1, routed)           0.000     0.292    ctrl_unit/PC[0]_i_10_n_0
+    SLICE_X28Y55         CARRY4 (Prop_carry4_S[0]_O[0])
+                                                      0.070     0.362 r  ctrl_unit/PC_reg[0]_i_2/O[0]
+                         net (fo=1, routed)           0.000     0.362    Program_Counter/O[0]
+    SLICE_X28Y55         FDRE                                         r  Program_Counter/PC_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 Program_Counter/PC_reg[3]/C
+  Source:                 ctrl_unit/state_reg[2]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            Instruction_Register/IR_reg[28]/D
+  Destination:            ctrl_unit/state_reg[1]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.465ns  (logic 0.209ns (44.900%)  route 0.256ns (55.100%))
-  Logic Levels:           2  (FDRE=1 LUT2=1)
+  Data Path Delay:        0.368ns  (logic 0.186ns (50.555%)  route 0.182ns (49.445%))
+  Logic Levels:           2  (FDRE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X32Y58         FDRE                         0.000     0.000 r  Program_Counter/PC_reg[3]/C
-    SLICE_X32Y58         FDRE (Prop_fdre_C_Q)         0.164     0.164 r  Program_Counter/PC_reg[3]/Q
-                         net (fo=6, routed)           0.256     0.420    Program_Counter/PC[3]
-    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.045     0.465 r  Program_Counter/IR[28]_i_1/O
-                         net (fo=1, routed)           0.000     0.465    Instruction_Register/code_output[4]
-    SLICE_X33Y58         FDRE                                         r  Instruction_Register/IR_reg[28]/D
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[2]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ctrl_unit/state_reg[2]/Q
+                         net (fo=159, routed)         0.182     0.323    ctrl_unit/state[2]
+    SLICE_X27Y57         LUT6 (Prop_lut6_I5_O)        0.045     0.368 r  ctrl_unit/state[1]_i_1/O
+                         net (fo=1, routed)           0.000     0.368    ctrl_unit/next_state[1]
+    SLICE_X27Y57         FDRE                                         r  ctrl_unit/state_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 Instruction_Register/IR_reg[22]/C
+  Source:                 Instruction_Register/IR_reg[3]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            register_bank/registerb_reg_0_31_0_1/RAMA/WADR0
+  Destination:            Program_Counter/PC_reg[3]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.470ns  (logic 0.146ns (31.070%)  route 0.324ns (68.930%))
-  Logic Levels:           1  (FDRE=1)
+  Data Path Delay:        0.377ns  (logic 0.255ns (67.691%)  route 0.122ns (32.309%))
+  Logic Levels:           3  (CARRY4=1 FDRE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X35Y58         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[22]/C
-    SLICE_X35Y58         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[22]/Q
-                         net (fo=128, routed)         0.324     0.470    register_bank/registerb_reg_0_31_0_1/ADDRD0
-    SLICE_X34Y60         RAMD32                                       r  register_bank/registerb_reg_0_31_0_1/RAMA/WADR0
+    SLICE_X29Y54         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[3]/C
+    SLICE_X29Y54         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[3]/Q
+                         net (fo=7, routed)           0.122     0.268    ctrl_unit/IR[3]
+    SLICE_X28Y55         LUT6 (Prop_lut6_I2_O)        0.045     0.313 r  ctrl_unit/PC[0]_i_7/O
+                         net (fo=1, routed)           0.000     0.313    ctrl_unit/PC[0]_i_7_n_0
+    SLICE_X28Y55         CARRY4 (Prop_carry4_S[3]_O[3])
+                                                      0.064     0.377 r  ctrl_unit/PC_reg[0]_i_2/O[3]
+                         net (fo=1, routed)           0.000     0.377    Program_Counter/O[3]
+    SLICE_X28Y55         FDRE                                         r  Program_Counter/PC_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 Instruction_Register/IR_reg[22]/C
+  Source:                 ctrl_unit/state_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            register_bank/registerb_reg_0_31_0_1/RAMA_D1/WADR0
+  Destination:            ctrl_unit/state_reg[4]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.470ns  (logic 0.146ns (31.070%)  route 0.324ns (68.930%))
-  Logic Levels:           1  (FDRE=1)
+  Data Path Delay:        0.378ns  (logic 0.186ns (49.247%)  route 0.192ns (50.753%))
+  Logic Levels:           2  (FDRE=1 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X35Y58         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[22]/C
-    SLICE_X35Y58         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[22]/Q
-                         net (fo=128, routed)         0.324     0.470    register_bank/registerb_reg_0_31_0_1/ADDRD0
-    SLICE_X34Y60         RAMD32                                       r  register_bank/registerb_reg_0_31_0_1/RAMA_D1/WADR0
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  ctrl_unit/state_reg[1]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  ctrl_unit/state_reg[1]/Q
+                         net (fo=159, routed)         0.192     0.333    ctrl_unit/state[1]
+    SLICE_X27Y57         LUT6 (Prop_lut6_I4_O)        0.045     0.378 r  ctrl_unit/state[4]_i_1/O
+                         net (fo=1, routed)           0.000     0.378    ctrl_unit/next_state[4]
+    SLICE_X27Y57         FDSE                                         r  ctrl_unit/state_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 memoryAf_wrapper/memoryAf_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/CLKARDCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            Instruction_Register/IR_reg[5]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.388ns  (logic 0.204ns (52.585%)  route 0.184ns (47.415%))
+  Logic Levels:           1  (RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X1Y22         RAMB18E1                     0.000     0.000 r  memoryAf_wrapper/memoryAf_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/CLKARDCLK
+    RAMB18_X1Y22         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[5])
+                                                      0.204     0.204 r  memoryAf_wrapper/memoryAf_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/DOADO[5]
+                         net (fo=1, routed)           0.184     0.388    Instruction_Register/douta_0[5]
+    SLICE_X26Y56         FDRE                                         r  Instruction_Register/IR_reg[5]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 memoryAf_wrapper/memoryAf_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/CLKBWRCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            Instruction_Register/IR_reg[24]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.389ns  (logic 0.204ns (52.450%)  route 0.185ns (47.550%))
+  Logic Levels:           1  (RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X1Y22         RAMB18E1                     0.000     0.000 r  memoryAf_wrapper/memoryAf_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/CLKBWRCLK
+    RAMB18_X1Y22         RAMB18E1 (Prop_ramb18e1_CLKBWRCLK_DOBDO[8])
+                                                      0.204     0.204 r  memoryAf_wrapper/memoryAf_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/DOBDO[8]
+                         net (fo=1, routed)           0.185     0.389    Instruction_Register/douta_0[19]
+    SLICE_X26Y55         FDRE                                         r  Instruction_Register/IR_reg[24]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 memoryAf_wrapper/memoryAf_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/CLKBWRCLK
+                            (rising edge-triggered cell RAMB18E1)
+  Destination:            register_bank/pc_reg_val0__4/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.392ns  (logic 0.204ns (52.056%)  route 0.188ns (47.944%))
+  Logic Levels:           1  (RAMB18E1=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    RAMB18_X1Y22         RAMB18E1                     0.000     0.000 r  memoryAf_wrapper/memoryAf_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/CLKBWRCLK
+    RAMB18_X1Y22         RAMB18E1 (Prop_ramb18e1_CLKBWRCLK_DOBDO[5])
+                                                      0.204     0.204 r  memoryAf_wrapper/memoryAf_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/DOBDO[5]
+                         net (fo=1, routed)           0.188     0.392    register_bank/douta_0[4]
+    SLICE_X26Y56         FDRE                                         r  register_bank/pc_reg_val0__4/D
   -------------------------------------------------------------------    -------------------
 
 

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date             : Fri Nov 10 18:50:11 2023
+| Date             : Sun Nov 12 19:38:34 2023
 | Host             : afonso-Modern-14-B10MW running 64-bit Ubuntu 22.04.3 LTS
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -29,20 +29,20 @@ Table of Contents
 1. Summary
 ----------
 
-+--------------------------+---------------------------------+
-| Total On-Chip Power (W)  | 7.217 (Junction temp exceeded!) |
-| Design Power Budget (W)  | Unspecified*                    |
-| Power Budget Margin (W)  | NA                              |
-| Dynamic (W)              | 6.760                           |
-| Device Static (W)        | 0.457                           |
-| Effective TJA (C/W)      | 11.5                            |
-| Max Ambient (C)          | 1.8                             |
-| Junction Temperature (C) | 108.2                           |
-| Confidence Level         | Low                             |
-| Setting File             | ---                             |
-| Simulation Activity File | ---                             |
-| Design Nets Matched      | NA                              |
-+--------------------------+---------------------------------+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 1.192        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 1.085        |
+| Device Static (W)        | 0.107        |
+| Effective TJA (C/W)      | 11.5         |
+| Max Ambient (C)          | 71.2         |
+| Junction Temperature (C) | 38.8         |
+| Confidence Level         | Low          |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
 * Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
 
 
@@ -52,18 +52,18 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Slice Logic              |     1.128 |      673 |       --- |             --- |
-|   LUT as Logic           |     1.003 |      422 |     17600 |            2.40 |
-|   CARRY4                 |     0.065 |       38 |      4400 |            0.86 |
-|   LUT as Distributed RAM |     0.048 |       64 |      6000 |            1.07 |
-|   Register               |     0.006 |       18 |     35200 |            0.05 |
+| Slice Logic              |     0.452 |      739 |       --- |             --- |
+|   LUT as Logic           |     0.425 |      481 |     17600 |            2.73 |
+|   CARRY4                 |     0.017 |       38 |      4400 |            0.86 |
 |   BUFG                   |     0.006 |        1 |        32 |            3.13 |
-|   Others                 |     0.000 |       11 |       --- |             --- |
-| Signals                  |     1.271 |      631 |       --- |             --- |
-| Block RAM                |     0.006 |        1 |        60 |            1.67 |
-| I/O                      |     4.355 |       35 |       100 |           35.00 |
-| Static Power             |     0.457 |          |           |                 |
-| Total                    |     7.217 |          |           |                 |
+|   Register               |     0.004 |       44 |     35200 |            0.13 |
+|   LUT as Distributed RAM |    <0.001 |       64 |      6000 |            1.07 |
+|   Others                 |     0.000 |       12 |       --- |             --- |
+| Signals                  |     0.507 |      745 |       --- |             --- |
+| Block RAM                |     0.051 |        1 |        60 |            1.67 |
+| I/O                      |     0.075 |       35 |       100 |           35.00 |
+| Static Power             |     0.107 |          |           |                 |
+| Total                    |     1.192 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,20 +73,20 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     2.484 |       2.408 |      0.076 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.188 |       0.159 |      0.028 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     1.233 |       1.232 |      0.001 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     1.017 |       1.012 |      0.006 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.010 |       0.003 |      0.007 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.021 |       0.020 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.007 |       0.001 |      0.006 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.003 |       0.002 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccpint   |       1.000 |     0.261 |       0.000 |      0.261 |       NA    | Unspecified | NA         |
+| Vccpint   |       1.000 |     0.025 |       0.000 |      0.025 |       NA    | Unspecified | NA         |
 | Vccpaux   |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vccpll    |       1.800 |     0.003 |       0.000 |      0.003 |       NA    | Unspecified | NA         |
 | Vcco_ddr  |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -144,34 +144,18 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+------------------------------+-----------+
-| Name                         | Power (W) |
-+------------------------------+-----------+
-| top                          |     6.760 |
-|   Instruction_Register       |     0.077 |
-|   Program_Counter            |     0.088 |
-|   arith_logic_unit           |     0.099 |
-|   ctrl_unit                  |     1.881 |
-|   memoryAf_wrapper           |     0.007 |
-|     memoryAf_i               |     0.007 |
-|       axi_bram_ctrl_0_bram   |     0.007 |
-|   register_bank              |     0.236 |
-|     registerb_reg_0_31_0_1   |     0.005 |
-|     registerb_reg_0_31_10_11 |     0.004 |
-|     registerb_reg_0_31_12_13 |     0.004 |
-|     registerb_reg_0_31_14_15 |     0.004 |
-|     registerb_reg_0_31_16_17 |     0.004 |
-|     registerb_reg_0_31_18_19 |     0.004 |
-|     registerb_reg_0_31_20_21 |     0.004 |
-|     registerb_reg_0_31_22_23 |     0.004 |
-|     registerb_reg_0_31_24_25 |     0.004 |
-|     registerb_reg_0_31_26_27 |     0.004 |
-|     registerb_reg_0_31_28_29 |     0.004 |
-|     registerb_reg_0_31_2_3   |     0.005 |
-|     registerb_reg_0_31_30_31 |     0.004 |
-|     registerb_reg_0_31_4_5   |     0.004 |
-|     registerb_reg_0_31_6_7   |     0.005 |
-|     registerb_reg_0_31_8_9   |     0.004 |
-+------------------------------+-----------+
++----------------------------+-----------+
+| Name                       | Power (W) |
++----------------------------+-----------+
+| top                        |     1.085 |
+|   Instruction_Register     |     0.062 |
+|   Program_Counter          |     0.004 |
+|   ctrl_unit                |     0.785 |
+|   memoryAf_wrapper         |     0.109 |
+|     memoryAf_i             |     0.109 |
+|       axi_bram_ctrl_0_bram |     0.047 |
+|       blk_mem_gen_0        |     0.062 |
+|   register_bank            |     0.032 |
++----------------------------+-----------+
 
 

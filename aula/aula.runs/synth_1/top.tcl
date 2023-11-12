@@ -88,6 +88,7 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/bd/memoryAf/ip/memoryAf_axi_bram_ctrl_0_bram_0/load_ram.coe
+add_files /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/rom_loader.coe
 read_mem /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/ROM.mem
 read_verilog -library xil_defaultlib {
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/opcodes.v
@@ -96,13 +97,13 @@ read_verilog -library xil_defaultlib {
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/Program_Counter.v
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/control_unit.v
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/datapath.v
-  /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/mem.v
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/imports/hdl/memoryAf_wrapper.v
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/register_bank.v
   /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/new/top.v
 }
 add_files /home/afonso/vivadoprojects/aula/aula.srcs/sources_1/bd/memoryAf/memoryAf.bd
 set_property used_in_implementation false [get_files -all /home/afonso/vivadoprojects/aula/aula.gen/sources_1/bd/memoryAf/ip/memoryAf_axi_bram_ctrl_0_bram_0/memoryAf_axi_bram_ctrl_0_bram_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/afonso/vivadoprojects/aula/aula.gen/sources_1/bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/memoryAf_blk_mem_gen_0_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/afonso/vivadoprojects/aula/aula.gen/sources_1/bd/memoryAf/memoryAf_ooc.xdc]
 
 OPTRACE "Adding files" END { }

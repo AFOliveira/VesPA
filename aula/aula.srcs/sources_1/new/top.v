@@ -1,23 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/11/2023 10:10:14 AM
-// Design Name: 
-// Module Name: top
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 module top(
         input clk,
@@ -55,7 +36,6 @@ wire [31:0] pc_reg_val;
 wire [31:0] jmp_16adrr;
 wire ram_read_en;
 wire [31:0] mem_operand;
-wire rst_bsy;
 wire ram_write_en;
 
 
@@ -165,7 +145,8 @@ register_bank register_bank (
            .operand2(operand2),
            .operandoutram(operandoutram)
            );
-           
+          
+
            
 Program_Counter Program_Counter(
     .clk(clk),
@@ -179,13 +160,6 @@ Program_Counter Program_Counter(
     .PC(PC)
     );
     
-    
-mem mem(
-    .reset(rst),
-    .clock(clk),
-    .pc(PC),
-    .code_output(code_output)    
-);
 
 Instruction_Register Instruction_Register(
    .rst(rst),
@@ -198,10 +172,13 @@ Instruction_Register Instruction_Register(
 
      memoryAf_wrapper memoryAf_wrapper
    (.addra_0(immed22),
+    .addra_1(PC),
     .addrb_0(immed22),
     .clka_0(clk),
+    .clka_1(clk),
     .clkb_0(clk),
     .dina_0(result),
+    .douta_0(code_output),
     .doutb_0(mem_operand),
     .ena_0(ram_write_en),
     .enb_0(ram_read_en),

@@ -32,11 +32,11 @@ module Program_Counter(
             begin
                 PC = PC + 1;
             end
-        else if (PCLoad)
+        else if (PCLoad == 1'b1)
         begin
              if(branch_en)
             begin 
-                 PC = PC + op_immed23 - 1'b1;
+                 PC = PC + op_immed23;
             end
             else
             begin
