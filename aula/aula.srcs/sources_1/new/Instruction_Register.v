@@ -1,23 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/23/2023 10:23:26 AM
-// Design Name: 
-// Module Name: Instruction_Register
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 
 module Instruction_Register(
@@ -31,22 +12,19 @@ module Instruction_Register(
     );
     
     
-    always @(posedge clk)
+    always @(negedge clk)
     begin
         if(rst)
         begin
             IR<=0;
         end
-    end
-    
-    always @(posedge IRLoad)
-    begin
-        if(IRLoad)
+        else if(IRLoad)
         begin
            IR <= code_output;
         end
-                
     end
+    
+
 
     assign jmp_16adrr = {{16 {IR[15]}},IR[15:0]};
 

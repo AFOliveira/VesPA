@@ -26,9 +26,15 @@ module control_unit(
     input clk,
     input rst,
     input [4:0]opcode,
+    input [3:0]cond,
     input IMM_op,
+    
+    input C,
+    input Z,
+    input N,
+    input V,
 
-
+    output ram_write_en,
     output ram_read_en,
     output branch_en,
     output IRLoad,
@@ -36,6 +42,7 @@ module control_unit(
     output PCLoad,
     output outdata1,
     output outdata2,
+    output outdataram,
     output write_data,
     output code_en,
     
@@ -46,7 +53,8 @@ module control_unit(
     output b_xor,
     output b_not,
     output b_cmp,
-    output b_ld
+    output b_ld,
+    output b_st
     
     );
     
@@ -58,9 +66,11 @@ module control_unit(
     reg [4:0] state;
     reg [4:0] next_state;
    
+    integer i;
     
     initial begin
     state = `s_start;
+    i = 0;
     end
     
     always @(posedge clk)
@@ -80,66 +90,72 @@ module control_unit(
         case (state)
         
            `s_start:
+           begin
               next_state = `s_fetch;
-                                               //iniciar variáveis
-                
-           `s_extra:
-                next_state = `s_fetch;     
-                
-           `s_idle:
+           end                                   //iniciar variáveis
+                    
+
+           `s_fetch2:
                 next_state = `s_fetch;
   
   
            `s_fetch:
-                next_state = opcode;
+                next_state = `s_decode;
                   
-//              `s_decode:
-//                    next_state = opcode;
+              `s_decode:
+                    next_state = opcode;
+                    
+              `s_jextra:
+                    next_state = `s_fetch2;
                                                              
              `s_nop:
                     next_state = `s_fetch;
            
               `s_add:
                     
-                    next_state = `s_extra;
+                    next_state = `s_fetch;
               
               `s_sub:
-                    next_state = `s_extra;
-                    
-              `s_or:
-                    next_state = `s_extra;
-              `s_and:
-                    next_state = `s_extra;
-              `s_not:
-                    next_state = `s_extra;
-              `s_xor:
-                    next_state = `s_extra;
-              `s_cmp:
-                    next_state = `s_extra;
-              `s_bxx:
                     next_state = `s_fetch;
                     
+              `s_or:
+                    next_state = `s_fetch;
+              `s_and:
+                    next_state = `s_fetch;
+              `s_not:
+                    next_state = `s_fetch;
+              `s_xor:
+                    next_state = `s_fetch;
+              `s_cmp:
+                    next_state = `s_fetch;
+              `s_bxx:
+                    next_state = `s_jextra;
+                    
               `s_jmp:
-                    next_state = `s_fetch; //start instead of idle because of the pcinc
+                    next_state = `s_jextra; //start instead of idle because of the pcinc
 
               `s_ld:
-              begin
                     next_state = `s_extra;
-              end
+                    
+               `s_extra:
+                    next_state = `s_fetch;
+                    
               `s_ldi:
-                    next_state = `s_idle;
+                    next_state = `s_fetch;
               `s_ldx:
-                    next_state = `s_idle;
+                    next_state = `s_fetch;
               `s_st:
-                    next_state = `s_idle;
+                    next_state = `s_st2;
+              `s_st2:
+                    next_state = `s_fetch;
               `s_stx:
-                    next_state = `s_idle;
+                    next_state = `s_fetch;
               `s_halt:
                     next_state = `s_halt;   
                  
            
            default:
-            next_state = `s_idle;
+            next_state = `s_start;
            
                    
         endcase        
@@ -152,17 +168,35 @@ module control_unit(
      assign outdata1 = (state == `s_add | state == `s_sub | state == `s_and | state == `s_or |state == `s_not | state == `s_xor) ? 1'b1:1'b0;
      assign outdata2 = ((state == `s_add | state == `s_sub | state == `s_and | state == `s_or | state == `s_xor) & (IMM_op == 1'b0)) ? 1'b1:1'b0;
 
+
+     assign outdataram = (state == `s_st) ? 1'b1:1'b0;
+    
     //case branch
-    assign branch_en = (opcode == `s_bxx) ? 1'b1:1'b0;
+    assign checkcc =  (cond == `BRA) ? 1'b1 : 
+                  (cond == `BNV) ? 1'b0 : 
+                  (cond == `BCC) ? ~C : 
+                  (cond == `BCS) ? C : 
+                  (cond == `BVC) ? ~V :
+                  (cond == `BVS) ? V :
+                  (cond == `BEQ) ? Z :
+                  (cond == `BNE) ? ~Z :
+                  (cond == `BGE) ? ((N & V) | (~N & ~V)) :
+                  (cond == `BLT) ? ((N & ~V) | (~N & V)) :
+                  (cond == `BGT) ? (~Z & ((N & V) | (~N & ~V))) :
+                  (cond == `BLE) ? (Z | ((N & ~V) | (~N & V))) :
+                  (cond == `BPL) ? ~N : 
+                  (cond == `BMI) ? N : 1'b0;
+    
+    assign branch_en = ((opcode == `s_bxx) && (checkcc == 1'b1)) ? 1'b1:1'b0;
     
   
    
     //update result on result bank
-    assign write_data = (b_add | b_sub | b_cmp) ? 1'b1:1'b0;
+    assign write_data = (b_add | b_sub | b_cmp | b_and | b_or | b_xor | b_not | b_ld) ? 1'b1:1'b0;
     
     assign PCinc = (state == `s_fetch) ? 1'b1:1'b0;
     
-    assign code_en = (state == `s_fetch) ? 1'b1:1'b0;
+    assign code_en = (state == `s_start || state == `s_start2 || state == `s_fetch || state == `s_jextra) ? 1'b1:1'b0;
     
     assign ram_read_en = (state == `s_ld) ? 1'b1:1'b0;
         
@@ -177,7 +211,8 @@ module control_unit(
     assign b_xor =  (state == `s_xor) ? 1'b1:1'b0;   
     assign b_not =  (state == `s_not) ? 1'b1:1'b0;   
     assign b_cmp =  (state == `s_cmp) ? 1'b1:1'b0;   
-    assign b_ld =   (state == `s_ld) ? 1'b1:1'b0;   
+    assign b_ld =   (state == `s_extra) ? 1'b1:1'b0;
+    assign b_st =   (state == `s_st) ? 1'b1:1'b0;  
     
     
 endmodule

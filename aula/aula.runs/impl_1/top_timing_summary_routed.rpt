@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-| Date         : Mon Nov  6 09:07:00 2023
+| Date         : Sun Nov 19 21:56:23 2023
 | Host         : afonso-Modern-14-B10MW running 64-bit Ubuntu 22.04.3 LTS
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file top_timing_summary_routed.rpt -pb top_timing_summary_routed.pb -rpx top_timing_summary_routed.rpx -warn_on_violation
 | Design       : top
@@ -42,7 +42,7 @@ Timing Summary Report
 
 Rule       Severity          Description                  Violations  
 ---------  ----------------  ---------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell  32          
+TIMING-17  Critical Warning  Non-clocked sequential cell  177         
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
 
@@ -52,12 +52,12 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (32)
+1. checking no_clock (177)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (0)
-5. checking no_input_delay (0)
-6. checking no_output_delay (32)
+4. checking unconstrained_internal_endpoints (1081)
+5. checking no_input_delay (1)
+6. checking no_output_delay (33)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
 9. checking loops (0)
@@ -65,9 +65,9 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (32)
--------------------------
- There are 32 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+1. checking no_clock (177)
+--------------------------
+ There are 177 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
 
 2. checking constant_clock (0)
@@ -80,23 +80,23 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (0)
-------------------------------------------------
- There are 0 pins that are not constrained for maximum delay.
+4. checking unconstrained_internal_endpoints (1081)
+---------------------------------------------------
+ There are 1081 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
-5. checking no_input_delay (0)
+5. checking no_input_delay (1)
 ------------------------------
- There are 0 input ports with no input delay specified.
+ There is 1 input port with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
-6. checking no_output_delay (32)
+6. checking no_output_delay (33)
 --------------------------------
- There are 32 ports with no output delay specified. (HIGH)
+ There are 33 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -141,7 +141,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-        inf        0.000                      0                   32          inf        0.000                      0                   32           NA           NA                      NA                    NA  
+        inf        0.000                      0                 1114          inf        0.000                      0                 1114           NA           NA                      NA                    NA  
 
 
 There are no user specified timing constraints.
@@ -210,221 +210,543 @@ Path Group:  (none)
 From Clock:  
   To Clock:  
 
-Max Delay            32 Endpoints
-Min Delay            32 Endpoints
+Max Delay          1114 Endpoints
+Min Delay          1114 Endpoints
 --------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_20/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[27]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.700ns  (logic 4.015ns (70.438%)  route 1.685ns (29.562%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X43Y75         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_20/C
-    SLICE_X43Y75         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  result_OBUFT[31]_inst_i_1_lopt_replica_20/Q
-                         net (fo=1, routed)           1.685     2.141    result_OBUFT[31]_inst_i_1_lopt_replica_20_1
-    K18                  OBUFT (TriStatE_obuft_T_O)
-                                                      3.559     5.700 r  result_OBUFT[27]_inst/O
-                         net (fo=0)                   0.000     5.700    result[27]
-    K18                                                               r  result[27] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_4/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[12]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.653ns  (logic 4.032ns (71.336%)  route 1.620ns (28.664%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X43Y60         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_4/C
-    SLICE_X43Y60         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  result_OBUFT[31]_inst_i_1_lopt_replica_4/Q
-                         net (fo=1, routed)           1.620     2.076    result_OBUFT[31]_inst_i_1_lopt_replica_4_1
-    K14                  OBUFT (TriStatE_obuft_T_O)
-                                                      3.576     5.653 r  result_OBUFT[12]_inst/O
-                         net (fo=0)                   0.000     5.653    result[12]
-    K14                                                               r  result[12] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_3/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[11]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.650ns  (logic 4.030ns (71.325%)  route 1.620ns (28.675%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X43Y59         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_3/C
-    SLICE_X43Y59         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  result_OBUFT[31]_inst_i_1_lopt_replica_3/Q
-                         net (fo=1, routed)           1.620     2.076    result_OBUFT[31]_inst_i_1_lopt_replica_3_1
-    J14                  OBUFT (TriStatE_obuft_T_O)
-                                                      3.574     5.650 r  result_OBUFT[11]_inst/O
-                         net (fo=0)                   0.000     5.650    result[11]
-    J14                                                               r  result[11] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_21/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[28]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.641ns  (logic 4.020ns (71.275%)  route 1.620ns (28.725%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X43Y77         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_21/C
-    SLICE_X43Y77         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  result_OBUFT[31]_inst_i_1_lopt_replica_21/Q
-                         net (fo=1, routed)           1.620     2.076    result_OBUFT[31]_inst_i_1_lopt_replica_21_1
-    L17                  OBUFT (TriStatE_obuft_T_O)
-                                                      3.564     5.641 r  result_OBUFT[28]_inst/O
-                         net (fo=0)                   0.000     5.641    result[28]
-    L17                                                               r  result[28] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_31/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[8]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.638ns  (logic 4.018ns (71.262%)  route 1.620ns (28.738%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X43Y56         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_31/C
-    SLICE_X43Y56         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  result_OBUFT[31]_inst_i_1_lopt_replica_31/Q
-                         net (fo=1, routed)           1.620     2.076    result_OBUFT[31]_inst_i_1_lopt_replica_31_1
-    L14                  OBUFT (TriStatE_obuft_T_O)
-                                                      3.562     5.638 r  result_OBUFT[8]_inst/O
-                         net (fo=0)                   0.000     5.638    result[8]
-    L14                                                               r  result[8] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_22/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[29]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.638ns  (logic 4.017ns (71.260%)  route 1.620ns (28.740%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X43Y78         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_22/C
-    SLICE_X43Y78         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  result_OBUFT[31]_inst_i_1_lopt_replica_22/Q
-                         net (fo=1, routed)           1.620     2.076    result_OBUFT[31]_inst_i_1_lopt_replica_22_1
-    L16                  OBUFT (TriStatE_obuft_T_O)
-                                                      3.561     5.638 r  result_OBUFT[29]_inst/O
-                         net (fo=0)                   0.000     5.638    result[29]
-    L16                                                               r  result[29] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_30/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[7]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.637ns  (logic 4.017ns (71.259%)  route 1.620ns (28.741%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X43Y55         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_30/C
-    SLICE_X43Y55         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  result_OBUFT[31]_inst_i_1_lopt_replica_30/Q
-                         net (fo=1, routed)           1.620     2.076    result_OBUFT[31]_inst_i_1_lopt_replica_30_1
-    L15                  OBUFT (TriStatE_obuft_T_O)
-                                                      3.561     5.637 r  result_OBUFT[7]_inst/O
-                         net (fo=0)                   0.000     5.637    result[7]
-    L15                                                               r  result[7] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_24/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[30]
-                            (output port)
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.637ns  (logic 4.017ns (71.258%)  route 1.620ns (28.742%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X43Y79         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_24/C
-    SLICE_X43Y79         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  result_OBUFT[31]_inst_i_1_lopt_replica_24/Q
-                         net (fo=1, routed)           1.620     2.076    result_OBUFT[31]_inst_i_1_lopt_replica_24_1
-    J19                  OBUFT (TriStatE_obuft_T_O)
-                                                      3.561     5.637 r  result_OBUFT[30]_inst/O
-                         net (fo=0)                   0.000     5.637    result[30]
-    J19                                                               r  result[30] (OUT)
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_25/C
-                            (rising edge-triggered cell FDRE)
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
   Destination:            result[31]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.634ns  (logic 4.014ns (71.244%)  route 1.620ns (28.756%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        19.962ns  (logic 6.570ns (32.913%)  route 13.392ns (67.087%))
+  Logic Levels:           17  (CARRY4=8 FDSE=1 LUT2=1 LUT4=1 LUT5=1 LUT6=4 OBUFT=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y80         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_25/C
-    SLICE_X43Y80         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  result_OBUFT[31]_inst_i_1_lopt_replica_25/Q
-                         net (fo=1, routed)           1.620     2.076    result_OBUFT[31]_inst_i_1_lopt_replica_25_1
-    K19                  OBUFT (TriStatE_obuft_T_O)
-                                                      3.558     5.634 r  result_OBUFT[31]_inst/O
-                         net (fo=0)                   0.000     5.634    result[31]
-    K19                                                               r  result[31] (OUT)
+    SLICE_X27Y52         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y52         FDSE (Prop_fdse_C_Q)         0.456     0.456 f  ctrl_unit/state_reg[4]/Q
+                         net (fo=164, routed)         4.112     4.568    ctrl_unit/state[4]
+    SLICE_X32Y53         LUT6 (Prop_lut6_I4_O)        0.124     4.692 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          1.450     6.142    register_bank/i__carry__6_i_5
+    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.124     6.266 r  register_bank/i__carry__3_i_10/O
+                         net (fo=6, routed)           1.862     8.128    register_bank/operand2[18]
+    SLICE_X42Y60         LUT4 (Prop_lut4_I0_O)        0.124     8.252 r  register_bank/result_OBUFT[3]_inst_i_60/O
+                         net (fo=1, routed)           0.564     8.816    register_bank/result_OBUFT[3]_inst_i_60_n_0
+    SLICE_X41Y60         LUT5 (Prop_lut5_I4_O)        0.124     8.940 r  register_bank/result_OBUFT[3]_inst_i_51/O
+                         net (fo=1, routed)           0.646     9.586    register_bank/result_OBUFT[3]_inst_i_51_n_0
+    SLICE_X40Y61         LUT6 (Prop_lut6_I5_O)        0.124     9.710 r  register_bank/result_OBUFT[3]_inst_i_33/O
+                         net (fo=1, routed)           0.783    10.493    ctrl_unit/result_OBUFT[3]_inst_i_9_0
+    SLICE_X40Y54         LUT6 (Prop_lut6_I0_O)        0.124    10.617 r  ctrl_unit/result_OBUFT[3]_inst_i_20/O
+                         net (fo=1, routed)           0.814    11.431    ctrl_unit/result_OBUFT[3]_inst_i_20_n_0
+    SLICE_X39Y54         LUT6 (Prop_lut6_I4_O)        0.124    11.555 r  ctrl_unit/result_OBUFT[3]_inst_i_9/O
+                         net (fo=1, routed)           0.000    11.555    register_bank/S[0]
+    SLICE_X39Y54         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    12.087 r  register_bank/result_OBUFT[3]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.087    register_bank/result_OBUFT[3]_inst_i_1_n_0
+    SLICE_X39Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.201 r  register_bank/result_OBUFT[7]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.201    register_bank/result_OBUFT[7]_inst_i_1_n_0
+    SLICE_X39Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.315 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.315    register_bank/result_OBUFT[11]_inst_i_1_n_0
+    SLICE_X39Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.429 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.429    register_bank/result_OBUFT[15]_inst_i_1_n_0
+    SLICE_X39Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.543 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.543    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X39Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.657 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.657    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X39Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.771 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.771    register_bank/result_OBUFT[27]_inst_i_1_n_0
+    SLICE_X39Y61         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313    13.084 r  register_bank/result_OBUFT[31]_inst_i_1/O[3]
+                         net (fo=2, routed)           3.161    16.245    result_OBUF[31]
+    B19                  OBUFT (Prop_obuft_I_O)       3.717    19.962 r  result_OBUFT[31]_inst/O
+                         net (fo=0)                   0.000    19.962    result[31]
+    B19                                                               r  result[31] (OUT)
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_12/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            result[1]
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            result[30]
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.631ns  (logic 4.010ns (71.225%)  route 1.620ns (28.775%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        19.418ns  (logic 6.503ns (33.489%)  route 12.915ns (66.511%))
+  Logic Levels:           17  (CARRY4=8 FDSE=1 LUT2=1 LUT4=1 LUT5=1 LUT6=4 OBUFT=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y53         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_12/C
-    SLICE_X43Y53         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  result_OBUFT[31]_inst_i_1_lopt_replica_12/Q
-                         net (fo=1, routed)           1.620     2.076    result_OBUFT[31]_inst_i_1_lopt_replica_12_1
-    M15                  OBUFT (TriStatE_obuft_T_O)
-                                                      3.554     5.631 r  result_OBUFT[1]_inst/O
-                         net (fo=0)                   0.000     5.631    result[1]
-    M15                                                               r  result[1] (OUT)
+    SLICE_X27Y52         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y52         FDSE (Prop_fdse_C_Q)         0.456     0.456 f  ctrl_unit/state_reg[4]/Q
+                         net (fo=164, routed)         4.112     4.568    ctrl_unit/state[4]
+    SLICE_X32Y53         LUT6 (Prop_lut6_I4_O)        0.124     4.692 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          1.450     6.142    register_bank/i__carry__6_i_5
+    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.124     6.266 r  register_bank/i__carry__3_i_10/O
+                         net (fo=6, routed)           1.862     8.128    register_bank/operand2[18]
+    SLICE_X42Y60         LUT4 (Prop_lut4_I0_O)        0.124     8.252 r  register_bank/result_OBUFT[3]_inst_i_60/O
+                         net (fo=1, routed)           0.564     8.816    register_bank/result_OBUFT[3]_inst_i_60_n_0
+    SLICE_X41Y60         LUT5 (Prop_lut5_I4_O)        0.124     8.940 r  register_bank/result_OBUFT[3]_inst_i_51/O
+                         net (fo=1, routed)           0.646     9.586    register_bank/result_OBUFT[3]_inst_i_51_n_0
+    SLICE_X40Y61         LUT6 (Prop_lut6_I5_O)        0.124     9.710 r  register_bank/result_OBUFT[3]_inst_i_33/O
+                         net (fo=1, routed)           0.783    10.493    ctrl_unit/result_OBUFT[3]_inst_i_9_0
+    SLICE_X40Y54         LUT6 (Prop_lut6_I0_O)        0.124    10.617 r  ctrl_unit/result_OBUFT[3]_inst_i_20/O
+                         net (fo=1, routed)           0.814    11.431    ctrl_unit/result_OBUFT[3]_inst_i_20_n_0
+    SLICE_X39Y54         LUT6 (Prop_lut6_I4_O)        0.124    11.555 r  ctrl_unit/result_OBUFT[3]_inst_i_9/O
+                         net (fo=1, routed)           0.000    11.555    register_bank/S[0]
+    SLICE_X39Y54         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    12.087 r  register_bank/result_OBUFT[3]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.087    register_bank/result_OBUFT[3]_inst_i_1_n_0
+    SLICE_X39Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.201 r  register_bank/result_OBUFT[7]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.201    register_bank/result_OBUFT[7]_inst_i_1_n_0
+    SLICE_X39Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.315 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.315    register_bank/result_OBUFT[11]_inst_i_1_n_0
+    SLICE_X39Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.429 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.429    register_bank/result_OBUFT[15]_inst_i_1_n_0
+    SLICE_X39Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.543 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.543    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X39Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.657 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.657    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X39Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.771 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.771    register_bank/result_OBUFT[27]_inst_i_1_n_0
+    SLICE_X39Y61         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    13.010 r  register_bank/result_OBUFT[31]_inst_i_1/O[2]
+                         net (fo=2, routed)           2.684    15.694    result_OBUF[30]
+    J19                  OBUFT (Prop_obuft_I_O)       3.724    19.418 r  result_OBUFT[30]_inst/O
+                         net (fo=0)                   0.000    19.418    result[30]
+    J19                                                               r  result[30] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            result[32]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        19.264ns  (logic 6.594ns (34.230%)  route 12.670ns (65.770%))
+  Logic Levels:           18  (CARRY4=9 FDSE=1 LUT2=1 LUT4=1 LUT5=1 LUT6=4 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y52         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y52         FDSE (Prop_fdse_C_Q)         0.456     0.456 f  ctrl_unit/state_reg[4]/Q
+                         net (fo=164, routed)         4.112     4.568    ctrl_unit/state[4]
+    SLICE_X32Y53         LUT6 (Prop_lut6_I4_O)        0.124     4.692 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          1.450     6.142    register_bank/i__carry__6_i_5
+    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.124     6.266 r  register_bank/i__carry__3_i_10/O
+                         net (fo=6, routed)           1.862     8.128    register_bank/operand2[18]
+    SLICE_X42Y60         LUT4 (Prop_lut4_I0_O)        0.124     8.252 r  register_bank/result_OBUFT[3]_inst_i_60/O
+                         net (fo=1, routed)           0.564     8.816    register_bank/result_OBUFT[3]_inst_i_60_n_0
+    SLICE_X41Y60         LUT5 (Prop_lut5_I4_O)        0.124     8.940 r  register_bank/result_OBUFT[3]_inst_i_51/O
+                         net (fo=1, routed)           0.646     9.586    register_bank/result_OBUFT[3]_inst_i_51_n_0
+    SLICE_X40Y61         LUT6 (Prop_lut6_I5_O)        0.124     9.710 r  register_bank/result_OBUFT[3]_inst_i_33/O
+                         net (fo=1, routed)           0.783    10.493    ctrl_unit/result_OBUFT[3]_inst_i_9_0
+    SLICE_X40Y54         LUT6 (Prop_lut6_I0_O)        0.124    10.617 r  ctrl_unit/result_OBUFT[3]_inst_i_20/O
+                         net (fo=1, routed)           0.814    11.431    ctrl_unit/result_OBUFT[3]_inst_i_20_n_0
+    SLICE_X39Y54         LUT6 (Prop_lut6_I4_O)        0.124    11.555 r  ctrl_unit/result_OBUFT[3]_inst_i_9/O
+                         net (fo=1, routed)           0.000    11.555    register_bank/S[0]
+    SLICE_X39Y54         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    12.087 r  register_bank/result_OBUFT[3]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.087    register_bank/result_OBUFT[3]_inst_i_1_n_0
+    SLICE_X39Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.201 r  register_bank/result_OBUFT[7]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.201    register_bank/result_OBUFT[7]_inst_i_1_n_0
+    SLICE_X39Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.315 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.315    register_bank/result_OBUFT[11]_inst_i_1_n_0
+    SLICE_X39Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.429 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.429    register_bank/result_OBUFT[15]_inst_i_1_n_0
+    SLICE_X39Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.543 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.543    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X39Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.657 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.657    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X39Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.771 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.771    register_bank/result_OBUFT[27]_inst_i_1_n_0
+    SLICE_X39Y61         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.885 r  register_bank/result_OBUFT[31]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.885    ctrl_unit/CO[0]
+    SLICE_X39Y62         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222    13.107 r  ctrl_unit/result_OBUF[32]_inst_i_1/O[0]
+                         net (fo=1, routed)           2.439    15.546    result_OBUF[32]
+    K19                  OBUF (Prop_obuf_I_O)         3.718    19.264 r  result_OBUF[32]_inst/O
+                         net (fo=0)                   0.000    19.264    result[32]
+    K19                                                               r  result[32] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            result[29]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        19.262ns  (logic 6.599ns (34.259%)  route 12.663ns (65.741%))
+  Logic Levels:           17  (CARRY4=8 FDSE=1 LUT2=1 LUT4=1 LUT5=1 LUT6=4 OBUFT=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y52         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y52         FDSE (Prop_fdse_C_Q)         0.456     0.456 f  ctrl_unit/state_reg[4]/Q
+                         net (fo=164, routed)         4.112     4.568    ctrl_unit/state[4]
+    SLICE_X32Y53         LUT6 (Prop_lut6_I4_O)        0.124     4.692 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          1.450     6.142    register_bank/i__carry__6_i_5
+    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.124     6.266 r  register_bank/i__carry__3_i_10/O
+                         net (fo=6, routed)           1.862     8.128    register_bank/operand2[18]
+    SLICE_X42Y60         LUT4 (Prop_lut4_I0_O)        0.124     8.252 r  register_bank/result_OBUFT[3]_inst_i_60/O
+                         net (fo=1, routed)           0.564     8.816    register_bank/result_OBUFT[3]_inst_i_60_n_0
+    SLICE_X41Y60         LUT5 (Prop_lut5_I4_O)        0.124     8.940 r  register_bank/result_OBUFT[3]_inst_i_51/O
+                         net (fo=1, routed)           0.646     9.586    register_bank/result_OBUFT[3]_inst_i_51_n_0
+    SLICE_X40Y61         LUT6 (Prop_lut6_I5_O)        0.124     9.710 r  register_bank/result_OBUFT[3]_inst_i_33/O
+                         net (fo=1, routed)           0.783    10.493    ctrl_unit/result_OBUFT[3]_inst_i_9_0
+    SLICE_X40Y54         LUT6 (Prop_lut6_I0_O)        0.124    10.617 r  ctrl_unit/result_OBUFT[3]_inst_i_20/O
+                         net (fo=1, routed)           0.814    11.431    ctrl_unit/result_OBUFT[3]_inst_i_20_n_0
+    SLICE_X39Y54         LUT6 (Prop_lut6_I4_O)        0.124    11.555 r  ctrl_unit/result_OBUFT[3]_inst_i_9/O
+                         net (fo=1, routed)           0.000    11.555    register_bank/S[0]
+    SLICE_X39Y54         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    12.087 r  register_bank/result_OBUFT[3]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.087    register_bank/result_OBUFT[3]_inst_i_1_n_0
+    SLICE_X39Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.201 r  register_bank/result_OBUFT[7]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.201    register_bank/result_OBUFT[7]_inst_i_1_n_0
+    SLICE_X39Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.315 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.315    register_bank/result_OBUFT[11]_inst_i_1_n_0
+    SLICE_X39Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.429 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.429    register_bank/result_OBUFT[15]_inst_i_1_n_0
+    SLICE_X39Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.543 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.543    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X39Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.657 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.657    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X39Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.771 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.771    register_bank/result_OBUFT[27]_inst_i_1_n_0
+    SLICE_X39Y61         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    13.105 r  register_bank/result_OBUFT[31]_inst_i_1/O[1]
+                         net (fo=2, routed)           2.432    15.537    result_OBUF[29]
+    L16                  OBUFT (Prop_obuft_I_O)       3.725    19.262 r  result_OBUFT[29]_inst/O
+                         net (fo=0)                   0.000    19.262    result[29]
+    L16                                                               r  result[29] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            result[25]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        19.180ns  (logic 6.452ns (33.641%)  route 12.727ns (66.359%))
+  Logic Levels:           16  (CARRY4=7 FDSE=1 LUT2=1 LUT4=1 LUT5=1 LUT6=4 OBUFT=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y52         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y52         FDSE (Prop_fdse_C_Q)         0.456     0.456 f  ctrl_unit/state_reg[4]/Q
+                         net (fo=164, routed)         4.112     4.568    ctrl_unit/state[4]
+    SLICE_X32Y53         LUT6 (Prop_lut6_I4_O)        0.124     4.692 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          1.450     6.142    register_bank/i__carry__6_i_5
+    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.124     6.266 r  register_bank/i__carry__3_i_10/O
+                         net (fo=6, routed)           1.862     8.128    register_bank/operand2[18]
+    SLICE_X42Y60         LUT4 (Prop_lut4_I0_O)        0.124     8.252 r  register_bank/result_OBUFT[3]_inst_i_60/O
+                         net (fo=1, routed)           0.564     8.816    register_bank/result_OBUFT[3]_inst_i_60_n_0
+    SLICE_X41Y60         LUT5 (Prop_lut5_I4_O)        0.124     8.940 r  register_bank/result_OBUFT[3]_inst_i_51/O
+                         net (fo=1, routed)           0.646     9.586    register_bank/result_OBUFT[3]_inst_i_51_n_0
+    SLICE_X40Y61         LUT6 (Prop_lut6_I5_O)        0.124     9.710 r  register_bank/result_OBUFT[3]_inst_i_33/O
+                         net (fo=1, routed)           0.783    10.493    ctrl_unit/result_OBUFT[3]_inst_i_9_0
+    SLICE_X40Y54         LUT6 (Prop_lut6_I0_O)        0.124    10.617 r  ctrl_unit/result_OBUFT[3]_inst_i_20/O
+                         net (fo=1, routed)           0.814    11.431    ctrl_unit/result_OBUFT[3]_inst_i_20_n_0
+    SLICE_X39Y54         LUT6 (Prop_lut6_I4_O)        0.124    11.555 r  ctrl_unit/result_OBUFT[3]_inst_i_9/O
+                         net (fo=1, routed)           0.000    11.555    register_bank/S[0]
+    SLICE_X39Y54         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    12.087 r  register_bank/result_OBUFT[3]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.087    register_bank/result_OBUFT[3]_inst_i_1_n_0
+    SLICE_X39Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.201 r  register_bank/result_OBUFT[7]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.201    register_bank/result_OBUFT[7]_inst_i_1_n_0
+    SLICE_X39Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.315 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.315    register_bank/result_OBUFT[11]_inst_i_1_n_0
+    SLICE_X39Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.429 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.429    register_bank/result_OBUFT[15]_inst_i_1_n_0
+    SLICE_X39Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.543 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.543    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X39Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.657 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.657    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X39Y60         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334    12.991 r  register_bank/result_OBUFT[27]_inst_i_1/O[1]
+                         net (fo=2, routed)           2.496    15.487    result_OBUF[25]
+    H17                  OBUFT (Prop_obuft_I_O)       3.692    19.180 r  result_OBUFT[25]_inst/O
+                         net (fo=0)                   0.000    19.180    result[25]
+    H17                                                               r  result[25] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            result[26]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        19.067ns  (logic 6.355ns (33.329%)  route 12.712ns (66.671%))
+  Logic Levels:           16  (CARRY4=7 FDSE=1 LUT2=1 LUT4=1 LUT5=1 LUT6=4 OBUFT=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y52         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y52         FDSE (Prop_fdse_C_Q)         0.456     0.456 f  ctrl_unit/state_reg[4]/Q
+                         net (fo=164, routed)         4.112     4.568    ctrl_unit/state[4]
+    SLICE_X32Y53         LUT6 (Prop_lut6_I4_O)        0.124     4.692 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          1.450     6.142    register_bank/i__carry__6_i_5
+    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.124     6.266 r  register_bank/i__carry__3_i_10/O
+                         net (fo=6, routed)           1.862     8.128    register_bank/operand2[18]
+    SLICE_X42Y60         LUT4 (Prop_lut4_I0_O)        0.124     8.252 r  register_bank/result_OBUFT[3]_inst_i_60/O
+                         net (fo=1, routed)           0.564     8.816    register_bank/result_OBUFT[3]_inst_i_60_n_0
+    SLICE_X41Y60         LUT5 (Prop_lut5_I4_O)        0.124     8.940 r  register_bank/result_OBUFT[3]_inst_i_51/O
+                         net (fo=1, routed)           0.646     9.586    register_bank/result_OBUFT[3]_inst_i_51_n_0
+    SLICE_X40Y61         LUT6 (Prop_lut6_I5_O)        0.124     9.710 r  register_bank/result_OBUFT[3]_inst_i_33/O
+                         net (fo=1, routed)           0.783    10.493    ctrl_unit/result_OBUFT[3]_inst_i_9_0
+    SLICE_X40Y54         LUT6 (Prop_lut6_I0_O)        0.124    10.617 r  ctrl_unit/result_OBUFT[3]_inst_i_20/O
+                         net (fo=1, routed)           0.814    11.431    ctrl_unit/result_OBUFT[3]_inst_i_20_n_0
+    SLICE_X39Y54         LUT6 (Prop_lut6_I4_O)        0.124    11.555 r  ctrl_unit/result_OBUFT[3]_inst_i_9/O
+                         net (fo=1, routed)           0.000    11.555    register_bank/S[0]
+    SLICE_X39Y54         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    12.087 r  register_bank/result_OBUFT[3]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.087    register_bank/result_OBUFT[3]_inst_i_1_n_0
+    SLICE_X39Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.201 r  register_bank/result_OBUFT[7]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.201    register_bank/result_OBUFT[7]_inst_i_1_n_0
+    SLICE_X39Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.315 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.315    register_bank/result_OBUFT[11]_inst_i_1_n_0
+    SLICE_X39Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.429 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.429    register_bank/result_OBUFT[15]_inst_i_1_n_0
+    SLICE_X39Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.543 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.543    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X39Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.657 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.657    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X39Y60         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239    12.896 r  register_bank/result_OBUFT[27]_inst_i_1/O[2]
+                         net (fo=2, routed)           2.481    15.377    result_OBUF[26]
+    H16                  OBUFT (Prop_obuft_I_O)       3.690    19.067 r  result_OBUFT[26]_inst/O
+                         net (fo=0)                   0.000    19.067    result[26]
+    H16                                                               r  result[26] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            result[28]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        19.021ns  (logic 6.486ns (34.100%)  route 12.535ns (65.900%))
+  Logic Levels:           17  (CARRY4=8 FDSE=1 LUT2=1 LUT4=1 LUT5=1 LUT6=4 OBUFT=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y52         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y52         FDSE (Prop_fdse_C_Q)         0.456     0.456 f  ctrl_unit/state_reg[4]/Q
+                         net (fo=164, routed)         4.112     4.568    ctrl_unit/state[4]
+    SLICE_X32Y53         LUT6 (Prop_lut6_I4_O)        0.124     4.692 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          1.450     6.142    register_bank/i__carry__6_i_5
+    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.124     6.266 r  register_bank/i__carry__3_i_10/O
+                         net (fo=6, routed)           1.862     8.128    register_bank/operand2[18]
+    SLICE_X42Y60         LUT4 (Prop_lut4_I0_O)        0.124     8.252 r  register_bank/result_OBUFT[3]_inst_i_60/O
+                         net (fo=1, routed)           0.564     8.816    register_bank/result_OBUFT[3]_inst_i_60_n_0
+    SLICE_X41Y60         LUT5 (Prop_lut5_I4_O)        0.124     8.940 r  register_bank/result_OBUFT[3]_inst_i_51/O
+                         net (fo=1, routed)           0.646     9.586    register_bank/result_OBUFT[3]_inst_i_51_n_0
+    SLICE_X40Y61         LUT6 (Prop_lut6_I5_O)        0.124     9.710 r  register_bank/result_OBUFT[3]_inst_i_33/O
+                         net (fo=1, routed)           0.783    10.493    ctrl_unit/result_OBUFT[3]_inst_i_9_0
+    SLICE_X40Y54         LUT6 (Prop_lut6_I0_O)        0.124    10.617 r  ctrl_unit/result_OBUFT[3]_inst_i_20/O
+                         net (fo=1, routed)           0.814    11.431    ctrl_unit/result_OBUFT[3]_inst_i_20_n_0
+    SLICE_X39Y54         LUT6 (Prop_lut6_I4_O)        0.124    11.555 r  ctrl_unit/result_OBUFT[3]_inst_i_9/O
+                         net (fo=1, routed)           0.000    11.555    register_bank/S[0]
+    SLICE_X39Y54         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    12.087 r  register_bank/result_OBUFT[3]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.087    register_bank/result_OBUFT[3]_inst_i_1_n_0
+    SLICE_X39Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.201 r  register_bank/result_OBUFT[7]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.201    register_bank/result_OBUFT[7]_inst_i_1_n_0
+    SLICE_X39Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.315 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.315    register_bank/result_OBUFT[11]_inst_i_1_n_0
+    SLICE_X39Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.429 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.429    register_bank/result_OBUFT[15]_inst_i_1_n_0
+    SLICE_X39Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.543 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.543    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X39Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.657 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.657    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X39Y60         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.771 r  register_bank/result_OBUFT[27]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.771    register_bank/result_OBUFT[27]_inst_i_1_n_0
+    SLICE_X39Y61         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222    12.993 r  register_bank/result_OBUFT[31]_inst_i_1/O[0]
+                         net (fo=2, routed)           2.304    15.297    result_OBUF[28]
+    L17                  OBUFT (Prop_obuft_I_O)       3.724    19.021 r  result_OBUFT[28]_inst/O
+                         net (fo=0)                   0.000    19.021    result[28]
+    L17                                                               r  result[28] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            result[27]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        18.843ns  (logic 6.465ns (34.309%)  route 12.378ns (65.691%))
+  Logic Levels:           16  (CARRY4=7 FDSE=1 LUT2=1 LUT4=1 LUT5=1 LUT6=4 OBUFT=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y52         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y52         FDSE (Prop_fdse_C_Q)         0.456     0.456 f  ctrl_unit/state_reg[4]/Q
+                         net (fo=164, routed)         4.112     4.568    ctrl_unit/state[4]
+    SLICE_X32Y53         LUT6 (Prop_lut6_I4_O)        0.124     4.692 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          1.450     6.142    register_bank/i__carry__6_i_5
+    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.124     6.266 r  register_bank/i__carry__3_i_10/O
+                         net (fo=6, routed)           1.862     8.128    register_bank/operand2[18]
+    SLICE_X42Y60         LUT4 (Prop_lut4_I0_O)        0.124     8.252 r  register_bank/result_OBUFT[3]_inst_i_60/O
+                         net (fo=1, routed)           0.564     8.816    register_bank/result_OBUFT[3]_inst_i_60_n_0
+    SLICE_X41Y60         LUT5 (Prop_lut5_I4_O)        0.124     8.940 r  register_bank/result_OBUFT[3]_inst_i_51/O
+                         net (fo=1, routed)           0.646     9.586    register_bank/result_OBUFT[3]_inst_i_51_n_0
+    SLICE_X40Y61         LUT6 (Prop_lut6_I5_O)        0.124     9.710 r  register_bank/result_OBUFT[3]_inst_i_33/O
+                         net (fo=1, routed)           0.783    10.493    ctrl_unit/result_OBUFT[3]_inst_i_9_0
+    SLICE_X40Y54         LUT6 (Prop_lut6_I0_O)        0.124    10.617 r  ctrl_unit/result_OBUFT[3]_inst_i_20/O
+                         net (fo=1, routed)           0.814    11.431    ctrl_unit/result_OBUFT[3]_inst_i_20_n_0
+    SLICE_X39Y54         LUT6 (Prop_lut6_I4_O)        0.124    11.555 r  ctrl_unit/result_OBUFT[3]_inst_i_9/O
+                         net (fo=1, routed)           0.000    11.555    register_bank/S[0]
+    SLICE_X39Y54         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532    12.087 r  register_bank/result_OBUFT[3]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.087    register_bank/result_OBUFT[3]_inst_i_1_n_0
+    SLICE_X39Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.201 r  register_bank/result_OBUFT[7]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.201    register_bank/result_OBUFT[7]_inst_i_1_n_0
+    SLICE_X39Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.315 r  register_bank/result_OBUFT[11]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.315    register_bank/result_OBUFT[11]_inst_i_1_n_0
+    SLICE_X39Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.429 r  register_bank/result_OBUFT[15]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.429    register_bank/result_OBUFT[15]_inst_i_1_n_0
+    SLICE_X39Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.543 r  register_bank/result_OBUFT[19]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.543    register_bank/result_OBUFT[19]_inst_i_1_n_0
+    SLICE_X39Y59         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    12.657 r  register_bank/result_OBUFT[23]_inst_i_1/CO[3]
+                         net (fo=1, routed)           0.000    12.657    register_bank/result_OBUFT[23]_inst_i_1_n_0
+    SLICE_X39Y60         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313    12.970 r  register_bank/result_OBUFT[27]_inst_i_1/O[3]
+                         net (fo=2, routed)           2.147    15.117    result_OBUF[27]
+    K18                  OBUFT (Prop_obuft_I_O)       3.726    18.843 r  result_OBUFT[27]_inst/O
+                         net (fo=0)                   0.000    18.843    result[27]
+    K18                                                               r  result[27] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            result[2]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        18.795ns  (logic 5.534ns (29.446%)  route 13.261ns (70.554%))
+  Logic Levels:           10  (CARRY4=1 FDSE=1 LUT2=1 LUT4=1 LUT5=1 LUT6=4 OBUFT=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y52         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y52         FDSE (Prop_fdse_C_Q)         0.456     0.456 f  ctrl_unit/state_reg[4]/Q
+                         net (fo=164, routed)         4.112     4.568    ctrl_unit/state[4]
+    SLICE_X32Y53         LUT6 (Prop_lut6_I4_O)        0.124     4.692 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          1.450     6.142    register_bank/i__carry__6_i_5
+    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.124     6.266 r  register_bank/i__carry__3_i_10/O
+                         net (fo=6, routed)           1.862     8.128    register_bank/operand2[18]
+    SLICE_X42Y60         LUT4 (Prop_lut4_I0_O)        0.124     8.252 r  register_bank/result_OBUFT[3]_inst_i_60/O
+                         net (fo=1, routed)           0.564     8.816    register_bank/result_OBUFT[3]_inst_i_60_n_0
+    SLICE_X41Y60         LUT5 (Prop_lut5_I4_O)        0.124     8.940 r  register_bank/result_OBUFT[3]_inst_i_51/O
+                         net (fo=1, routed)           0.646     9.586    register_bank/result_OBUFT[3]_inst_i_51_n_0
+    SLICE_X40Y61         LUT6 (Prop_lut6_I5_O)        0.124     9.710 r  register_bank/result_OBUFT[3]_inst_i_33/O
+                         net (fo=1, routed)           0.783    10.493    ctrl_unit/result_OBUFT[3]_inst_i_9_0
+    SLICE_X40Y54         LUT6 (Prop_lut6_I0_O)        0.124    10.617 r  ctrl_unit/result_OBUFT[3]_inst_i_20/O
+                         net (fo=1, routed)           0.814    11.431    ctrl_unit/result_OBUFT[3]_inst_i_20_n_0
+    SLICE_X39Y54         LUT6 (Prop_lut6_I4_O)        0.124    11.555 r  ctrl_unit/result_OBUFT[3]_inst_i_9/O
+                         net (fo=1, routed)           0.000    11.555    register_bank/S[0]
+    SLICE_X39Y54         CARRY4 (Prop_carry4_S[0]_O[2])
+                                                      0.547    12.102 r  register_bank/result_OBUFT[3]_inst_i_1/O[2]
+                         net (fo=2, routed)           3.030    15.132    result_OBUF[2]
+    G14                  OBUFT (Prop_obuft_I_O)       3.663    18.795 r  result_OBUFT[2]_inst/O
+                         net (fo=0)                   0.000    18.795    result[2]
+    G14                                                               r  result[2] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 ctrl_unit/state_reg[4]/C
+                            (rising edge-triggered cell FDSE)
+  Destination:            result[3]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        18.787ns  (logic 5.622ns (29.924%)  route 13.165ns (70.076%))
+  Logic Levels:           10  (CARRY4=1 FDSE=1 LUT2=1 LUT4=1 LUT5=1 LUT6=4 OBUFT=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y52         FDSE                         0.000     0.000 r  ctrl_unit/state_reg[4]/C
+    SLICE_X27Y52         FDSE (Prop_fdse_C_Q)         0.456     0.456 f  ctrl_unit/state_reg[4]/Q
+                         net (fo=164, routed)         4.112     4.568    ctrl_unit/state[4]
+    SLICE_X32Y53         LUT6 (Prop_lut6_I4_O)        0.124     4.692 r  ctrl_unit/i__carry_i_13/O
+                         net (fo=32, routed)          1.450     6.142    register_bank/i__carry__6_i_5
+    SLICE_X33Y58         LUT2 (Prop_lut2_I1_O)        0.124     6.266 r  register_bank/i__carry__3_i_10/O
+                         net (fo=6, routed)           1.862     8.128    register_bank/operand2[18]
+    SLICE_X42Y60         LUT4 (Prop_lut4_I0_O)        0.124     8.252 r  register_bank/result_OBUFT[3]_inst_i_60/O
+                         net (fo=1, routed)           0.564     8.816    register_bank/result_OBUFT[3]_inst_i_60_n_0
+    SLICE_X41Y60         LUT5 (Prop_lut5_I4_O)        0.124     8.940 r  register_bank/result_OBUFT[3]_inst_i_51/O
+                         net (fo=1, routed)           0.646     9.586    register_bank/result_OBUFT[3]_inst_i_51_n_0
+    SLICE_X40Y61         LUT6 (Prop_lut6_I5_O)        0.124     9.710 r  register_bank/result_OBUFT[3]_inst_i_33/O
+                         net (fo=1, routed)           0.783    10.493    ctrl_unit/result_OBUFT[3]_inst_i_9_0
+    SLICE_X40Y54         LUT6 (Prop_lut6_I0_O)        0.124    10.617 r  ctrl_unit/result_OBUFT[3]_inst_i_20/O
+                         net (fo=1, routed)           0.814    11.431    ctrl_unit/result_OBUFT[3]_inst_i_20_n_0
+    SLICE_X39Y54         LUT6 (Prop_lut6_I4_O)        0.124    11.555 r  ctrl_unit/result_OBUFT[3]_inst_i_9/O
+                         net (fo=1, routed)           0.000    11.555    register_bank/S[0]
+    SLICE_X39Y54         CARRY4 (Prop_carry4_S[0]_O[3])
+                                                      0.606    12.161 r  register_bank/result_OBUFT[3]_inst_i_1/O[3]
+                         net (fo=2, routed)           2.934    15.095    result_OBUF[3]
+    D18                  OBUFT (Prop_obuft_I_O)       3.692    18.787 r  result_OBUFT[3]_inst/O
+                         net (fo=0)                   0.000    18.787    result[3]
+    D18                                                               r  result[3] (OUT)
   -------------------------------------------------------------------    -------------------
 
 
@@ -434,213 +756,173 @@ Slack:                    inf
 Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica/C
+  Source:                 Instruction_Register/IR_reg[5]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[0]
-                            (output port)
+  Destination:            memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram/ADDRBWRADDR[10]
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        1.540ns  (logic 0.965ns (62.652%)  route 0.575ns (37.348%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        0.316ns  (logic 0.146ns (46.155%)  route 0.170ns (53.845%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y54         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica/C
-    SLICE_X43Y54         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  result_OBUFT[31]_inst_i_1_lopt_replica/Q
-                         net (fo=1, routed)           0.575     0.716    result_OBUFT[31]_inst_i_1_lopt_replica_1
-    M14                  OBUFT (TriStatD_obuft_T_O)
-                                                      0.824     1.540 r  result_OBUFT[0]_inst/O
-                         net (fo=0)                   0.000     1.540    result[0]
-    M14                                                               r  result[0] (OUT)
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[5]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[5]/Q
+                         net (fo=6, routed)           0.170     0.316    memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[5]
+    RAMB18_X1Y22         RAMB18E1                                     r  memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram/ADDRBWRADDR[10]
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_2/C
+  Source:                 Instruction_Register/IR_reg[26]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[10]
-                            (output port)
+  Destination:            register_bank/registerb_reg_0_31_14_15/RAMA/WADR4
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        1.540ns  (logic 0.965ns (62.652%)  route 0.575ns (37.348%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        0.358ns  (logic 0.146ns (40.792%)  route 0.212ns (59.208%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y58         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_2/C
-    SLICE_X43Y58         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  result_OBUFT[31]_inst_i_1_lopt_replica_2/Q
-                         net (fo=1, routed)           0.575     0.716    result_OBUFT[31]_inst_i_1_lopt_replica_2_1
-    N15                  OBUFT (TriStatD_obuft_T_O)
-                                                      0.824     1.540 r  result_OBUFT[10]_inst/O
-                         net (fo=0)                   0.000     1.540    result[10]
-    N15                                                               r  result[10] (OUT)
+    SLICE_X27Y58         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[26]/C
+    SLICE_X27Y58         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[26]/Q
+                         net (fo=128, routed)         0.212     0.358    register_bank/registerb_reg_0_31_14_15/ADDRD4
+    SLICE_X30Y56         RAMD32                                       r  register_bank/registerb_reg_0_31_14_15/RAMA/WADR4
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_3/C
+  Source:                 Instruction_Register/IR_reg[26]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[11]
-                            (output port)
+  Destination:            register_bank/registerb_reg_0_31_14_15/RAMA_D1/WADR4
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        1.540ns  (logic 0.965ns (62.652%)  route 0.575ns (37.348%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        0.358ns  (logic 0.146ns (40.792%)  route 0.212ns (59.208%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y59         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_3/C
-    SLICE_X43Y59         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  result_OBUFT[31]_inst_i_1_lopt_replica_3/Q
-                         net (fo=1, routed)           0.575     0.716    result_OBUFT[31]_inst_i_1_lopt_replica_3_1
-    J14                  OBUFT (TriStatD_obuft_T_O)
-                                                      0.824     1.540 r  result_OBUFT[11]_inst/O
-                         net (fo=0)                   0.000     1.540    result[11]
-    J14                                                               r  result[11] (OUT)
+    SLICE_X27Y58         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[26]/C
+    SLICE_X27Y58         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[26]/Q
+                         net (fo=128, routed)         0.212     0.358    register_bank/registerb_reg_0_31_14_15/ADDRD4
+    SLICE_X30Y56         RAMD32                                       r  register_bank/registerb_reg_0_31_14_15/RAMA_D1/WADR4
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_4/C
+  Source:                 Instruction_Register/IR_reg[26]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[12]
-                            (output port)
+  Destination:            register_bank/registerb_reg_0_31_14_15/RAMB/WADR4
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        1.540ns  (logic 0.965ns (62.652%)  route 0.575ns (37.348%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        0.358ns  (logic 0.146ns (40.792%)  route 0.212ns (59.208%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y60         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_4/C
-    SLICE_X43Y60         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  result_OBUFT[31]_inst_i_1_lopt_replica_4/Q
-                         net (fo=1, routed)           0.575     0.716    result_OBUFT[31]_inst_i_1_lopt_replica_4_1
-    K14                  OBUFT (TriStatD_obuft_T_O)
-                                                      0.824     1.540 r  result_OBUFT[12]_inst/O
-                         net (fo=0)                   0.000     1.540    result[12]
-    K14                                                               r  result[12] (OUT)
+    SLICE_X27Y58         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[26]/C
+    SLICE_X27Y58         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[26]/Q
+                         net (fo=128, routed)         0.212     0.358    register_bank/registerb_reg_0_31_14_15/ADDRD4
+    SLICE_X30Y56         RAMD32                                       r  register_bank/registerb_reg_0_31_14_15/RAMB/WADR4
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_5/C
+  Source:                 Instruction_Register/IR_reg[26]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[13]
-                            (output port)
+  Destination:            register_bank/registerb_reg_0_31_14_15/RAMB_D1/WADR4
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        1.540ns  (logic 0.965ns (62.652%)  route 0.575ns (37.348%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        0.358ns  (logic 0.146ns (40.792%)  route 0.212ns (59.208%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y61         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_5/C
-    SLICE_X43Y61         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  result_OBUFT[31]_inst_i_1_lopt_replica_5/Q
-                         net (fo=1, routed)           0.575     0.716    result_OBUFT[31]_inst_i_1_lopt_replica_5_1
-    G15                  OBUFT (TriStatD_obuft_T_O)
-                                                      0.824     1.540 r  result_OBUFT[13]_inst/O
-                         net (fo=0)                   0.000     1.540    result[13]
-    G15                                                               r  result[13] (OUT)
+    SLICE_X27Y58         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[26]/C
+    SLICE_X27Y58         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[26]/Q
+                         net (fo=128, routed)         0.212     0.358    register_bank/registerb_reg_0_31_14_15/ADDRD4
+    SLICE_X30Y56         RAMD32                                       r  register_bank/registerb_reg_0_31_14_15/RAMB_D1/WADR4
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_6/C
+  Source:                 Instruction_Register/IR_reg[26]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[14]
-                            (output port)
+  Destination:            register_bank/registerb_reg_0_31_14_15/RAMC/WADR4
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        1.540ns  (logic 0.965ns (62.652%)  route 0.575ns (37.348%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        0.358ns  (logic 0.146ns (40.792%)  route 0.212ns (59.208%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y62         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_6/C
-    SLICE_X43Y62         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  result_OBUFT[31]_inst_i_1_lopt_replica_6/Q
-                         net (fo=1, routed)           0.575     0.716    result_OBUFT[31]_inst_i_1_lopt_replica_6_1
-    H15                  OBUFT (TriStatD_obuft_T_O)
-                                                      0.824     1.540 r  result_OBUFT[14]_inst/O
-                         net (fo=0)                   0.000     1.540    result[14]
-    H15                                                               r  result[14] (OUT)
+    SLICE_X27Y58         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[26]/C
+    SLICE_X27Y58         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[26]/Q
+                         net (fo=128, routed)         0.212     0.358    register_bank/registerb_reg_0_31_14_15/ADDRD4
+    SLICE_X30Y56         RAMD32                                       r  register_bank/registerb_reg_0_31_14_15/RAMC/WADR4
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_7/C
+  Source:                 Instruction_Register/IR_reg[26]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[15]
-                            (output port)
+  Destination:            register_bank/registerb_reg_0_31_14_15/RAMC_D1/WADR4
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        1.540ns  (logic 0.965ns (62.652%)  route 0.575ns (37.348%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        0.358ns  (logic 0.146ns (40.792%)  route 0.212ns (59.208%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y63         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_7/C
-    SLICE_X43Y63         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  result_OBUFT[31]_inst_i_1_lopt_replica_7/Q
-                         net (fo=1, routed)           0.575     0.716    result_OBUFT[31]_inst_i_1_lopt_replica_7_1
-    G20                  OBUFT (TriStatD_obuft_T_O)
-                                                      0.824     1.540 r  result_OBUFT[15]_inst/O
-                         net (fo=0)                   0.000     1.540    result[15]
-    G20                                                               r  result[15] (OUT)
+    SLICE_X27Y58         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[26]/C
+    SLICE_X27Y58         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[26]/Q
+                         net (fo=128, routed)         0.212     0.358    register_bank/registerb_reg_0_31_14_15/ADDRD4
+    SLICE_X30Y56         RAMD32                                       r  register_bank/registerb_reg_0_31_14_15/RAMC_D1/WADR4
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_8/C
+  Source:                 Instruction_Register/IR_reg[26]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[16]
-                            (output port)
+  Destination:            register_bank/registerb_reg_0_31_14_15/RAMD/ADR4
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        1.540ns  (logic 0.965ns (62.652%)  route 0.575ns (37.348%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        0.358ns  (logic 0.146ns (40.792%)  route 0.212ns (59.208%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y64         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_8/C
-    SLICE_X43Y64         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  result_OBUFT[31]_inst_i_1_lopt_replica_8/Q
-                         net (fo=1, routed)           0.575     0.716    result_OBUFT[31]_inst_i_1_lopt_replica_8_1
-    G19                  OBUFT (TriStatD_obuft_T_O)
-                                                      0.824     1.540 r  result_OBUFT[16]_inst/O
-                         net (fo=0)                   0.000     1.540    result[16]
-    G19                                                               r  result[16] (OUT)
+    SLICE_X27Y58         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[26]/C
+    SLICE_X27Y58         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[26]/Q
+                         net (fo=128, routed)         0.212     0.358    register_bank/registerb_reg_0_31_14_15/ADDRD4
+    SLICE_X30Y56         RAMS32                                       r  register_bank/registerb_reg_0_31_14_15/RAMD/ADR4
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_9/C
+  Source:                 Instruction_Register/IR_reg[26]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[17]
-                            (output port)
+  Destination:            register_bank/registerb_reg_0_31_14_15/RAMD_D1/ADR4
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        1.540ns  (logic 0.965ns (62.652%)  route 0.575ns (37.348%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        0.358ns  (logic 0.146ns (40.792%)  route 0.212ns (59.208%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y65         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_9/C
-    SLICE_X43Y65         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  result_OBUFT[31]_inst_i_1_lopt_replica_9/Q
-                         net (fo=1, routed)           0.575     0.716    result_OBUFT[31]_inst_i_1_lopt_replica_9_1
-    H20                  OBUFT (TriStatD_obuft_T_O)
-                                                      0.824     1.540 r  result_OBUFT[17]_inst/O
-                         net (fo=0)                   0.000     1.540    result[17]
-    H20                                                               r  result[17] (OUT)
+    SLICE_X27Y58         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[26]/C
+    SLICE_X27Y58         FDRE (Prop_fdre_C_Q)         0.146     0.146 r  Instruction_Register/IR_reg[26]/Q
+                         net (fo=128, routed)         0.212     0.358    register_bank/registerb_reg_0_31_14_15/ADDRD4
+    SLICE_X30Y56         RAMS32                                       r  register_bank/registerb_reg_0_31_14_15/RAMD_D1/ADR4
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 result_OBUFT[31]_inst_i_1_lopt_replica_10/C
+  Source:                 Instruction_Register/IR_reg[6]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            result[18]
-                            (output port)
+  Destination:            memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram/ADDRARDADDR[11]
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        1.540ns  (logic 0.965ns (62.652%)  route 0.575ns (37.348%))
-  Logic Levels:           2  (FDRE=1 OBUFT=1)
+  Data Path Delay:        0.367ns  (logic 0.133ns (36.224%)  route 0.234ns (63.776%))
+  Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X43Y66         FDRE                         0.000     0.000 r  result_OBUFT[31]_inst_i_1_lopt_replica_10/C
-    SLICE_X43Y66         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  result_OBUFT[31]_inst_i_1_lopt_replica_10/Q
-                         net (fo=1, routed)           0.575     0.716    result_OBUFT[31]_inst_i_1_lopt_replica_10_1
-    J20                  OBUFT (TriStatD_obuft_T_O)
-                                                      0.824     1.540 r  result_OBUFT[18]_inst/O
-                         net (fo=0)                   0.000     1.540    result[18]
-    J20                                                               r  result[18] (OUT)
+    SLICE_X27Y57         FDRE                         0.000     0.000 r  Instruction_Register/IR_reg[6]/C
+    SLICE_X27Y57         FDRE (Prop_fdre_C_Q)         0.133     0.133 r  Instruction_Register/IR_reg[6]/Q
+                         net (fo=6, routed)           0.234     0.367    memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addrb[6]
+    RAMB18_X1Y22         RAMB18E1                                     r  memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SDP.WIDE_PRIM18.ram/ADDRARDADDR[11]
   -------------------------------------------------------------------    -------------------
 
 
