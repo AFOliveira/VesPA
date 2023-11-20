@@ -40,7 +40,7 @@ wire ram_write_en;
 
 
 
-wire b_add;          //Control bits for ALU
+wire b_add;          //Control bits fçor ALU
 wire b_sub;
 wire b_and;
 wire b_or;
@@ -180,8 +180,7 @@ Instruction_Register Instruction_Register(
     .dina_0(result),
     .douta_0(code_output),
     .doutb_0(mem_operand),
-    .ena_0(ram_write_en),
-    .enb_0(ram_read_en),
+    .ena_0(code_en),
     .wea_0(ram_write_en)
     
 );    

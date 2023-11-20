@@ -59,20 +59,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="zybo-z7-10"/>
-    <Option Name="WTXSimLaunchSim" Val="364"/>
+    <Option Name="WTXSimLaunchSim" Val="411"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="29"/>
-    <Option Name="WTModelSimExportSim" Val="29"/>
-    <Option Name="WTQuestaExportSim" Val="29"/>
+    <Option Name="WTXSimExportSim" Val="41"/>
+    <Option Name="WTModelSimExportSim" Val="41"/>
+    <Option Name="WTQuestaExportSim" Val="41"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="29"/>
-    <Option Name="WTRivieraExportSim" Val="29"/>
-    <Option Name="WTActivehdlExportSim" Val="29"/>
+    <Option Name="WTVcsExportSim" Val="41"/>
+    <Option Name="WTRivieraExportSim" Val="41"/>
+    <Option Name="WTActivehdlExportSim" Val="41"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -96,11 +96,11 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="memoryAf.bd" FileRelPathName="ip/memoryAf_axi_bram_ctrl_0_bram_0/memoryAf_axi_bram_ctrl_0_bram_0.xci">
-          <Proxy FileSetName="memoryAf_axi_bram_ctrl_0_bram_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="memoryAf.bd" FileRelPathName="ip/memoryAf_blk_mem_gen_0_1/memoryAf_blk_mem_gen_0_1.xci">
           <Proxy FileSetName="memoryAf_blk_mem_gen_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="memoryAf.bd" FileRelPathName="ip/memoryAf_axi_bram_ctrl_0_bram_0/memoryAf_axi_bram_ctrl_0_bram_0.xci">
+          <Proxy FileSetName="memoryAf_axi_bram_ctrl_0_bram_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/opcodes.v">
@@ -148,7 +148,7 @@
       <File Path="$PSRCDIR/sources_1/imports/hdl/memoryAf_wrapper.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PGENDIR/sources_1/bd/memoryAf/hdl/memoryAf_wrapper.v"/>
-          <Attr Name="ImportTime" Val="1699817102"/>
+          <Attr Name="ImportTime" Val="1700430403"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -191,6 +191,14 @@
       <File Path="$PSRCDIR/sources_1/bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/rom_loader.coe">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/interruptcontrol.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>

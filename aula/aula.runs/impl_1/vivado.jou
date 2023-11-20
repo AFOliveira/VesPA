@@ -3,12 +3,12 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Sun Nov 12 19:38:41 2023
-# Process ID: 8845
+# Start of session at: Sun Nov 19 21:56:30 2023
+# Process ID: 8803
 # Current directory: /home/afonso/vivadoprojects/aula/aula.runs/impl_1
 # Command line: vivado -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
 # Log file: /home/afonso/vivadoprojects/aula/aula.runs/impl_1/top.vdi
 # Journal file: /home/afonso/vivadoprojects/aula/aula.runs/impl_1/vivado.jou
-# Running On: afonso-Modern-14-B10MW, OS: Linux, CPU Frequency: 3698.627 MHz, CPU Physical cores: 4, Host memory: 8129 MB
+# Running On: afonso-Modern-14-B10MW, OS: Linux, CPU Frequency: 4300.089 MHz, CPU Physical cores: 4, Host memory: 8129 MB
 #-----------------------------------------------------------
 source top.tcl -notrace

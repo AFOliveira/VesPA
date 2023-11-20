@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-//Date        : Sun Nov 12 22:00:03 2023
+//Date        : Sun Nov 19 21:46:57 2023
 //Host        : afonso-Modern-14-B10MW running 64-bit Ubuntu 22.04.3 LTS
 //Command     : generate_target memoryAf.bd
 //Design      : memoryAf
@@ -22,7 +22,6 @@ module memoryAf
     douta_0,
     doutb_0,
     ena_0,
-    enb_0,
     wea_0);
   input [6:0]addra_0;
   input [4:0]addra_1;
@@ -34,7 +33,6 @@ module memoryAf
   output [31:0]douta_0;
   output [31:0]doutb_0;
   input ena_0;
-  input enb_0;
   input [0:0]wea_0;
 
   wire [6:0]addra_0_1;
@@ -47,7 +45,6 @@ module memoryAf
   wire clkb_0_1;
   wire [31:0]dina_0_1;
   wire ena_0_1;
-  wire enb_0_1;
   wire [0:0]wea_0_1;
 
   assign addra_0_1 = addra_0[6:0];
@@ -60,7 +57,6 @@ module memoryAf
   assign douta_0[31:0] = blk_mem_gen_0_douta;
   assign doutb_0[31:0] = axi_bram_ctrl_0_bram_doutb;
   assign ena_0_1 = ena_0;
-  assign enb_0_1 = enb_0;
   assign wea_0_1 = wea_0[0];
   memoryAf_axi_bram_ctrl_0_bram_0 axi_bram_ctrl_0_bram
        (.addra(addra_0_1),
@@ -69,11 +65,10 @@ module memoryAf
         .clkb(clkb_0_1),
         .dina(dina_0_1),
         .doutb(axi_bram_ctrl_0_bram_doutb),
-        .ena(ena_0_1),
-        .enb(enb_0_1),
         .wea(wea_0_1));
   memoryAf_blk_mem_gen_0_1 blk_mem_gen_0
        (.addra(addra_1_1),
         .clka(clka_1_1),
-        .douta(blk_mem_gen_0_douta));
+        .douta(blk_mem_gen_0_douta),
+        .ena(ena_0_1));
 endmodule

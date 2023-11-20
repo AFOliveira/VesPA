@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD05789A2A45322A3",
+      "boundary_crc": "0x15845273D3F0DE2E",
       "device": "xc7z010clg400-1",
       "gen_directory": "../../../../aula.gen/sources_1/bd/memoryAf",
       "name": "memoryAf",
@@ -45,9 +45,6 @@
             "value_src": "default"
           }
         }
-      },
-      "ena_0": {
-        "direction": "I"
       },
       "dina_0": {
         "direction": "I",
@@ -95,9 +92,6 @@
         "left": "31",
         "right": "0"
       },
-      "enb_0": {
-        "direction": "I"
-      },
       "clka_1": {
         "type": "clk",
         "direction": "I",
@@ -133,6 +127,9 @@
         "direction": "I",
         "left": "4",
         "right": "0"
+      },
+      "ena_0": {
+        "direction": "I"
       }
     },
     "components": {
@@ -150,6 +147,12 @@
           },
           "Enable_32bit_Address": {
             "value": "false"
+          },
+          "Enable_A": {
+            "value": "Always_Enabled"
+          },
+          "Enable_B": {
+            "value": "Always_Enabled"
           },
           "Load_Init_File": {
             "value": "true"
@@ -190,7 +193,7 @@
             "value": "false"
           },
           "Enable_A": {
-            "value": "Always_Enabled"
+            "value": "Use_ENA_Pin"
           },
           "Fill_Remaining_Memory_Locations": {
             "value": "true"
@@ -274,13 +277,7 @@
       "ena_0_1": {
         "ports": [
           "ena_0",
-          "axi_bram_ctrl_0_bram/ena"
-        ]
-      },
-      "enb_0_1": {
-        "ports": [
-          "enb_0",
-          "axi_bram_ctrl_0_bram/enb"
+          "blk_mem_gen_0/ena"
         ]
       },
       "wea_0_1": {

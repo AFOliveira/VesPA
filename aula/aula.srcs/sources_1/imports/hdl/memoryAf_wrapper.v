@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-//Date        : Sun Nov 12 19:25:02 2023
+//Date        : Sun Nov 19 21:46:43 2023
 //Host        : afonso-Modern-14-B10MW running 64-bit Ubuntu 22.04.3 LTS
 //Command     : generate_target memoryAf_wrapper.bd
 //Design      : memoryAf_wrapper
@@ -21,7 +21,6 @@ module memoryAf_wrapper
     douta_0,
     doutb_0,
     ena_0,
-    enb_0,
     wea_0);
   input [6:0]addra_0;
   input [4:0]addra_1;
@@ -33,7 +32,6 @@ module memoryAf_wrapper
   output [31:0]douta_0;
   output [31:0]doutb_0;
   input ena_0;
-  input enb_0;
   input [0:0]wea_0;
 
   wire [6:0]addra_0;
@@ -46,7 +44,6 @@ module memoryAf_wrapper
   wire [31:0]douta_0;
   wire [31:0]doutb_0;
   wire ena_0;
-  wire enb_0;
   wire [0:0]wea_0;
 
   memoryAf memoryAf_i
@@ -60,6 +57,5 @@ module memoryAf_wrapper
         .douta_0(douta_0),
         .doutb_0(doutb_0),
         .ena_0(ena_0),
-        .enb_0(enb_0),
         .wea_0(wea_0));
 endmodule

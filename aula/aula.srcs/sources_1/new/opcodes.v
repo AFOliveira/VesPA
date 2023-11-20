@@ -41,6 +41,7 @@
 
 
 `define s_start 5'b10001
+`define s_start2 5'b11001
 `define s_fetch2 5'b10010
 `define s_fetch 5'b10011
 `define s_decode 5'b10100

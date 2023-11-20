@@ -23,8 +23,6 @@
         output [3:0] cond
     
         );
-        
-
      
     
     //ASSIGN THE OUPUTS FOR THE FUCNTION BLOCKS ON THE CONTROL UNIT TO BE ABLE TO IMPLEMENT THE FSM

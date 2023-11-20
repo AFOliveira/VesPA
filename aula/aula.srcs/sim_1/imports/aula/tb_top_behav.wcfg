@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="9.810001 us"></ZoomEndTime>
-      <Cursor1Time time="3.952143 us"></Cursor1Time>
+      <ZoomStartTime time="5.397700 us"></ZoomStartTime>
+      <ZoomEndTime time="11.635496 us"></ZoomEndTime>
+      <Cursor1Time time="8.940965 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="158"></NameColumnWidth>
-      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+      <ValueColumnWidth column_width="84"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="22" />
    <wvobject type="logic" fp_name="/tb_top/uut/clk">
@@ -91,24 +91,24 @@
       <obj_property name="ElementShortName">dina_0[31:0]</obj_property>
       <obj_property name="ObjectShortName">dina_0[31:0]</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/addrb_0">
+      <obj_property name="ElementShortName">addrb_0[6:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb_0[6:0]</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/doutb_0">
       <obj_property name="ElementShortName">doutb_0[31:0]</obj_property>
       <obj_property name="ObjectShortName">doutb_0[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/addra_0">
-      <obj_property name="ElementShortName">addra_0[6:0]</obj_property>
-      <obj_property name="ObjectShortName">addra_0[6:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/memoryAf_wrapper/ena_0">
-      <obj_property name="ElementShortName">ena_0</obj_property>
-      <obj_property name="ObjectShortName">ena_0</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/memoryAf_wrapper/enb_0">
-      <obj_property name="ElementShortName">enb_0</obj_property>
-      <obj_property name="ObjectShortName">enb_0</obj_property>
+   <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/addra_1">
+      <obj_property name="ElementShortName">addra_1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addra_1[4:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/douta_0">
       <obj_property name="ElementShortName">douta_0[31:0]</obj_property>
       <obj_property name="ObjectShortName">douta_0[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/arith_logic_unit/C">
+      <obj_property name="ElementShortName">C</obj_property>
+      <obj_property name="ObjectShortName">C</obj_property>
    </wvobject>
 </wave_config>

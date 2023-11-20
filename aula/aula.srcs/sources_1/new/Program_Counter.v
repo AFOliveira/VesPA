@@ -36,7 +36,7 @@ module Program_Counter(
         begin
              if(branch_en)
             begin 
-                 PC = PC + op_immed23;
+                 PC = PC + op_immed23 -1'b1;
             end
             else
             begin

@@ -60,9 +60,11 @@ module control_unit(
     reg [4:0] state;
     reg [4:0] next_state;
    
+    integer i;
     
     initial begin
-    state = `s_fetch;
+    state = `s_start;
+    i = 0;
     end
     
     always @(posedge clk)
@@ -82,10 +84,11 @@ module control_unit(
         case (state)
         
            `s_start:
+           begin
               next_state = `s_fetch;
-                                               //iniciar variáveis
+           end                                   //iniciar variáveis
                     
-                
+
            `s_fetch2:
                 next_state = `s_decode;
   
@@ -170,9 +173,9 @@ module control_unit(
     //update result on result bank
     assign write_data = (b_add | b_sub | b_cmp | b_and | b_or | b_xor | b_not | b_ld) ? 1'b1:1'b0;
     
-    assign PCinc = (state == `s_fetch) ? 1'b1:1'b0;
+    assign PCinc = (state == `s_fetch || state == `s_fetch2) ? 1'b1:1'b0;
     
-    assign code_en = (state == `s_fetch || state == `s_fetch2) ? 1'b1:1'b0;
+    assign code_en = (state == `s_start || state == `s_start2 || state == `s_fetch || state == `s_jextra || state == `s_fetch2) ? 1'b1:1'b0;
     
     assign ram_read_en = (state == `s_ld) ? 1'b1:1'b0;
         
