@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Nov 20 11:48:30 2023" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Nov 20 10:56:57 2023" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:zybo-z7-10:part0:1.2" DEVICE="7z010" NAME="memoryAf" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -52,6 +52,11 @@
     <PORT DIR="I" LEFT="4" NAME="addra_1" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_addra_1">
       <CONNECTIONS>
         <CONNECTION INSTANCE="blk_mem_gen_0" PORT="addra"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="ena_0" SIGIS="undef" SIGNAME="External_Ports_ena_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="blk_mem_gen_0" PORT="ena"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -309,7 +314,7 @@
         <PARAMETER NAME="C_RST_PRIORITY_A" VALUE="CE"/>
         <PARAMETER NAME="C_RSTRAM_A" VALUE="0"/>
         <PARAMETER NAME="C_INITA_VAL" VALUE="0"/>
-        <PARAMETER NAME="C_HAS_ENA" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_ENA" VALUE="1"/>
         <PARAMETER NAME="C_HAS_REGCEA" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEA" VALUE="0"/>
         <PARAMETER NAME="C_WEA_WIDTH" VALUE="1"/>
@@ -389,7 +394,7 @@
         <PARAMETER NAME="Write_Depth_A" VALUE="32"/>
         <PARAMETER NAME="Read_Width_A" VALUE="32"/>
         <PARAMETER NAME="Operating_Mode_A" VALUE="WRITE_FIRST"/>
-        <PARAMETER NAME="Enable_A" VALUE="Always_Enabled"/>
+        <PARAMETER NAME="Enable_A" VALUE="Use_ENA_Pin"/>
         <PARAMETER NAME="Write_Width_B" VALUE="32"/>
         <PARAMETER NAME="Read_Width_B" VALUE="32"/>
         <PARAMETER NAME="Operating_Mode_B" VALUE="WRITE_FIRST"/>
@@ -440,6 +445,11 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clka_1"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="ena" SIGIS="undef" SIGNAME="External_Ports_ena_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ena_0"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="4" NAME="addra" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_addra_1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="addra_1"/>
@@ -463,6 +473,7 @@
             <PORTMAP LOGICAL="ADDR" PHYSICAL="addra"/>
             <PORTMAP LOGICAL="CLK" PHYSICAL="clka"/>
             <PORTMAP LOGICAL="DOUT" PHYSICAL="douta"/>
+            <PORTMAP LOGICAL="EN" PHYSICAL="ena"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>

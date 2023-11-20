@@ -8,7 +8,7 @@ module top(
 
     wire [31:0]code_output;        //memory
     wire [31:0]mem_operand;
-    wire [21:0]immed22;
+    wire [31:0]immed22;
     wire [31:0]PC;
     wire ram_write_en;
     wire code_en;
@@ -35,6 +35,7 @@ module top(
         .dina_0(result),
         .douta_0(code_output),
         .doutb_0(mem_operand),
+        .ena_0(code_en),
         .wea_0(ram_write_en)
         );
 

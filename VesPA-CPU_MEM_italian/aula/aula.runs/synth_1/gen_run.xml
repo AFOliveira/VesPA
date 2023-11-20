@@ -151,6 +151,6 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="memoryAf_blk_mem_gen_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="memoryAf_axi_bram_ctrl_0_bram_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="memoryAf_blk_mem_gen_0_1"/>
 </GenRun>

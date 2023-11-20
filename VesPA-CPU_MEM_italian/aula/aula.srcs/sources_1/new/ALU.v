@@ -11,10 +11,10 @@ module ALU(
     input [4:0] rs1,
     input IMM_op,
     input [4:0] rs2,
-    input [22:0] immed23,
-    input [21:0] immed22,
-    input [16:0] immed17,
-    input [15:0] immed16,
+    //input [31:0] immed23,
+    input [31:0] immed22,
+    //input [31:0] immed17,
+    input [31:0] immed16,
     //input [3:0] cond,
     input [31:0] operand1,
     input [31:0] operand2,
@@ -31,9 +31,10 @@ module ALU(
     input b_ld,
     input b_st,
     
+//    input [31:0]control_array_in,
     
-    output [31:0] op_immed22,
-    output [31:0]op_immed23,
+    //output [31:0] op_immed22,
+    //output [31:0]op_immed23,
     output [32:0] result,
     
     output reg C,
@@ -65,11 +66,11 @@ module ALU(
             end                
     end
     
-     assign result = (b_add && ~IMM_op) ? (operand1 + operand2) : (b_add && IMM_op) ? (operand1 + op_immed16) :
-                       (b_sub && ~IMM_op) ? (operand1 - operand2) : (b_sub && IMM_op) ? (operand1 - op_immed16) :
-                       (b_and && ~IMM_op) ? (operand1 && operand2) : (b_and && IMM_op) ? (operand1 & op_immed16) :
-                       (b_or && ~IMM_op) ? (operand1 | operand2) : (b_or && IMM_op) ? (operand1 | op_immed16) :
-                       (b_xor && ~IMM_op) ? (operand1 ^ operand2) : (b_xor && IMM_op) ? (operand1 ^ op_immed16) : 
+     assign result = (b_add && ~IMM_op) ? (operand1 + operand2) : (b_add && IMM_op) ? (operand1 + immed16) :
+                       (b_sub && ~IMM_op) ? (operand1 - operand2) : (b_sub && IMM_op) ? (operand1 - immed16) :
+                       (b_and && ~IMM_op) ? (operand1 && operand2) : (b_and && IMM_op) ? (operand1 & immed16) :
+                       (b_or && ~IMM_op) ? (operand1 | operand2) : (b_or && IMM_op) ? (operand1 | immed16) :
+                       (b_xor && ~IMM_op) ? (operand1 ^ operand2) : (b_xor && IMM_op) ? (operand1 ^ immed16) : 
                        (b_not) ? ~operand1 :
                        (b_cmp) ? (operand1 - operand2) :
                        (b_ld) ? mem_operand :
@@ -77,8 +78,8 @@ module ALU(
 
     assign subt = (opcode == `s_sub) ? 1'b1:1'b0;
        
-    assign op_immed16 = {{16{immed16[15]}}, immed16};
-    assign op_immed22 = {{9{immed22[21]}}, immed22};
-    assign op_immed23 = {{8{immed23[22]}}, immed23};
+//    assign op_immed16 = {{16{immed16[15]}}, immed16};
+//    assign op_immed22 = {{9{immed22[21]}}, immed22};
+//    assign op_immed23 = {{8{immed23[22]}}, immed23};
     
 endmodule

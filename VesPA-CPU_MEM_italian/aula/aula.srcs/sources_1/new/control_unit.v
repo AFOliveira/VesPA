@@ -56,6 +56,8 @@ module control_unit(
     output b_ld,
     output b_st
     
+//    output [31:0]control_array_out
+    
     );
     
     //parameter s_nop = 5'b00000, s_add = 5'b00001, s_sub = 5'b00010, s_or = 5'b00011, s_and= 5'b00100, s_not = 5'b00101, s_xor = 5'b00110, s_cmp = 5'b00111, s_bxx = 5'b01000, s_jmp = 5'b01001, s_jmpl = 5'b01010, s_ld = 5'b01011, s_ldi = 5'b01100, s_ldx = 5'b01101, s_st = 5'b01110, s_stx = 5'b01111,s_halt = 5'b11111, s_start = 5'b10001, s_idle = 5'b10010, s_fetch = 5'b10011, s_decode = 5'b10100;
@@ -213,6 +215,22 @@ module control_unit(
     assign b_cmp =  (state == `s_cmp) ? 1'b1:1'b0;   
     assign b_ld =   (state == `s_extra) ? 1'b1:1'b0;
     assign b_st =   (state == `s_st) ? 1'b1:1'b0;  
+    
+    
+    //define control array values
+    //ALU bit
+//    assign control_array_out[0] = b_add;
+//    assign control_array_out[1] = b_sub;
+//    assign control_array_out[2] = b_and;
+//    assign control_array_out[3] = b_or;
+//    assign control_array_out[4] = b_xor;
+//    assign control_array_out[5] = b_not;
+//    assign control_array_out[6] = b_cmp;
+//    assign control_array_out[7] = b_ld;
+//    assign control_array_out[8] = b_st;
+    //
+    
+    
     
     
 endmodule

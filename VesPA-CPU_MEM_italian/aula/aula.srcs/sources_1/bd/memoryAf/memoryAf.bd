@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xF08CA2AADDDFCDF9",
+      "boundary_crc": "0x15845273D3F0DE2E",
       "device": "xc7z010clg400-1",
       "gen_directory": "../../../../aula.gen/sources_1/bd/memoryAf",
       "name": "memoryAf",
@@ -127,6 +127,9 @@
         "direction": "I",
         "left": "4",
         "right": "0"
+      },
+      "ena_0": {
+        "direction": "I"
       }
     },
     "components": {
@@ -190,7 +193,7 @@
             "value": "false"
           },
           "Enable_A": {
-            "value": "Always_Enabled"
+            "value": "Use_ENA_Pin"
           },
           "Fill_Remaining_Memory_Locations": {
             "value": "true"
@@ -269,6 +272,12 @@
         "ports": [
           "dina_0",
           "axi_bram_ctrl_0_bram/dina"
+        ]
+      },
+      "ena_0_1": {
+        "ports": [
+          "ena_0",
+          "blk_mem_gen_0/ena"
         ]
       },
       "wea_0_1": {

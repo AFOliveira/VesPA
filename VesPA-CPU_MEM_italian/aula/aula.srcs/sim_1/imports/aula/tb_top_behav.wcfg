@@ -11,66 +11,50 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.905369 us"></ZoomStartTime>
-      <ZoomEndTime time="8.515370 us"></ZoomEndTime>
-      <Cursor1Time time="3.895369 us"></Cursor1Time>
+      <ZoomStartTime time="9,166.666 ns"></ZoomStartTime>
+      <ZoomEndTime time="10,166.667 ns"></ZoomEndTime>
+      <Cursor1Time time="10,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="160"></NameColumnWidth>
-      <ValueColumnWidth column_width="78"></ValueColumnWidth>
+      <NameColumnWidth column_width="158"></NameColumnWidth>
+      <ValueColumnWidth column_width="68"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
+   <WVObjectSize size="15" />
    <wvobject type="logic" fp_name="/tb_top/uut/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/cpu/Instruction_Register/IRLoad">
-      <obj_property name="ElementShortName">IRLoad</obj_property>
-      <obj_property name="ObjectShortName">IRLoad</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/cpu/Program_Counter/PCinc">
-      <obj_property name="ElementShortName">PCinc</obj_property>
-      <obj_property name="ObjectShortName">PCinc</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/cpu/Program_Counter/PCLoad">
-      <obj_property name="ElementShortName">PCLoad</obj_property>
-      <obj_property name="ObjectShortName">PCLoad</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/Program_Counter/PC">
-      <obj_property name="ElementShortName">PC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/Instruction_Register/IR">
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/Instruction_Register/IR">
       <obj_property name="ElementShortName">IR[31:0]</obj_property>
       <obj_property name="ObjectShortName">IR[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/arith_logic_unit/operand1">
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/Program_Counter/PC">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/data_path/Program_Counter/PCinc">
+      <obj_property name="ElementShortName">PCinc</obj_property>
+      <obj_property name="ObjectShortName">PCinc</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/data_path/Instruction_Register/IRLoad">
+      <obj_property name="ElementShortName">IRLoad</obj_property>
+      <obj_property name="ObjectShortName">IRLoad</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/data_path/Program_Counter/PCLoad">
+      <obj_property name="ElementShortName">PCLoad</obj_property>
+      <obj_property name="ObjectShortName">PCLoad</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/ctrl_unit/state">
+      <obj_property name="ElementShortName">state[4:0]</obj_property>
+      <obj_property name="ObjectShortName">state[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/arith_logic_unit/operand1">
       <obj_property name="ElementShortName">operand1[31:0]</obj_property>
       <obj_property name="ObjectShortName">operand1[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/result">
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/result">
       <obj_property name="ElementShortName">result[32:0]</obj_property>
       <obj_property name="ObjectShortName">result[32:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/register_bank/registerb[5]">
-      <obj_property name="ElementShortName">[5][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/register_bank/registerb[4]">
-      <obj_property name="ElementShortName">[4][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/register_bank/registerb[3]">
-      <obj_property name="ElementShortName">[3][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/register_bank/registerb[1]">
-      <obj_property name="ElementShortName">[1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/register_bank/registerb[0]">
-      <obj_property name="ElementShortName">[0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[0][31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/dina_0">
       <obj_property name="ElementShortName">dina_0[31:0]</obj_property>
@@ -87,6 +71,10 @@
    <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/addra_1">
       <obj_property name="ElementShortName">addra_1[4:0]</obj_property>
       <obj_property name="ObjectShortName">addra_1[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/wea_0">
+      <obj_property name="ElementShortName">wea_0[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea_0[0:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/douta_0">
       <obj_property name="ElementShortName">douta_0[31:0]</obj_property>

@@ -6,7 +6,7 @@ module Program_Counter(
     input rst,
     input PCinc,
     input PCLoad,
-    input [31:0]op_immed23,
+    input [31:0]immed23,
     input branch_en,
     input [31:0]jmp_16adrr,
     input [31:0]pc_reg_val,
@@ -36,7 +36,7 @@ module Program_Counter(
         begin
              if(branch_en)
             begin 
-                 PC = PC + op_immed23 -1'b1;
+                 PC = PC + immed23 -1'b1;
             end
             else
             begin
