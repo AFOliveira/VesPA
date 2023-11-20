@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.905369 us"></ZoomStartTime>
+      <ZoomEndTime time="8.515370 us"></ZoomEndTime>
+      <Cursor1Time time="3.895369 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="160"></NameColumnWidth>
+      <ValueColumnWidth column_width="78"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="18" />
+   <wvobject type="logic" fp_name="/tb_top/uut/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/Instruction_Register/IRLoad">
+      <obj_property name="ElementShortName">IRLoad</obj_property>
+      <obj_property name="ObjectShortName">IRLoad</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/Program_Counter/PCinc">
+      <obj_property name="ElementShortName">PCinc</obj_property>
+      <obj_property name="ObjectShortName">PCinc</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/Program_Counter/PCLoad">
+      <obj_property name="ElementShortName">PCLoad</obj_property>
+      <obj_property name="ObjectShortName">PCLoad</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/Program_Counter/PC">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/Instruction_Register/IR">
+      <obj_property name="ElementShortName">IR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IR[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/arith_logic_unit/operand1">
+      <obj_property name="ElementShortName">operand1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/result">
+      <obj_property name="ElementShortName">result[32:0]</obj_property>
+      <obj_property name="ObjectShortName">result[32:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/register_bank/registerb[5]">
+      <obj_property name="ElementShortName">[5][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/register_bank/registerb[4]">
+      <obj_property name="ElementShortName">[4][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/register_bank/registerb[3]">
+      <obj_property name="ElementShortName">[3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/register_bank/registerb[1]">
+      <obj_property name="ElementShortName">[1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/register_bank/registerb[0]">
+      <obj_property name="ElementShortName">[0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/dina_0">
+      <obj_property name="ElementShortName">dina_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina_0[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/addrb_0">
+      <obj_property name="ElementShortName">addrb_0[6:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb_0[6:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/doutb_0">
+      <obj_property name="ElementShortName">doutb_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb_0[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/addra_1">
+      <obj_property name="ElementShortName">addra_1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addra_1[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/douta_0">
+      <obj_property name="ElementShortName">douta_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta_0[31:0]</obj_property>
+   </wvobject>
+</wave_config>

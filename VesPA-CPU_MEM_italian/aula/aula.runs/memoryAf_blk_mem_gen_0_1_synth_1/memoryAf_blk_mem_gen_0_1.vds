@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Mon Nov 20 10:30:20 2023
+# Process ID: 68796
+# Current directory: /home/goncalo/vivado_projects/VeSPA/aula/aula.runs/memoryAf_blk_mem_gen_0_1_synth_1
+# Command line: vivado -log memoryAf_blk_mem_gen_0_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source memoryAf_blk_mem_gen_0_1.tcl
+# Log file: /home/goncalo/vivado_projects/VeSPA/aula/aula.runs/memoryAf_blk_mem_gen_0_1_synth_1/memoryAf_blk_mem_gen_0_1.vds
+# Journal file: /home/goncalo/vivado_projects/VeSPA/aula/aula.runs/memoryAf_blk_mem_gen_0_1_synth_1/vivado.jou
+# Running On: goncalo-Swift-SFX14-41G, OS: Linux, CPU Frequency: 1397.172 MHz, CPU Physical cores: 12, Host memory: 16055 MB
+#-----------------------------------------------------------
+source memoryAf_blk_mem_gen_0_1.tcl -notrace
+create_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2095.355 ; gain = 150.992 ; free physical = 4666 ; free virtual = 10354
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: memoryAf_blk_mem_gen_0_1
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry dadc5d30648df727 to dir: /home/goncalo/vivado_projects/VeSPA/aula/aula.runs/memoryAf_blk_mem_gen_0_1_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/goncalo/vivado_projects/VeSPA/aula/aula.cache/ip/2023.1/d/a/dadc5d30648df727/memoryAf_blk_mem_gen_0_1_sim_netlist.v to /home/goncalo/vivado_projects/VeSPA/aula/aula.runs/memoryAf_blk_mem_gen_0_1_synth_1/memoryAf_blk_mem_gen_0_1_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/goncalo/vivado_projects/VeSPA/aula/aula.cache/ip/2023.1/d/a/dadc5d30648df727/memoryAf_blk_mem_gen_0_1_sim_netlist.vhdl to /home/goncalo/vivado_projects/VeSPA/aula/aula.runs/memoryAf_blk_mem_gen_0_1_synth_1/memoryAf_blk_mem_gen_0_1_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/goncalo/vivado_projects/VeSPA/aula/aula.cache/ip/2023.1/d/a/dadc5d30648df727/memoryAf_blk_mem_gen_0_1_stub.vhdl to /home/goncalo/vivado_projects/VeSPA/aula/aula.runs/memoryAf_blk_mem_gen_0_1_synth_1/memoryAf_blk_mem_gen_0_1_stub.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/goncalo/vivado_projects/VeSPA/aula/aula.cache/ip/2023.1/d/a/dadc5d30648df727/memoryAf_blk_mem_gen_0_1_stub.v to /home/goncalo/vivado_projects/VeSPA/aula/aula.runs/memoryAf_blk_mem_gen_0_1_synth_1/memoryAf_blk_mem_gen_0_1_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file /home/goncalo/vivado_projects/VeSPA/aula/aula.cache/ip/2023.1/d/a/dadc5d30648df727/memoryAf_blk_mem_gen_0_1.dcp to /home/goncalo/vivado_projects/VeSPA/aula/aula.runs/memoryAf_blk_mem_gen_0_1_synth_1/memoryAf_blk_mem_gen_0_1.dcp.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP memoryAf_blk_mem_gen_0_1, cache-ID = dadc5d30648df727.
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 20 10:30:55 2023...
