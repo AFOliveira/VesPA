@@ -33,11 +33,14 @@ module control_unit(
     input Z,
     input N,
     input V,
-
+    
+    input ISR_req,
+    
     output ram_write_en,
     output ram_read_en,
     output branch_en,
-    output IRLoad,
+    output IRLoad1,
+    output IRLoad2,
     output PCinc,
     output PCLoad,
     output outdata1,
@@ -101,9 +104,12 @@ module control_unit(
   
   
            `s_fetch:
-                next_state = `s_decode;
+                next_state = `s_fetch2;
                 
            `s_fetch2:
+                next_state = `s_fetch3;
+            
+            `s_fetch3:
                 next_state = `s_decode;    
                   
               `s_decode:
@@ -166,7 +172,8 @@ module control_unit(
  
     end
     //case fetch
-     assign IRLoad = (state == `s_fetch) ? 1'b1:1'b0;
+     assign IRLoad1 = (state == `s_fetch2) ? 1'b1:1'b0;
+     assign IRLoad2 = (state == `s_fetch3) ? 1'b1:1'b0;
      
      //case alu
      assign outdata1 = (state == `s_add | state == `s_sub | state == `s_and | state == `s_or |state == `s_not | state == `s_xor) ? 1'b1:1'b0;
@@ -205,6 +212,8 @@ module control_unit(
     assign ram_read_en = (state == `s_ld) ? 1'b1:1'b0;
         
     assign PCLoad = ((state == `s_jmp) || (state == `s_bxx)) ? 1'b1:1'b0;
+    
+    assign PC_isr = (ISR_req == 1'b1) ? 1'b1:1'b0;
     
     assign ram_write_en = (state == `s_st) ? 1'b1:1'b0;
     

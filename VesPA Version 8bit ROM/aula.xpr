@@ -59,20 +59,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="zybo-z7-10"/>
-    <Option Name="WTXSimLaunchSim" Val="435"/>
+    <Option Name="WTXSimLaunchSim" Val="455"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="49"/>
-    <Option Name="WTModelSimExportSim" Val="49"/>
-    <Option Name="WTQuestaExportSim" Val="49"/>
+    <Option Name="WTXSimExportSim" Val="56"/>
+    <Option Name="WTModelSimExportSim" Val="56"/>
+    <Option Name="WTQuestaExportSim" Val="56"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="49"/>
-    <Option Name="WTRivieraExportSim" Val="48"/>
-    <Option Name="WTActivehdlExportSim" Val="48"/>
+    <Option Name="WTVcsExportSim" Val="56"/>
+    <Option Name="WTRivieraExportSim" Val="55"/>
+    <Option Name="WTActivehdlExportSim" Val="55"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -152,7 +152,7 @@
       <File Path="$PSRCDIR/sources_1/imports/hdl/memoryAf_wrapper.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PGENDIR/sources_1/bd/memoryAf/hdl/memoryAf_wrapper.v"/>
-          <Attr Name="ImportTime" Val="1700497636"/>
+          <Attr Name="ImportTime" Val="1700504189"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -167,6 +167,14 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/top.v">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/new/interruptcontrol.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -195,14 +203,6 @@
       <File Path="$PSRCDIR/sources_1/bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/rom_loader.coe">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/new/interruptcontrol.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>

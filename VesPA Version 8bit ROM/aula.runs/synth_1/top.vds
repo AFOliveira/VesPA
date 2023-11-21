@@ -3,16 +3,15 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Mon Nov 20 13:03:16 2023
-# Process ID: 4460
+# Start of session at: Mon Nov 20 18:23:54 2023
+# Process ID: 65116
 # Current directory: /home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1
 # Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: /home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/top.vds
 # Journal file: /home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/vivado.jou
-# Running On: afonso-Modern-14-B10MW, OS: Linux, CPU Frequency: 4799.760 MHz, CPU Physical cores: 4, Host memory: 8129 MB
+# Running On: afonso-Modern-14-B10MW, OS: Linux, CPU Frequency: 3647.040 MHz, CPU Physical cores: 4, Host memory: 8129 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
-create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2095.145 ; gain = 150.992 ; free physical = 1250 ; free virtual = 5456
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'.
@@ -28,45 +27,82 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 4495
-INFO: [Synth 8-11241] undeclared symbol 'IRLoad', assumed default net type 'wire' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:97]
-INFO: [Synth 8-11241] undeclared symbol 'PCinc', assumed default net type 'wire' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:98]
-INFO: [Synth 8-11241] undeclared symbol 'PCLoad', assumed default net type 'wire' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:99]
-INFO: [Synth 8-11241] undeclared symbol 'checkcc', assumed default net type 'wire' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/control_unit.v:175]
+INFO: [Synth 8-7075] Helper process launched with PID 65160
+INFO: [Synth 8-11241] undeclared symbol 'PCinc', assumed default net type 'wire' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:87]
+INFO: [Synth 8-11241] undeclared symbol 'PCLoad', assumed default net type 'wire' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:88]
+INFO: [Synth 8-11241] undeclared symbol 'code_en', assumed default net type 'wire' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:93]
+INFO: [Synth 8-11241] undeclared symbol 'IRLoad', assumed default net type 'wire' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:109]
+INFO: [Synth 8-11241] undeclared symbol 'code_output', assumed default net type 'wire' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:199]
+INFO: [Synth 8-11241] undeclared symbol 'checkcc', assumed default net type 'wire' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/control_unit.v:184]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2828.938 ; gain = 379.770 ; free physical = 238 ; free virtual = 4475
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2828.457 ; gain = 378.801 ; free physical = 136 ; free virtual = 1559
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:3]
-INFO: [Synth 8-6157] synthesizing module 'CPU' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:23]
+INFO: [Synth 8-6157] synthesizing module 'CPU' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:4]
 INFO: [Synth 8-6157] synthesizing module 'control_unit' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/control_unit.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'control_unit' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/control_unit.v:25]
 INFO: [Synth 8-6157] synthesizing module 'datapath' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/datapath.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'datapath' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/datapath.v:5]
 INFO: [Synth 8-6157] synthesizing module 'ALU' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/ALU.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'ALU' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/ALU.v:6]
-WARNING: [Synth 8-7071] port 'op_immed22' of module 'ALU' is unconnected for instance 'arith_logic_unit' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:136]
-WARNING: [Synth 8-7023] instance 'arith_logic_unit' of module 'ALU' has 31 connections declared, but only 30 given [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:136]
+WARNING: [Synth 8-7071] port 'op_immed22' of module 'ALU' is unconnected for instance 'arith_logic_unit' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:125]
+WARNING: [Synth 8-7023] instance 'arith_logic_unit' of module 'ALU' has 31 connections declared, but only 30 given [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:125]
 INFO: [Synth 8-6157] synthesizing module 'register_bank' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/register_bank.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'register_bank' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/register_bank.v:4]
-WARNING: [Synth 8-689] width (33) of port connection 'in_data' does not match port width (32) of module 'register_bank' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:180]
+WARNING: [Synth 8-689] width (33) of port connection 'in_data' does not match port width (32) of module 'register_bank' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:169]
 INFO: [Synth 8-6157] synthesizing module 'Program_Counter' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/Program_Counter.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'Program_Counter' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/Program_Counter.v:4]
 INFO: [Synth 8-6157] synthesizing module 'Instruction_Register' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/Instruction_Register.v:4]
 INFO: [Synth 8-6155] done synthesizing module 'Instruction_Register' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/Instruction_Register.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'CPU' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'CPU' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:4]
 INFO: [Synth 8-6157] synthesizing module 'memoryAf_wrapper' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/imports/hdl/memoryAf_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'memoryAf' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.gen/sources_1/bd/memoryAf/synth/memoryAf.v:13]
-INFO: [Synth 8-6157] synthesizing module 'memoryAf_axi_bram_ctrl_0_bram_0' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/.Xil/Vivado-4460-afonso-Modern-14-B10MW/realtime/memoryAf_axi_bram_ctrl_0_bram_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'memoryAf_axi_bram_ctrl_0_bram_0' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/.Xil/Vivado-4460-afonso-Modern-14-B10MW/realtime/memoryAf_axi_bram_ctrl_0_bram_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'memoryAf_blk_mem_gen_0_1' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/.Xil/Vivado-4460-afonso-Modern-14-B10MW/realtime/memoryAf_blk_mem_gen_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'memoryAf_blk_mem_gen_0_1' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/.Xil/Vivado-4460-afonso-Modern-14-B10MW/realtime/memoryAf_blk_mem_gen_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'memoryAf_axi_bram_ctrl_0_bram_0' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/.Xil/Vivado-65116-afonso-Modern-14-B10MW/realtime/memoryAf_axi_bram_ctrl_0_bram_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'memoryAf_axi_bram_ctrl_0_bram_0' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/.Xil/Vivado-65116-afonso-Modern-14-B10MW/realtime/memoryAf_axi_bram_ctrl_0_bram_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'memoryAf_blk_mem_gen_0_1' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/.Xil/Vivado-65116-afonso-Modern-14-B10MW/realtime/memoryAf_blk_mem_gen_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'memoryAf_blk_mem_gen_0_1' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/.Xil/Vivado-65116-afonso-Modern-14-B10MW/realtime/memoryAf_blk_mem_gen_0_1_stub.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'memoryAf' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.gen/sources_1/bd/memoryAf/synth/memoryAf.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'memoryAf_wrapper' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/imports/hdl/memoryAf_wrapper.v:13]
-WARNING: [Synth 8-689] width (22) of port connection 'addra_0' does not match port width (7) of module 'memoryAf_wrapper' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:29]
-WARNING: [Synth 8-689] width (32) of port connection 'addra_1' does not match port width (5) of module 'memoryAf_wrapper' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:30]
-WARNING: [Synth 8-689] width (22) of port connection 'addrb_0' does not match port width (7) of module 'memoryAf_wrapper' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:31]
-WARNING: [Synth 8-689] width (33) of port connection 'dina_0' does not match port width (32) of module 'memoryAf_wrapper' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:35]
+WARNING: [Synth 8-689] width (22) of port connection 'addra_0' does not match port width (7) of module 'memoryAf_wrapper' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:35]
+WARNING: [Synth 8-689] width (32) of port connection 'addra_1' does not match port width (8) of module 'memoryAf_wrapper' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:36]
+WARNING: [Synth 8-689] width (22) of port connection 'addrb_0' does not match port width (7) of module 'memoryAf_wrapper' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:37]
+WARNING: [Synth 8-689] width (32) of port connection 'addrb_1' does not match port width (8) of module 'memoryAf_wrapper' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:38]
+WARNING: [Synth 8-689] width (33) of port connection 'dina_0' does not match port width (32) of module 'memoryAf_wrapper' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:43]
 INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/top.v:3]
+WARNING: [Synth 8-3848] Net IRLoad in module/entity CPU does not have driver. [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:109]
+WARNING: [Synth 8-3848] Net code_output in module/entity CPU does not have driver. [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v:199]
+WARNING: [Synth 8-7129] Port code_output[31] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[30] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[29] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[28] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[27] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[26] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[25] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[24] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[23] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[22] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[21] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[20] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[19] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[18] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[17] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[16] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[15] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[14] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[13] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[12] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[11] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[10] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[9] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[8] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[7] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[6] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[5] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[4] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[3] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[2] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[1] in module Instruction_Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port code_output[0] in module Instruction_Register is either unconnected or has no load
 WARNING: [Synth 8-7129] Port reset in module register_bank is either unconnected or has no load
 WARNING: [Synth 8-7129] Port clock in module ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port reset in module ALU is either unconnected or has no load
@@ -108,18 +144,18 @@ WARNING: [Synth 8-7129] Port IRLoad in module datapath is either unconnected or 
 WARNING: [Synth 8-7129] Port PCLoad in module datapath is either unconnected or has no load
 WARNING: [Synth 8-7129] Port PCinc in module datapath is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2900.875 ; gain = 451.707 ; free physical = 144 ; free virtual = 4382
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2901.395 ; gain = 451.738 ; free physical = 132 ; free virtual = 1464
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2918.688 ; gain = 469.520 ; free physical = 144 ; free virtual = 4382
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2919.207 ; gain = 469.551 ; free physical = 131 ; free virtual = 1463
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2918.688 ; gain = 469.520 ; free physical = 144 ; free virtual = 4382
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2919.207 ; gain = 469.551 ; free physical = 131 ; free virtual = 1463
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2918.688 ; gain = 0.000 ; free physical = 144 ; free virtual = 4382
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2919.207 ; gain = 0.000 ; free physical = 130 ; free virtual = 1463
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -136,22 +172,22 @@ Parsing XDC File [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.ru
 Finished Parsing XDC File [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3070.438 ; gain = 0.000 ; free physical = 133 ; free virtual = 4373
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3069.957 ; gain = 0.000 ; free physical = 132 ; free virtual = 1452
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3070.438 ; gain = 0.000 ; free physical = 133 ; free virtual = 4373
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3069.957 ; gain = 0.000 ; free physical = 131 ; free virtual = 1453
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 131 ; free virtual = 4371
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 127 ; free virtual = 1457
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 131 ; free virtual = 4371
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 127 ; free virtual = 1457
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -160,14 +196,14 @@ Applied set_property KEEP_HIERARCHY = SOFT for memoryAf_wrapper/memoryAf_i. (con
 Applied set_property KEEP_HIERARCHY = SOFT for memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for memoryAf_wrapper/memoryAf_i/blk_mem_gen_0. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 131 ; free virtual = 4371
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 127 ; free virtual = 1457
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-327] inferring latch for variable 'C_reg' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/ALU.v:56]
 WARNING: [Synth 8-327] inferring latch for variable 'Z_reg' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/ALU.v:57]
 WARNING: [Synth 8-327] inferring latch for variable 'N_reg' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/ALU.v:63]
 WARNING: [Synth 8-327] inferring latch for variable 'V_reg' [/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/ALU.v:58]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 130 ; free virtual = 4370
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 126 ; free virtual = 1456
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -176,19 +212,20 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input   33 Bit       Adders := 2     
 	   3 Input   33 Bit       Adders := 2     
-	   3 Input   32 Bit       Adders := 1     
-	   2 Input   32 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 3     
+	   3 Input   32 Bit       Adders := 2     
 +---XORs : 
 	   2 Input     33 Bit         XORs := 2     
 	   2 Input      1 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 2     
+	               32 Bit    Registers := 3     
+	               16 Bit    Registers := 1     
 	                5 Bit    Registers := 1     
 +---Muxes : 
 	  15 Input   33 Bit        Muxes := 1     
-	   2 Input   32 Bit        Muxes := 3     
-	  24 Input    5 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 22    
+	   2 Input   32 Bit        Muxes := 5     
+	  26 Input    5 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 24    
 	  15 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -234,15 +271,10 @@ WARNING: [Synth 8-7129] Port immed17[9] in module ALU is either unconnected or h
 WARNING: [Synth 8-7129] Port immed17[8] in module ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port immed17[7] in module ALU is either unconnected or has no load
 WARNING: [Synth 8-7129] Port immed17[6] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port immed17[5] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port immed17[4] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port immed17[3] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port immed17[2] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port immed17[1] in module ALU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port immed17[0] in module ALU is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-3332] Sequential element (i_2) is unused and will be removed from module ALU.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 148 ; free virtual = 4334
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 137 ; free virtual = 1441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -263,13 +295,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 129 ; free virtual = 4317
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 126 ; free virtual = 1432
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 129 ; free virtual = 4317
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 126 ; free virtual = 1432
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -289,7 +321,7 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 128 ; free virtual = 4316
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 128 ; free virtual = 1435
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -307,37 +339,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 128 ; free virtual = 4316
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 118 ; free virtual = 1428
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 128 ; free virtual = 4316
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 118 ; free virtual = 1428
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 128 ; free virtual = 4316
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 118 ; free virtual = 1428
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 128 ; free virtual = 4316
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 118 ; free virtual = 1428
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 128 ; free virtual = 4316
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 118 ; free virtual = 1428
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 128 ; free virtual = 4316
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 118 ; free virtual = 1428
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -358,46 +390,45 @@ Report Cell Usage:
 |1     |memoryAf_axi_bram_ctrl_0_bram |     1|
 |2     |memoryAf_blk_mem_gen_0        |     1|
 |3     |BUFG                          |     2|
-|4     |CARRY4                        |    39|
-|5     |LUT1                          |     3|
-|6     |LUT2                          |   163|
-|7     |LUT3                          |     6|
-|8     |LUT4                          |    24|
-|9     |LUT5                          |    69|
-|10    |LUT6                          |   227|
+|4     |CARRY4                        |    46|
+|5     |LUT1                          |     5|
+|6     |LUT2                          |   182|
+|7     |LUT3                          |    11|
+|8     |LUT4                          |    29|
+|9     |LUT5                          |    77|
+|10    |LUT6                          |   233|
 |11    |MUXF7                         |     8|
 |12    |RAM32M                        |    16|
-|13    |FDRE                          |    40|
-|14    |FDSE                          |     2|
+|13    |FDRE                          |    66|
+|14    |FDSE                          |     3|
 |15    |LD                            |     5|
 |16    |IBUF                          |     2|
 |17    |OBUF                          |    33|
 +------+------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 128 ; free virtual = 4316
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 118 ; free virtual = 1428
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 40 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 3070.438 ; gain = 469.520 ; free physical = 128 ; free virtual = 4316
-Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3070.438 ; gain = 621.270 ; free physical = 128 ; free virtual = 4316
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 3069.957 ; gain = 469.551 ; free physical = 118 ; free virtual = 1427
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 3069.957 ; gain = 620.301 ; free physical = 117 ; free virtual = 1427
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3070.438 ; gain = 0.000 ; free physical = 409 ; free virtual = 4598
-INFO: [Netlist 29-17] Analyzing 68 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3069.957 ; gain = 0.000 ; free physical = 135 ; free virtual = 1428
+INFO: [Netlist 29-17] Analyzing 75 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 16 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3070.438 ; gain = 0.000 ; free physical = 408 ; free virtual = 4597
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3069.957 ; gain = 0.000 ; free physical = 407 ; free virtual = 1708
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 21 instances were transformed.
   LD => LDCE: 5 instances
   RAM32M => RAM32M (inverted pins: WCLK) (RAMD32(x6), RAMS32(x2)): 16 instances
 
-Synth Design complete | Checksum: 414f07d7
+Synth Design complete | Checksum: 3951a43c
 INFO: [Common 17-83] Releasing license: Synthesis
-52 Infos, 87 Warnings, 0 Critical Warnings and 0 Errors encountered.
+55 Infos, 116 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:28 . Memory (MB): peak = 3070.438 ; gain = 937.605 ; free physical = 408 ; free virtual = 4597
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2629.025; main = 2307.641; forked = 376.939
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4016.516; main = 3070.441; forked = 978.090
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.statsThreshold
 INFO: [Common 17-1381] The checkpoint '/home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Nov 20 13:04:00 2023...
+INFO: [Common 17-206] Exiting Vivado at Mon Nov 20 18:24:40 2023...

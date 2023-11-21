@@ -1,38 +1,19 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 11/20/2023 09:34:40 AM
-// Design Name: 
-// Module Name: CPU
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 
 module CPU(
     input clk,
     input rst,
     
-    input [31:0]code_output,        //memory
     input [31:0]mem_operand,
+    input [7:0] IRhigh,
+    input [7:0] IRlow,
     
     output [21:0]immed22, 
     output [31:0]PC,
     output[31:0]PChigh,
     output [31:0] PClow,
     output ram_write_en,
-    output code_en,
     
     output [32:0]result
     
@@ -84,6 +65,12 @@ wire b_cmp;
 wire b_ld;
 wire b_st;
 
+
+wire IRLoad1;
+wire IRLoad2;
+
+wire ISR_req;
+
 control_unit ctrl_unit (
         .clk(clk),
         .rst(rst),
@@ -94,10 +81,12 @@ control_unit ctrl_unit (
         .Z(Z),
         .N(N),
         .V(V),
+        .ISR_req(ISR_req),
         .ram_write_en(ram_write_en),
         .ram_read_en(ram_read_en),
         .branch_en (branch_en),
-        .IRLoad(IRLoad),
+        .IRLoad1(IRLoad1),
+        .IRLoad2(IRLoad2),
         .PCinc(PCinc),
         .PCLoad(PCLoad),
         .outdata1(outdata1),
@@ -208,8 +197,11 @@ Program_Counter Program_Counter(
 Instruction_Register Instruction_Register(
    .rst(rst),
    .clk(clk),
-   .IRLoad(IRLoad),
+   .IRLoad1(IRLoad1),
+   .IRLoad2(IRLoad2),
    .code_output(code_output),
+   .IRlow(IRlow),
+   .IRhigh(IRhigh),
    .jmp_16adrr(jmp_16adrr),
    .IR(IR)
 );

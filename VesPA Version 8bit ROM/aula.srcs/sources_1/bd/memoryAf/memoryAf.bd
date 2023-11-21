@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x6B987CFDC95BAA62",
+      "boundary_crc": "0x6B987CFDFBDE9C01",
       "device": "xc7z010clg400-1",
       "gen_directory": "../../../../aula.gen/sources_1/bd/memoryAf",
       "name": "memoryAf",
@@ -14,44 +14,7 @@
       "axi_bram_ctrl_0_bram": "",
       "blk_mem_gen_0": ""
     },
-    "interface_ports": {
-      "BRAM_PORTB_0": {
-        "mode": "Slave",
-        "vlnv_bus_definition": "xilinx.com:interface:bram:1.0",
-        "vlnv": "xilinx.com:interface:bram_rtl:1.0",
-        "parameters": {
-          "MASTER_TYPE": {
-            "value": "OTHER",
-            "value_src": "default"
-          },
-          "MEM_ECC": {
-            "value": "NONE",
-            "value_src": "default"
-          },
-          "MEM_SIZE": {
-            "value": "8192",
-            "value_src": "default"
-          },
-          "MEM_WIDTH": {
-            "value": "32",
-            "value_src": "default"
-          },
-          "READ_LATENCY": {
-            "value": "1",
-            "value_src": "default"
-          },
-          "READ_WRITE_MODE": {
-            "value": "READ_ONLY"
-          }
-        }
-      }
-    },
     "ports": {
-      "addra_0": {
-        "direction": "I",
-        "left": "6",
-        "right": "0"
-      },
       "clka_0": {
         "type": "clk",
         "direction": "I",
@@ -77,21 +40,6 @@
             "value_src": "default"
           }
         }
-      },
-      "dina_0": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "wea_0": {
-        "direction": "I",
-        "left": "0",
-        "right": "0"
-      },
-      "addrb_0": {
-        "direction": "I",
-        "left": "6",
-        "right": "0"
       },
       "clkb_0": {
         "type": "clk",
@@ -119,11 +67,6 @@
           }
         }
       },
-      "doutb_0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
       "clka_1": {
         "type": "clk",
         "direction": "I",
@@ -149,16 +92,6 @@
             "value_src": "default"
           }
         }
-      },
-      "addra_1": {
-        "direction": "I",
-        "left": "7",
-        "right": "0"
-      },
-      "addrb_1": {
-        "direction": "I",
-        "left": "7",
-        "right": "0"
       },
       "clkb_1": {
         "type": "clk",
@@ -186,13 +119,48 @@
           }
         }
       },
-      "doutb_1": {
-        "direction": "O",
+      "addrb_1": {
+        "direction": "I",
         "left": "7",
         "right": "0"
       },
       "douta_0": {
         "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "doutb_0": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "doutb_1": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "dina_0": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "addrb_0": {
+        "direction": "I",
+        "left": "6",
+        "right": "0"
+      },
+      "wea_0": {
+        "direction": "I",
+        "left": "0",
+        "right": "0"
+      },
+      "addra_0": {
+        "direction": "I",
+        "left": "6",
+        "right": "0"
+      },
+      "addra_1": {
+        "direction": "I",
         "left": "7",
         "right": "0"
       }
@@ -300,14 +268,6 @@
             "value": "Stand_Alone"
           }
         }
-      }
-    },
-    "interface_nets": {
-      "BRAM_PORTB_0_1": {
-        "interface_ports": [
-          "BRAM_PORTB_0",
-          "blk_mem_gen_0/BRAM_PORTB"
-        ]
       }
     },
     "nets": {

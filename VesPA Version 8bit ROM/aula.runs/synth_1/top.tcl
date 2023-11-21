@@ -70,6 +70,13 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param checkpoint.writeSynthRtdsInDcp 1
+set_param tcl.statsThreshold 360
+set_param synth.incrementalSynthesisCache /tmp/.Xil_afonso/Vivado-42821-afonso-Modern-14-B10MW/incrSyn
+set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config -id {HDL-1065} -limit 10000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -91,7 +98,6 @@ add_files /home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sourc
 add_files /home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/rom_loader.coe
 read_mem /home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/ROM.mem
 read_verilog -library xil_defaultlib {
-  /home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/opcodes.v
   /home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/ALU.v
   /home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/CPU.v
   /home/afonso/vivadoprojects/VesPA-CPU_MEM_italian/aula/aula.srcs/sources_1/new/Instruction_Register.v

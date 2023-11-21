@@ -10,6 +10,7 @@ module Program_Counter(
     input branch_en,
     input [31:0]jmp_16adrr,
     input [31:0]pc_reg_val,
+    input PC_isr,
     
     output reg [31:0] PC,
     output reg [31:0] PClow,
@@ -29,20 +30,28 @@ module Program_Counter(
         if (rst)
         begin
             PC = 0;
+            PChigh = 0;
+            PClow = 1;
         end   
         else if (PCinc == 1'b1)
             begin
-                PC = PC + 1;
+                PC = PC + 2;
+                PChigh = PC;
+                PClow = PC +1;
             end
         else if (PCLoad == 1'b1)
         begin
              if(branch_en)
             begin 
-                 PC = PC + op_immed23 -1'b1;
+                 PC = PC + op_immed23 - 3'b100;
+                 PChigh = PC;
+                 PClow = PC +1;
             end
             else
             begin
             PC = pc_reg_val + jmp_16adrr;
+            PChigh = PC;
+            PClow = PC +1;
             end
         end
     
@@ -52,10 +61,5 @@ module Program_Counter(
 
 //assign PC = ((PCinc & branch_en) == 1'b1) ? (PC + immed23): (PCinc == 1'b1) ? (PC + 1): PC;
      
- always @(*)
- begin
-    assign PChigh = PC;
-    assign PClow = (PC +1);
- end
     
 endmodule

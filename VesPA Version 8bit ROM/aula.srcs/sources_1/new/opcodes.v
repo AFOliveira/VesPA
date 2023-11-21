@@ -45,6 +45,7 @@
 `define s_jextra2 5'b10010
 `define s_fetch 5'b10011
 `define s_fetch2 5'b10101
+`define s_fetch3 5'b10110
 `define s_decode 5'b10100
 `define s_extra 5'b11110
 `define s_jextra 5'b11100
