@@ -70,6 +70,7 @@ wire IRLoad1;
 wire IRLoad2;
 
 wire ISR_req;
+wire PC_isr;
 
 control_unit ctrl_unit (
         .clk(clk),
@@ -94,6 +95,7 @@ control_unit ctrl_unit (
          .outdataram(outdataram),
         .write_data(write_data),
         .code_en(code_en),
+        .PC_isr(PC_isr),
         .b_add(b_add),
         .b_sub(b_sub),
         .b_and(b_and),
@@ -186,6 +188,7 @@ Program_Counter Program_Counter(
     .PCLoad(PCLoad),
     .op_immed23(op_immed23),
     .branch_en(branch_en),
+    .PC_isr(PC_isr),
     .jmp_16adrr(jmp_16adrr),
     .pc_reg_val(pc_reg_val),
     .PC(PC),
@@ -206,5 +209,12 @@ Instruction_Register Instruction_Register(
    .IR(IR)
 );
 
+interruptcontrol interrupt_control (
+        .clock(clk),
+        .reset(rst),
+        .IE(IE),
+        .PC_isr(PC_isr),
+        .ISR_req(ISR_req)
+    );
 
 endmodule

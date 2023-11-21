@@ -48,6 +48,7 @@ module control_unit(
     output outdataram,
     output write_data,
     output code_en,
+    output PC_isr,
     
     output b_add,           //Control bits for ALU
     output b_sub,
@@ -213,7 +214,8 @@ module control_unit(
         
     assign PCLoad = ((state == `s_jmp) || (state == `s_bxx)) ? 1'b1:1'b0;
     
-    assign PC_isr = (ISR_req == 1'b1) ? 1'b1:1'b0;
+    assign PC_isr = (ISR_req == 1'b1 && state == `s_fetch) ? 1'b1:1'b0;
+    
     
     assign ram_write_en = (state == `s_st) ? 1'b1:1'b0;
     

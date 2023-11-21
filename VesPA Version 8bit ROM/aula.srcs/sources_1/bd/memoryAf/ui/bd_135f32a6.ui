@@ -20,19 +20,19 @@ preplace portBus addra_0 -pg 1 -lvl 0 -x 0 -y 360 -defaultsOSRD
 preplace portBus addra_1 -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
 preplace inst axi_bram_ctrl_0_bram -pg 1 -lvl 1 -x 130 -y 420 -defaultsOSRD
 preplace inst blk_mem_gen_0 -pg 1 -lvl 1 -x 130 -y 150 -defaultsOSRD
+preplace netloc addra_0_1 1 0 1 NJ 360
+preplace netloc addra_1_1 1 0 1 NJ 100
+preplace netloc addrb_0_1 1 0 1 NJ 460
+preplace netloc addrb_1_1 1 0 1 NJ 180
+preplace netloc axi_bram_ctrl_0_bram_doutb 1 0 2 20 560 NJ
+preplace netloc blk_mem_gen_0_douta 1 0 2 20 20 NJ
+preplace netloc blk_mem_gen_0_doutb 1 0 2 20 280 NJ
 preplace netloc clka_0_1 1 0 1 NJ 380
 preplace netloc clka_1_1 1 0 1 NJ 120
 preplace netloc clkb_0_1 1 0 1 NJ 480
 preplace netloc clkb_1_1 1 0 1 NJ 200
-preplace netloc addrb_1_1 1 0 1 NJ 180
-preplace netloc blk_mem_gen_0_douta 1 0 2 20 20 NJ
-preplace netloc axi_bram_ctrl_0_bram_doutb 1 0 2 20 560 NJ
-preplace netloc blk_mem_gen_0_doutb 1 0 2 20 280 NJ
 preplace netloc dina_0_1 1 0 1 NJ 400
-preplace netloc addrb_0_1 1 0 1 NJ 460
 preplace netloc wea_0_1 1 0 1 NJ 420
-preplace netloc addra_0_1 1 0 1 NJ 360
-preplace netloc addra_1_1 1 0 1 NJ 100
 levelinfo -pg 1 0 130 260
 pagesize -pg 1 -db -bbox -sgen -150 0 410 580
 "
