@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="5.103543 us"></ZoomEndTime>
+      <Cursor1Time time="2.970524 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="150"></NameColumnWidth>
+      <ValueColumnWidth column_width="69"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="21" />
+   <wvobject type="logic" fp_name="/tb_top/uut/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/ctrl_unit/PCinc">
+      <obj_property name="ElementShortName">PCinc</obj_property>
+      <obj_property name="ObjectShortName">PCinc</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/ctrl_unit/PCLoad">
+      <obj_property name="ElementShortName">PCLoad</obj_property>
+      <obj_property name="ObjectShortName">PCLoad</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/PC">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/PChigh">
+      <obj_property name="ElementShortName">PChigh[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PChigh[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/PClow">
+      <obj_property name="ElementShortName">PClow[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PClow[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/Instruction_Register/IR">
+      <obj_property name="ElementShortName">IR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">IR[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/ctrl_unit/opcode">
+      <obj_property name="ElementShortName">opcode[4:0]</obj_property>
+      <obj_property name="ObjectShortName">opcode[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/ctrl_unit/state">
+      <obj_property name="ElementShortName">state[4:0]</obj_property>
+      <obj_property name="ObjectShortName">state[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/arith_logic_unit/rs1">
+      <obj_property name="ElementShortName">rs1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/dst">
+      <obj_property name="ElementShortName">dst[4:0]</obj_property>
+      <obj_property name="ObjectShortName">dst[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/register_bank/rs1">
+      <obj_property name="ElementShortName">rs1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/arith_logic_unit/operand1">
+      <obj_property name="ElementShortName">operand1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/arith_logic_unit/operand2">
+      <obj_property name="ElementShortName">operand2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operand2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/arith_logic_unit/result">
+      <obj_property name="ElementShortName">result[32:0]</obj_property>
+      <obj_property name="ObjectShortName">result[32:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/register_bank/rdst">
+      <obj_property name="ElementShortName">rdst[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rdst[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/register_bank/in_data">
+      <obj_property name="ElementShortName">in_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">in_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/addrb_0">
+      <obj_property name="ElementShortName">addrb_0[6:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb_0[6:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/restomem1">
+      <obj_property name="ElementShortName">restomem1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">restomem1[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/restomem2">
+      <obj_property name="ElementShortName">restomem2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">restomem2[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/finresult">
+      <obj_property name="ElementShortName">finresult[31:0]</obj_property>
+      <obj_property name="ObjectShortName">finresult[31:0]</obj_property>
+   </wvobject>
+</wave_config>
