@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="5.103543 us"></ZoomEndTime>
-      <Cursor1Time time="2.970524 us"></Cursor1Time>
+      <ZoomStartTime time="546.210 ns"></ZoomStartTime>
+      <ZoomEndTime time="4,426.211 ns"></ZoomEndTime>
+      <Cursor1Time time="2,186.210 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="150"></NameColumnWidth>
-      <ValueColumnWidth column_width="69"></ValueColumnWidth>
+      <ValueColumnWidth column_width="73"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
+   <WVObjectSize size="18" />
    <wvobject type="logic" fp_name="/tb_top/uut/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -93,17 +93,5 @@
    <wvobject type="array" fp_name="/tb_top/uut/memoryAf_wrapper/addrb_0">
       <obj_property name="ElementShortName">addrb_0[6:0]</obj_property>
       <obj_property name="ObjectShortName">addrb_0[6:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/restomem1">
-      <obj_property name="ElementShortName">restomem1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">restomem1[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/restomem2">
-      <obj_property name="ElementShortName">restomem2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">restomem2[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/finresult">
-      <obj_property name="ElementShortName">finresult[31:0]</obj_property>
-      <obj_property name="ObjectShortName">finresult[31:0]</obj_property>
    </wvobject>
 </wave_config>

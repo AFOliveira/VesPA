@@ -27,8 +27,6 @@ module datapath(
         output [31:0]PChigh,
         output [31:0]PClow,
         
-        output [7:0]restomem1,
-        output [7:0]restomem2,
         output [31:0]finresult
         
         );
@@ -159,15 +157,6 @@ mux2_1iRegFile mux2_1iRegFile(
     .ctrl_out(ctrl_out),
     
     .in_data(finresult)
-    );
-    
- memoryHandler datamemoryHandler(
-    .clock(clk),
-    .finresult(finresult),
-    .ctrl_out(ctrl_out),
-    
-    .restomem1 (restomem1),
-    .restomem2 (restomem2)
     );
     
     

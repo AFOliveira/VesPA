@@ -115,15 +115,14 @@ module control_unit(
                     next_state = `s_fetch; 
 
               `s_ld:
-                    next_state = `s_start;
+                    next_state = `s_fetch;
                     
-                                  
               `s_ldi:
                     next_state = `s_fetch;
               `s_ldx:
                     next_state = `s_fetch;
               `s_st:
-                    next_state = `s_start;
+                    next_state = `s_fetch;
                     
               `s_stx:
                     next_state = `s_fetch;
@@ -178,8 +177,6 @@ module control_unit(
     assign code_en = (state == `s_fetch) ? 1'b1:1'b0;
     
     assign ram_read_en = (state == `s_ld) ? 1'b1:1'b0;
-    
-    assign ctrl_out[`p_st2] = (opcode == `s_st && state == `s_start) ? 1'b1:1'b0;
     
     assign ctrl_out[`p_muxselldi] = (opcode == `s_ldi) ? 1'b1 :1'b0;
     

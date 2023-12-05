@@ -93,7 +93,6 @@
 `define p_jmpen     5'b10110    //22
 `define p_muxsel1   5'b10111    //23
 `define p_muxselldi 5'b11000    //24
-`define p_st2       5'b11001    //25
 
 
 

@@ -16,10 +16,7 @@ module CPU(
     output [31:0]PClow,
     output ram_write_en,
     
-    output [7:0] restomem1,
-    output [7:0] restomem2,
     output [31:0]result
-    
     
     );
 
@@ -89,7 +86,26 @@ control_unit ctrl_unit (
         .V(V),
         .ISR_req(ISR_req),
         .ram_write_en(ram_write_en),
-
+//        .ram_read_en(ram_read_en),
+//        .branch_en (branch_en),
+//        .IRLoad1(IRLoad1),
+//        .IRLoad2(IRLoad2),
+//        .PCinc(PCinc),
+//        .PCLoad(PCLoad),
+//        .outdata1(outdata1),
+//        .outdata2(outdata2),
+//        .outdataram(outdataram),
+//        .write_data(write_data),
+//        .code_en(code_en),
+//        .b_add(b_add),
+//        .b_sub(b_sub),
+//        .b_and(b_and),
+//        .b_or(b_or),
+//        .b_xor(b_xor),
+//        .b_not(b_not),
+//        .b_cmp(b_cmp),
+//        .b_ld(b_ld),
+//        .b_st(b_st),
         .ctrl_out(ctrl_out)
  );
 
@@ -115,12 +131,101 @@ datapath data_path  (
           .PC(PC),
           .PChigh(PChigh),
           .PClow(PClow),
-          .restomem1(restomem1),
-          .restomem2(restomem2),
           .finresult(result)
           
           );
           
+//ALU arith_logic_unit (
+
+//          .clock(clk),
+//          .reset(rst),
+//          .opcode(opcode),
+//          .rdst(rdst),
+//          .rs1(rs1),
+//          .IMM_op(IMM_op),
+//          .rs2(rs2),
+//          //.immed23(immed23),
+//          .immed22(immed22),
+//          //.immed17(immed17),
+//          .immed16(immed16),
+//          .operand1(operand1),
+//          .operand2(operand2),
+//          .operandoutram(operandoutram),
+//          .mem_operand(mem_operand),
+////          .b_add(b_add),
+////          .b_sub(b_sub),
+////          .b_and(b_and),
+////          .b_or(b_or),
+////          .b_xor(b_xor),
+////          .b_not(b_not),
+////          .b_cmp(b_cmp),
+////          .b_ld(b_ld),
+////          .b_st(b_st),
+//          .ctrl_out(ctrl_out),
+////          .op_immed23(op_immed23),
+//          .result(result),
+//          .C(C),
+//          .Z(Z),
+//          .N(N),
+//          .V(V)
+//);
+        
+//register_bank register_bank (
+//           .clock(clk),
+//           .reset(rst),
+//           .rs1(rs1),
+//           .rs2(rs2),
+//           .rdst(rdst),
+//           .in_data(result),
+//           .ctrl_out(ctrl_out),
+//           .pc_reg_val(pc_reg_val),
+//           .operand1(operand1),
+//           .operand2(operand2),
+//           .operandoutram(operandoutram)
+//           );
+          
+
+           
+//Program_Counter Program_Counter(    //done
+//    .clk(clk),
+//    .rst(rst),
+//    .op_immed23(immed23),
+//    .jmp_16adrr(jmp_16adrr),
+//    .pc_reg_val(pc_reg_val),
+//    .ctrl_out(ctrl_out),
+//    .PC(PC),
+//    .PClow(PClow),
+//    .PChigh(PChigh)
+//    );
+    
+
+//Instruction_Register Instruction_Register(      //done
+//   .rst(rst),
+//   .clk(clk),
+//   .ctrl_out(ctrl_out),
+//   .code_output(code_output),
+//   .IRlow(IRlow),
+//   .IRhigh(IRhigh),
+//   .jmp_16adrr(jmp_16adrr),
+//   .opcode(opcode),
+//   .rdst(rdst),
+//   .rs1(rs1),
+//   .IMM_op(IMM_op),
+//   .rs2(rs2),
+//   .op_immed23(immed23),
+//   .op_immed22(immed22),
+//   .op_immed17(immed17),
+//   .op_immed16(immed16),
+//   .cond(cond)
+//);
+
+//interruptcontrol interrupt_control (
+//        .clock(clk),
+//        .reset(rst),
+//        .IE(IE),
+//        .ctrl_out(ctrl_out),
+//        .ISR_req(ISR_req)
+//    );
 
 
 endmodule
