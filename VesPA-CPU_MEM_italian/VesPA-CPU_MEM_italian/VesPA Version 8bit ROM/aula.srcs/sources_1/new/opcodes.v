@@ -22,6 +22,7 @@
 
 `define s_jmp   5'b01001
 `define s_jmpl  5'b01010
+`define s_reti  5'b11100
 
 
 //Memory management
@@ -48,7 +49,6 @@
 `define s_fetch3 5'b10110
 `define s_decode 5'b10101
 `define s_extra 5'b11110
-`define s_jextra 5'b11100
 
 
 //Branch Logic
@@ -93,7 +93,9 @@
 `define p_jmpen     5'b10110    //22
 `define p_muxsel1   5'b10111    //23
 `define p_muxselldi 5'b11000    //24
-
+`define p_st2       5'b11001    //25
+`define p_ld2       5'b11010    //26
+`define p_reti      5'b11011    //27
 
 
 `endif 

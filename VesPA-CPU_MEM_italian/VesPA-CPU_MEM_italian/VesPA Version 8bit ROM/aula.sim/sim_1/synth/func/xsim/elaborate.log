@@ -1,0 +1,61 @@
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2023.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L secureip --snapshot tb_top_func_synth xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'IE' is not connected on this instance [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sim_1/new/tb_top.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.FDRE_default
+Compiling module unisims_ver.LUT4
+Compiling module unisims_ver.LUT6
+Compiling module unisims_ver.LUT5
+Compiling module unisims_ver.x_lut2_mux4
+Compiling module unisims_ver.LUT2
+Compiling module unisims_ver.CARRY4
+Compiling module unisims_ver.x_lut3_mux8
+Compiling module unisims_ver.LUT3
+Compiling module xil_defaultlib.Button_debounce
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.BUFG
+Compiling module unisims_ver.FDSE_default
+Compiling module xil_defaultlib.control_unit
+Compiling module unisims_ver.FDRE(IS_C_INVERTED=1'b1)
+Compiling module unisims_ver.x_lut1_mux2
+Compiling module unisims_ver.LUT1
+Compiling module xil_defaultlib.Instruction_Register
+Compiling module unisims_ver.FDSE(IS_C_INVERTED=1'b1)
+Compiling module xil_defaultlib.Program_Counter
+Compiling module unisims_ver.latchsre_ldce
+Compiling module unisims_ver.LDCE
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.memoryHandler
+Compiling module xil_defaultlib.interruptcontrol
+Compiling module unisims_ver.GND
+Compiling module unisims_ver.RB18_INTERNAL_VLOG(RAM_MODE="SDP...
+Compiling module unisims_ver.RAMB18E1(INIT_00=256'b0100000000...
+Compiling module xil_defaultlib.RegFile_blk_mem_gen_0_0
+Compiling module xil_defaultlib.RegFile_blk_mem_gen_0_1
+Compiling module xil_defaultlib.RegFile
+Compiling module unisims_ver.MUXF7
+Compiling module xil_defaultlib.RegFile_wrapper
+Compiling module xil_defaultlib.register_bank
+Compiling module xil_defaultlib.datapath
+Compiling module xil_defaultlib.CPU
+Compiling module unisims_ver.OBUF
+Compiling module unisims_ver.RB18_INTERNAL_VLOG(READ_WIDTH_A=...
+Compiling module unisims_ver.RAMB18E1(INIT_00=256'b0101100000...
+Compiling module xil_defaultlib.memoryAf_axi_bram_ctrl_0_bram_0
+Compiling module unisims_ver.RB18_INTERNAL_VLOG(READ_WIDTH_A=...
+Compiling module unisims_ver.RAMB18E1(INIT_00=256'b0110000000...
+Compiling module xil_defaultlib.memoryAf_blk_mem_gen_0_1
+Compiling module xil_defaultlib.memoryAf
+Compiling module xil_defaultlib.memoryAf_wrapper
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.tb_top
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_top_func_synth

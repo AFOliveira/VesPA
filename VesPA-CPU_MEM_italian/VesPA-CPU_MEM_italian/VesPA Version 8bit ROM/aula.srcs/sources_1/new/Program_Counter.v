@@ -8,6 +8,7 @@ module Program_Counter(
     input [31:0]jmp_16adrr,
     input [31:0]pc_reg_val,
     input [31:0]ctrl_out,
+    input [1:0]isr_vec,
     
     output reg [31:0] PC,
     output reg [31:0] PClow,
@@ -34,10 +35,18 @@ module Program_Counter(
         else if(ctrl_out[`p_PCisr] == 1'b1)
         begin
             PC_isr_ret = PC;
-            PC = 32'd60;
+            if(isr_vec[0] == 1) begin
+            PC = 32'd68;
+            end
             PChigh = PC;
             PClow = PC +1;
 
+        end
+        else if (ctrl_out[`p_reti] == 1'b1)
+            begin
+                PC = PC_isr_ret;
+                PChigh = PC;
+                PClow =  PC +1;
         end   
         else if (ctrl_out[16] == 1'b1)
             begin
@@ -59,6 +68,7 @@ module Program_Counter(
                 PChigh = PC;
                 PClow = PC +1;
             end
+            
         end
     
     end

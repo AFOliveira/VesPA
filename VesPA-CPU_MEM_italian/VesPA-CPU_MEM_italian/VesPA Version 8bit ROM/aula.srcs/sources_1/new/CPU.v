@@ -5,8 +5,10 @@ module CPU(
     input clk,
     input rst,
     input IE, //button interrupt enable alter future
+    input EA,
     
-    input [31:0]mem_operand,
+    input [7:0] mem_outL,  // both memories outputs
+    input [7:0] mem_outH,
     input [7:0] IRhigh,
     input [7:0] IRlow,
     
@@ -16,40 +18,20 @@ module CPU(
     output [31:0]PClow,
     output ram_write_en,
     
-    output [31:0]result
+    output [7:0] restomem1,
+    output [7:0] restomem2,
+    output [31:0]result,
+    output [7:0] d_addrH,
+    output [7:0] d_addrL,
     
+    output [31:0] ctrl_out,
+    output reg [3:0] gr_result
     );
 
 wire [4:0] opcode;
-//wire [4:0]rdst;
-//wire [4:0] rs1;
 wire IMM_op;
-//wire [4:0] rs2;
-//wire [31:0] immed23;
-////wire [21:0] immed22;
-//wire [31:0] immed17;
-//wire [31:0] immed16;
 wire [3:0] cond;
-//wire [31:0] operand1;
-//wire [31:0] operand2;
-//wire [31:0] operandoutram;
-//wire outdata1;
-//wire outdata2;
-//wire outdataram;
-//wire write_data;
-//wire [31:0] result;
-//wire PCInc;
-//wire branch_en;
-//wire [31:0] PC;
-//wire [31:0] op_immed23;
-//wire code_en;
-//wire [31:0] code_output;
-//wire [31:0] IR;
-//wire [31:0] pc_reg_val;
-//wire [31:0] jmp_16adrr;
-//wire ram_read_en;
-//wire [31:0] mem_operand;
-//wire ram_write_en;
+
 
 wire C;             //Condition Codes
 wire Z;
@@ -72,7 +54,12 @@ wire V;
 
 wire ISR_req;
 
-wire [31:0]ctrl_out;
+//wire [31:0]ctrl_out;
+
+initial begin
+gr_result = 4'b0;
+
+end
 
 control_unit ctrl_unit (
         .clk(clk),
@@ -86,26 +73,7 @@ control_unit ctrl_unit (
         .V(V),
         .ISR_req(ISR_req),
         .ram_write_en(ram_write_en),
-//        .ram_read_en(ram_read_en),
-//        .branch_en (branch_en),
-//        .IRLoad1(IRLoad1),
-//        .IRLoad2(IRLoad2),
-//        .PCinc(PCinc),
-//        .PCLoad(PCLoad),
-//        .outdata1(outdata1),
-//        .outdata2(outdata2),
-//        .outdataram(outdataram),
-//        .write_data(write_data),
-//        .code_en(code_en),
-//        .b_add(b_add),
-//        .b_sub(b_sub),
-//        .b_and(b_and),
-//        .b_or(b_or),
-//        .b_xor(b_xor),
-//        .b_not(b_not),
-//        .b_cmp(b_cmp),
-//        .b_ld(b_ld),
-//        .b_st(b_st),
+
         .ctrl_out(ctrl_out)
  );
 
@@ -115,7 +83,9 @@ datapath data_path  (
           .rst(rst),
           .ISR_req(ISR_req),
           .IE(IE),
-          .mem_operand(mem_operand),
+          .EA(EA),
+          .mem_outL(mem_outL),
+          .mem_outH(mem_outH),
           .IRhigh(IRhigh),
           .IRlow(IRlow),
           .ctrl_out(ctrl_out),
@@ -131,101 +101,25 @@ datapath data_path  (
           .PC(PC),
           .PChigh(PChigh),
           .PClow(PClow),
-          .finresult(result)
-          
+          .restomem1(restomem1),
+          .restomem2(restomem2),
+          .finresult(result),
+           .d_addrH(d_addrH),
+           .d_addrL(d_addrL)
+
           );
           
-//ALU arith_logic_unit (
-
-//          .clock(clk),
-//          .reset(rst),
-//          .opcode(opcode),
-//          .rdst(rdst),
-//          .rs1(rs1),
-//          .IMM_op(IMM_op),
-//          .rs2(rs2),
-//          //.immed23(immed23),
-//          .immed22(immed22),
-//          //.immed17(immed17),
-//          .immed16(immed16),
-//          .operand1(operand1),
-//          .operand2(operand2),
-//          .operandoutram(operandoutram),
-//          .mem_operand(mem_operand),
-////          .b_add(b_add),
-////          .b_sub(b_sub),
-////          .b_and(b_and),
-////          .b_or(b_or),
-////          .b_xor(b_xor),
-////          .b_not(b_not),
-////          .b_cmp(b_cmp),
-////          .b_ld(b_ld),
-////          .b_st(b_st),
-//          .ctrl_out(ctrl_out),
-////          .op_immed23(op_immed23),
-//          .result(result),
-//          .C(C),
-//          .Z(Z),
-//          .N(N),
-//          .V(V)
-//);
-        
-//register_bank register_bank (
-//           .clock(clk),
-//           .reset(rst),
-//           .rs1(rs1),
-//           .rs2(rs2),
-//           .rdst(rdst),
-//           .in_data(result),
-//           .ctrl_out(ctrl_out),
-//           .pc_reg_val(pc_reg_val),
-//           .operand1(operand1),
-//           .operand2(operand2),
-//           .operandoutram(operandoutram)
-//           );
-          
-
-           
-//Program_Counter Program_Counter(    //done
-//    .clk(clk),
-//    .rst(rst),
-//    .op_immed23(immed23),
-//    .jmp_16adrr(jmp_16adrr),
-//    .pc_reg_val(pc_reg_val),
-//    .ctrl_out(ctrl_out),
-//    .PC(PC),
-//    .PClow(PClow),
-//    .PChigh(PChigh)
-//    );
+ always @(posedge clk)
+ begin
+    if(ctrl_out[21])
+    begin
+        gr_result[0] = result[0];
+        gr_result[1] = result[1];
+        gr_result[2] = result[2];
+        gr_result[3] = result[3];
+    end
     
-
-//Instruction_Register Instruction_Register(      //done
-//   .rst(rst),
-//   .clk(clk),
-//   .ctrl_out(ctrl_out),
-//   .code_output(code_output),
-//   .IRlow(IRlow),
-//   .IRhigh(IRhigh),
-//   .jmp_16adrr(jmp_16adrr),
-//   .opcode(opcode),
-//   .rdst(rdst),
-//   .rs1(rs1),
-//   .IMM_op(IMM_op),
-//   .rs2(rs2),
-//   .op_immed23(immed23),
-//   .op_immed22(immed22),
-//   .op_immed17(immed17),
-//   .op_immed16(immed16),
-//   .cond(cond)
-//);
-
-//interruptcontrol interrupt_control (
-//        .clock(clk),
-//        .reset(rst),
-//        .IE(IE),
-//        .ctrl_out(ctrl_out),
-//        .ISR_req(ISR_req)
-//    );
+ end
 
 
 endmodule

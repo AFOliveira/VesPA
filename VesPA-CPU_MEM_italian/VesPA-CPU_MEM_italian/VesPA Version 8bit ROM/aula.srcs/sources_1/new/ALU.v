@@ -56,7 +56,7 @@ module ALU(
                        (ctrl_out[`p_xor] && ~IMM_op) ? (operand1 ^ operand2) : (ctrl_out[`p_xor] && IMM_op) ? (operand1 ^ immed16) : 
                        (ctrl_out[`p_not]) ? ~operand1 :
                        (ctrl_out[`p_cmp]) ? (operand1 - operand2) :
-                       (ctrl_out[`p_ld]) ? mem_operand :
+                       (ctrl_out[`p_ld2]) ? mem_operand :
                        (ctrl_out[`p_st]) ? operand1 : 32'hZZZ;
 
     assign subt = (opcode == `s_sub) ? 1'b1:1'b0;

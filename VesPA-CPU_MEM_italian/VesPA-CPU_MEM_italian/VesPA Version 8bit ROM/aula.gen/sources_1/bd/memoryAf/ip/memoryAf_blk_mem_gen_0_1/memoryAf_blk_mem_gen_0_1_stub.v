@@ -2,11 +2,10 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-// Date        : Thu Nov 30 10:38:59 2023
+// Date        : Tue Dec  5 18:02:28 2023
 // Host        : afonso-Modern-14-B10MW running 64-bit Ubuntu 22.04.3 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit
-//               ROM/aula.gen/sources_1/bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/memoryAf_blk_mem_gen_0_1_stub.v}
+// Command     : write_verilog -force -mode synth_stub -rename_top memoryAf_blk_mem_gen_0_1 -prefix
+//               memoryAf_blk_mem_gen_0_1_ memoryAf_blk_mem_gen_0_1_stub.v
 // Design      : memoryAf_blk_mem_gen_0_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

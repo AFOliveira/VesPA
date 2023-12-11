@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x8CCE2DAA2A04AB7C",
+      "boundary_crc": "0x8D03735C03BE07F7",
       "device": "xc7z010clg400-1",
       "gen_directory": "../../../../aula.gen/sources_1/bd/memoryAf",
       "name": "memoryAf",
@@ -100,22 +100,12 @@
       },
       "doutb_0": {
         "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "dina_0": {
-        "direction": "I",
-        "left": "31",
+        "left": "7",
         "right": "0"
       },
       "addrb_0": {
         "direction": "I",
         "left": "6",
-        "right": "0"
-      },
-      "wea_0": {
-        "direction": "I",
-        "left": "0",
         "right": "0"
       },
       "addra_0": {
@@ -136,6 +126,26 @@
       "douta_0": {
         "direction": "O",
         "left": "7",
+        "right": "0"
+      },
+      "dinb_0": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "douta_1": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "dina_0": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "wea_0": {
+        "direction": "I",
+        "left": "0",
         "right": "0"
       }
     },
@@ -168,16 +178,22 @@
             "value": "true"
           },
           "Memory_Type": {
-            "value": "Simple_Dual_Port_RAM"
+            "value": "True_Dual_Port_RAM"
           },
           "Operating_Mode_A": {
             "value": "NO_CHANGE"
+          },
+          "Operating_Mode_B": {
+            "value": "NO_CHANGE"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
           },
           "Register_PortB_Output_of_Memory_Primitives": {
             "value": "false"
           },
           "Remaining_Memory_Locations": {
-            "value": "2"
+            "value": "b"
           },
           "Use_Byte_Write_Enable": {
             "value": "false"
@@ -186,10 +202,10 @@
             "value": "128"
           },
           "Write_Width_A": {
-            "value": "32"
+            "value": "8"
           },
           "Write_Width_B": {
-            "value": "32"
+            "value": "8"
           },
           "use_bram_block": {
             "value": "Stand_Alone"
@@ -287,6 +303,12 @@
           "blk_mem_gen_0/addrb"
         ]
       },
+      "axi_bram_ctrl_0_bram_douta": {
+        "ports": [
+          "axi_bram_ctrl_0_bram/douta",
+          "douta_1"
+        ]
+      },
       "axi_bram_ctrl_0_bram_doutb": {
         "ports": [
           "axi_bram_ctrl_0_bram/doutb",
@@ -330,10 +352,17 @@
           "axi_bram_ctrl_0_bram/dina"
         ]
       },
+      "dinb_0_1": {
+        "ports": [
+          "dinb_0",
+          "axi_bram_ctrl_0_bram/dinb"
+        ]
+      },
       "wea_0_1": {
         "ports": [
           "wea_0",
-          "axi_bram_ctrl_0_bram/wea"
+          "axi_bram_ctrl_0_bram/wea",
+          "axi_bram_ctrl_0_bram/web"
         ]
       }
     }

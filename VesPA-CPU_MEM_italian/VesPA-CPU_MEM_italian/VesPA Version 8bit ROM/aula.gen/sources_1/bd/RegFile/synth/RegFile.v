@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
-//Date        : Wed Nov 29 14:05:21 2023
+//Date        : Tue Dec  5 10:02:22 2023
 //Host        : afonso-Modern-14-B10MW running 64-bit Ubuntu 22.04.3 LTS
 //Command     : generate_target RegFile.bd
 //Design      : RegFile
@@ -29,36 +29,36 @@ module RegFile
   input [0:0]wea_0;
   input [4:0]writeaddress;
 
-  wire [4:0]addra_0_1;
-  wire [4:0]addrb_0_2;
-  wire [4:0]addrb_1_1;
+  wire [4:0]addrb_0_1;
   wire [31:0]blk_mem_gen_0_doutb;
   wire [31:0]blk_mem_gen_1_doutb;
   wire clka_0_1;
   wire [31:0]dina_0_1;
+  wire [4:0]readaddress2_1;
   wire [0:0]wea_0_1;
+  wire [4:0]writeaddress_1;
 
-  assign addra_0_1 = writeaddress[4:0];
-  assign addrb_0_2 = readaddress2[4:0];
-  assign addrb_1_1 = readaddress1[4:0];
+  assign addrb_0_1 = readaddress1[4:0];
   assign clka_0_1 = clka_0;
   assign dina_0_1 = dina_0[31:0];
   assign doutb_0[31:0] = blk_mem_gen_0_doutb;
   assign doutb_1[31:0] = blk_mem_gen_1_doutb;
+  assign readaddress2_1 = readaddress2[4:0];
   assign wea_0_1 = wea_0[0];
+  assign writeaddress_1 = writeaddress[4:0];
   RegFile_blk_mem_gen_0_0 blk_mem_gen_0
-       (.addra(addra_0_1),
-        .addrb(addrb_1_1),
+       (.addra(writeaddress_1),
+        .addrb(addrb_0_1),
         .clka(clka_0_1),
-        .clkb(dina_0_1[0]),
+        .clkb(clka_0_1),
         .dina(dina_0_1),
         .doutb(blk_mem_gen_0_doutb),
         .wea(wea_0_1));
   RegFile_blk_mem_gen_0_1 blk_mem_gen_1
-       (.addra(addra_0_1),
-        .addrb(addrb_0_2),
+       (.addra(writeaddress_1),
+        .addrb(readaddress2_1),
         .clka(clka_0_1),
-        .clkb(dina_0_1[0]),
+        .clkb(clka_0_1),
         .dina(dina_0_1),
         .doutb(blk_mem_gen_1_doutb),
         .wea(wea_0_1));

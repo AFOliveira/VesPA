@@ -3,12 +3,12 @@
 # SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Thu Nov 30 10:19:29 2023
-# Process ID: 13606
+# Start of session at: Tue Dec  5 11:05:19 2023
+# Process ID: 21936
 # Current directory: /home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/RegFile_blk_mem_gen_0_0_synth_1
 # Command line: vivado -log RegFile_blk_mem_gen_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RegFile_blk_mem_gen_0_0.tcl
 # Log file: /home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/RegFile_blk_mem_gen_0_0_synth_1/RegFile_blk_mem_gen_0_0.vds
 # Journal file: /home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/RegFile_blk_mem_gen_0_0_synth_1/vivado.jou
-# Running On: afonso-Modern-14-B10MW, OS: Linux, CPU Frequency: 3600.344 MHz, CPU Physical cores: 4, Host memory: 8129 MB
+# Running On: afonso-Modern-14-B10MW, OS: Linux, CPU Frequency: 4298.879 MHz, CPU Physical cores: 4, Host memory: 8129 MB
 #-----------------------------------------------------------
 source RegFile_blk_mem_gen_0_0.tcl -notrace

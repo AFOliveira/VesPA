@@ -70,11 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache /tmp/.Xil_afonso/Vivado-3721-afonso-Modern-14-B10MW/incrSyn
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z010clg400-1
 
@@ -95,7 +90,6 @@ OPTRACE "Adding files" START { }
 add_files {{/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/bd/memoryAf/ip/memoryAf_axi_bram_ctrl_0_bram_0/load_ram.coe}}
 add_files {{/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/rom_loader.coe}}
 add_files {{/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/bd/RegFile/ip/RegFile_blk_mem_gen_0_0/regfileinit.coe}}
-read_mem {{/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/ROM.mem}}
 read_verilog -library xil_defaultlib {
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/opcodes.v}
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/ALU.v}
@@ -103,10 +97,12 @@ read_verilog -library xil_defaultlib {
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/Instruction_Register.v}
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/Program_Counter.v}
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/imports/hdl/RegFile_wrapper.v}
+  {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/button_debounce.v}
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v}
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v}
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/interruptcontrol.v}
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/imports/hdl/memoryAf_wrapper.v}
+  {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/memoryHandler.v}
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/mux2_1.v}
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/mux2_1iRegFile.v}
   {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/register_bank.v}

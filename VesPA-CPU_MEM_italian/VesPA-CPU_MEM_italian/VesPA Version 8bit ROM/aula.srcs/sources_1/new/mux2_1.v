@@ -30,6 +30,6 @@ module mux2_1(
     
     `include "opcodes.v"
     
-  assign dst  = ctrl_out[`p_muxsel1] ?  rdst: rs1;
+  assign dst  = (ctrl_out[`p_muxsel1]) ?  rdst: rs1;
     
 endmodule

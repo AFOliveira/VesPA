@@ -61,6 +61,11 @@
         "left": "4",
         "right": "0"
       },
+      "wea_0": {
+        "direction": "I",
+        "left": "0",
+        "right": "0"
+      },
       "readaddress2": {
         "direction": "I",
         "left": "4",
@@ -69,11 +74,6 @@
       "readaddress1": {
         "direction": "I",
         "left": "4",
-        "right": "0"
-      },
-      "wea_0": {
-        "direction": "I",
-        "left": "0",
         "right": "0"
       }
     },
@@ -100,7 +100,7 @@
             "value": "Always_Enabled"
           },
           "Fill_Remaining_Memory_Locations": {
-            "value": "true"
+            "value": "false"
           },
           "Load_Init_File": {
             "value": "true"
@@ -110,9 +110,6 @@
           },
           "Register_PortB_Output_of_Memory_Primitives": {
             "value": "false"
-          },
-          "Remaining_Memory_Locations": {
-            "value": "15"
           },
           "Use_RSTB_Pin": {
             "value": "false"
@@ -147,7 +144,7 @@
             "value": "Always_Enabled"
           },
           "Fill_Remaining_Memory_Locations": {
-            "value": "true"
+            "value": "false"
           },
           "Load_Init_File": {
             "value": "true"
@@ -157,9 +154,6 @@
           },
           "Register_PortB_Output_of_Memory_Primitives": {
             "value": "false"
-          },
-          "Remaining_Memory_Locations": {
-            "value": "15"
           },
           "Use_RSTB_Pin": {
             "value": "false"
@@ -174,20 +168,7 @@
       }
     },
     "nets": {
-      "addra_0_1": {
-        "ports": [
-          "writeaddress",
-          "blk_mem_gen_0/addra",
-          "blk_mem_gen_1/addra"
-        ]
-      },
-      "addrb_0_2": {
-        "ports": [
-          "readaddress2",
-          "blk_mem_gen_1/addrb"
-        ]
-      },
-      "addrb_1_1": {
+      "addrb_0_1": {
         "ports": [
           "readaddress1",
           "blk_mem_gen_0/addrb"
@@ -209,23 +190,36 @@
         "ports": [
           "clka_0",
           "blk_mem_gen_0/clka",
-          "blk_mem_gen_1/clka"
+          "blk_mem_gen_0/clkb",
+          "blk_mem_gen_1/clka",
+          "blk_mem_gen_1/clkb"
         ]
       },
       "dina_0_1": {
         "ports": [
           "dina_0",
           "blk_mem_gen_0/dina",
-          "blk_mem_gen_1/dina",
-          "blk_mem_gen_1/clkb",
-          "blk_mem_gen_0/clkb"
+          "blk_mem_gen_1/dina"
+        ]
+      },
+      "readaddress2_1": {
+        "ports": [
+          "readaddress2",
+          "blk_mem_gen_1/addrb"
         ]
       },
       "wea_0_1": {
         "ports": [
           "wea_0",
-          "blk_mem_gen_1/wea",
-          "blk_mem_gen_0/wea"
+          "blk_mem_gen_0/wea",
+          "blk_mem_gen_1/wea"
+        ]
+      },
+      "writeaddress_1": {
+        "ports": [
+          "writeaddress",
+          "blk_mem_gen_0/addra",
+          "blk_mem_gen_1/addra"
         ]
       }
     }

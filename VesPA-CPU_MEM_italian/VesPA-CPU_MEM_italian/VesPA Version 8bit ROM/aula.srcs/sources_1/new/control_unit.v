@@ -1,23 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/09/2023 10:14:30 AM
-// Design Name: 
-// Module Name: control_unit
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -87,48 +68,50 @@ module control_unit(
               `s_decode:
                     next_state = opcode;
                         
-                                                             
              `s_nop:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
            
               `s_add:
                     
-                    next_state = `s_fetch;
+                    next_state = `s_start;
               
               `s_sub:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
                     
               `s_or:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
               `s_and:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
               `s_not:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
               `s_xor:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
               `s_cmp:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
               `s_bxx:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
                     
               `s_jmp:
-                    next_state = `s_fetch; 
+                    next_state = `s_start; 
 
               `s_ld:
-                    next_state = `s_fetch;
-                    
+                    next_state = `s_start;                    
+                                  
               `s_ldi:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
               `s_ldx:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
               `s_st:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
                     
               `s_stx:
-                    next_state = `s_fetch;
+                    next_state = `s_start;
               `s_halt:
                     next_state = `s_halt;   
-                 
+              `s_reti:
+              begin
+                    next_state = `s_start;
+              end
            
            default:
             next_state = `s_start;
@@ -170,7 +153,7 @@ module control_unit(
   
    
     //update result on result bank
-    assign write_data = (b_add | b_sub | b_cmp | b_and | b_or | b_xor | b_not | b_ld) ? 1'b1:1'b0;
+    assign write_data = (b_add | b_sub | b_cmp | b_and | b_or | b_xor | b_not | ctrl_out [`p_ld2]) ? 1'b1:1'b0;
     
     assign PCinc = (state == `s_fetch || state == `s_fetch2) ? 1'b1:1'b0;
     
@@ -178,15 +161,22 @@ module control_unit(
     
     assign ram_read_en = (state == `s_ld) ? 1'b1:1'b0;
     
+    assign ctrl_out[`p_st2] = (opcode == `s_st && state == `s_start) ? 1'b1:1'b0;
+    
+    assign ctrl_out [`p_ld2] = (opcode == `s_ld && state == `s_start) ? 1'b1 :1'b0;
+    
     assign ctrl_out[`p_muxselldi] = (opcode == `s_ldi) ? 1'b1 :1'b0;
     
     assign PCLoad = ((state == `s_jmp) || (state == `s_bxx)) ? 1'b1:1'b0;
     
-    assign PC_isr = (ISR_req == 1'b1 && state == `s_decode) ? 1'b1:1'b0;
+    assign PC_isr = (ISR_req == 1'b1 && state == `s_start) ? 1'b1:1'b0;
     
-    assign ram_write_en = (state == `s_st) ? 1'b1:1'b0;
+    assign ram_write_en = (state == `s_st || opcode == `s_st &&(state == `s_start)) ? 1'b1:1'b0;
     
     assign ctrl_out[`p_muxsel1] = (opcode == `s_st) ? 1'b1: 1'b0;
+    
+    assign ctrl_out [`p_reti] = (state == `s_reti ) ? 1'b1 : 1'b0;
+    
     
     assign b_add =  (state == `s_add) ? 1'b1:1'b0;        
     assign b_sub =  (state == `s_sub) ? 1'b1:1'b0;   
@@ -225,7 +215,7 @@ module control_unit(
     assign ctrl_out[19] = ram_read_en;
     assign ctrl_out[20] = ram_write_en;
     //RESULT CONTROL BIT
-    assign ctrl_out[21] = write_data;
+    assign ctrl_out[`p_w_data] = write_data;
     
 endmodule
 
