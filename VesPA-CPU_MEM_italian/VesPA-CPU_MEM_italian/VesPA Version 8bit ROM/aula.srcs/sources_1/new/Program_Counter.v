@@ -36,7 +36,11 @@ module Program_Counter(
         begin
             PC_isr_ret = PC;
             if(isr_vec[0] == 1) begin
-            PC = 32'd68;
+                PC = 32'd68;
+            end
+            if (isr_vec[1] == 1)
+            begin
+                PC = 32'd76;
             end
             PChigh = PC;
             PClow = PC +1;

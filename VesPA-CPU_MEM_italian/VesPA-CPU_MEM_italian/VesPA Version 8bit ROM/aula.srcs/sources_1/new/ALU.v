@@ -14,8 +14,8 @@ module ALU(
     input [31:0] immed17,
     input [31:0] immed16,
     input [31:0] operand1,
+    input [31:0] operandi,
     input [31:0] operand2,
-    input [31:0] operandoutram,
     input [31:0] mem_operand,
         
     input [31:0]ctrl_out,
@@ -57,12 +57,9 @@ module ALU(
                        (ctrl_out[`p_not]) ? ~operand1 :
                        (ctrl_out[`p_cmp]) ? (operand1 - operand2) :
                        (ctrl_out[`p_ld2]) ? mem_operand :
-                       (ctrl_out[`p_st]) ? operand1 : 32'hZZZ;
+                       (ctrl_out[`p_st]) ? operand1 : 
+                       (ctrl_out[`p_sti]) ? operandi : 32'hZZZ;
 
     assign subt = (opcode == `s_sub) ? 1'b1:1'b0;
-       
-//    assign op_immed16 = {{16{immed16[15]}}, immed16};
-//    assign op_immed22 = {{9{immed22[21]}}, immed22};
-//    assign op_immed23 = {{8{immed23[22]}}, immed23};
-    
+           
 endmodule

@@ -43,9 +43,9 @@ module control_unit(
     
         if(rst == 1'b1)
         begin
-            state = `s_start;
+            state <= `s_start;
         end else begin
-            state = next_state;
+            state <= next_state;
         end 
      
     end
@@ -54,30 +54,24 @@ module control_unit(
     begin
         case (state)
         
-           `s_start:
-           begin
-              next_state = `s_fetch;
-           end                                   //iniciar variáveis
+              `s_start:
+               begin
+                  next_state = `s_fetch;
+               end                                   //iniciar variáveis
+                        
+              `s_fetch:
+                    next_state = `s_fetch2;
                     
-           `s_fetch:
-                next_state = `s_fetch2;
-                
-           `s_fetch2:
-                next_state = `s_decode; 
-                  
+              `s_fetch2:
+                    next_state = `s_decode; 
               `s_decode:
                     next_state = opcode;
-                        
-             `s_nop:
+              `s_nop:
                     next_state = `s_start;
-           
               `s_add:
-                    
                     next_state = `s_start;
-              
               `s_sub:
                     next_state = `s_start;
-                    
               `s_or:
                     next_state = `s_start;
               `s_and:
@@ -90,21 +84,19 @@ module control_unit(
                     next_state = `s_start;
               `s_bxx:
                     next_state = `s_start;
-                    
               `s_jmp:
                     next_state = `s_start; 
-
               `s_ld:
                     next_state = `s_start;                    
-                                  
               `s_ldi:
                     next_state = `s_start;
               `s_ldx:
                     next_state = `s_start;
               `s_st:
-                    next_state = `s_start;
-                    
+                    next_state = `s_start;                   
               `s_stx:
+                    next_state = `s_start;
+              `s_sti:
                     next_state = `s_start;
               `s_halt:
                     next_state = `s_halt;   
@@ -171,12 +163,14 @@ module control_unit(
     
     assign PC_isr = (ISR_req == 1'b1 && state == `s_start) ? 1'b1:1'b0;
     
-    assign ram_write_en = (state == `s_st || opcode == `s_st &&(state == `s_start)) ? 1'b1:1'b0;
+    assign ram_write_en = (state == `s_st || opcode == `s_st &&(state == `s_start) || state == `s_sti  || (opcode == `s_sti && state == `s_start)) ? 1'b1:1'b0;
     
     assign ctrl_out[`p_muxsel1] = (opcode == `s_st) ? 1'b1: 1'b0;
     
     assign ctrl_out [`p_reti] = (state == `s_reti ) ? 1'b1 : 1'b0;
     
+    assign ctrl_out[`p_sti] = (opcode == `s_sti && state == `s_start);
+
     
     assign b_add =  (state == `s_add) ? 1'b1:1'b0;        
     assign b_sub =  (state == `s_sub) ? 1'b1:1'b0;   
@@ -216,6 +210,5 @@ module control_unit(
     assign ctrl_out[20] = ram_write_en;
     //RESULT CONTROL BIT
     assign ctrl_out[`p_w_data] = write_data;
-    
 endmodule
 

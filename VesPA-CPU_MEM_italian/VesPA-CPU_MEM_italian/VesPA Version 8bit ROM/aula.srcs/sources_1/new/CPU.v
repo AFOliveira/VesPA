@@ -11,12 +11,16 @@ module CPU(
     input [7:0] mem_outH,
     input [7:0] IRhigh,
     input [7:0] IRlow,
+    input [31:0] spi_data,
+    
+    input SPI_req,
     
     output [31:0]immed22, 
     output [31:0]PC,
     output [31:0]PChigh,
     output [31:0]PClow,
     output ram_write_en,
+    
     
     output [7:0] restomem1,
     output [7:0] restomem2,
@@ -25,7 +29,7 @@ module CPU(
     output [7:0] d_addrL,
     
     output [31:0] ctrl_out,
-    output reg [3:0] gr_result
+    output reg [3:0] gr_result    
     );
 
 wire [4:0] opcode;
@@ -38,23 +42,10 @@ wire Z;
 wire N;
 wire V;
 
-//wire b_add;          //Control bits fçor ALU
-//wire b_sub;
-//wire b_and;
-//wire b_or;
-//wire b_xor;
-//wire b_not;
-//wire b_cmp;
-//wire b_ld;
-//wire b_st;
 
-
-//wire IRLoad1;
-//wire IRLoad2;
 
 wire ISR_req;
 
-//wire [31:0]ctrl_out;
 
 initial begin
 gr_result = 4'b0;
@@ -78,7 +69,6 @@ control_unit ctrl_unit (
  );
 
 datapath data_path  (
-
           .clk(clk),
           .rst(rst),
           .ISR_req(ISR_req),
@@ -89,6 +79,8 @@ datapath data_path  (
           .IRhigh(IRhigh),
           .IRlow(IRlow),
           .ctrl_out(ctrl_out),
+          .operandi(spi_data),
+          .SPI_req(SPI_req),
           //.IR(IR),
           .opcode(opcode),
           .cond(cond),
@@ -104,9 +96,8 @@ datapath data_path  (
           .restomem1(restomem1),
           .restomem2(restomem2),
           .finresult(result),
-           .d_addrH(d_addrH),
-           .d_addrL(d_addrL)
-
+          .d_addrH(d_addrH),
+          .d_addrL(d_addrL)
           );
           
  always @(posedge clk)

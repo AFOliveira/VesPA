@@ -42,7 +42,7 @@ initial begin
     rst= 0;
  end
  
- always #100 clock =~clock;
+ always #10 clock =~clock;
 
 
 endmodule

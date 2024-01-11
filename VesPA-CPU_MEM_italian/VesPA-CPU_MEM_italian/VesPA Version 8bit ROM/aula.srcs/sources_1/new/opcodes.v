@@ -32,6 +32,8 @@
 `define s_st 5'b01110
 `define s_st2 5'b11011
 `define s_stx 5'b01111
+`define s_sti 5'b11110
+
 
 `define s_nop     5'b00000
 `define s_halt 5'b11111
@@ -48,7 +50,6 @@
 `define s_fetch2 5'b10100
 `define s_fetch3 5'b10110
 `define s_decode 5'b10101
-`define s_extra 5'b11110
 
 
 //Branch Logic
@@ -96,6 +97,7 @@
 `define p_st2       5'b11001    //25
 `define p_ld2       5'b11010    //26
 `define p_reti      5'b11011    //27
+`define p_sti       5'b11100    //28
 
 
 `endif 

@@ -14,7 +14,9 @@ module datapath(
         input [7:0]IRhigh,
         input [7:0]IRlow,
         input [31:0]ctrl_out,
-        //input [31:0]IR,
+        input [31:0] operandi,
+        
+        input SPI_req,
         
         output [4:0]opcode,
         output [3:0]cond,
@@ -34,19 +36,16 @@ module datapath(
         output [31:0]finresult,
         output [7:0] d_addrH,
         output [7:0] d_addrL
+        
         );
      
 wire [3:0]isr_vec;        
-//wire [4:0] opcode;
 wire [4:0]rdst;
 wire [4:0] rs1;
-//wire IMM_op;
 wire [4:0] rs2;
 wire [31:0] immed23;
-//wire [21:0] immed22;
 wire [31:0] immed17;
 wire [31:0] immed16;
-//wire [3:0] cond;
 wire [31:0] operand1;
 wire [31:0] operand2;
 wire [31:0] operandoutram;
@@ -58,39 +57,24 @@ wire [31:0] pc_reg_val;
 wire [31:0] jmp_16adrr;
         
 ALU arith_logic_unit (
-
-          .clock(clk),
-          .reset(rst),
           .opcode(opcode),
           .rdst(rdst),
           .rs1(rs1),
           .IMM_op(IMM_op),
           .rs2(rs2),
-          //.immed23(immed23),
           .immed22(immed22),
-          //.immed17(immed17),
           .immed16(immed16),
           .operand1(operand1),
+          .operandi(operandi),
           .operand2(operand2),
-          .operandoutram(operand1),
           .mem_operand(mem_result),
-//          .b_add(b_add),
-//          .b_sub(b_sub),
-//          .b_and(b_and),
-//          .b_or(b_or),
-//          .b_xor(b_xor),
-//          .b_not(b_not),
-//          .b_cmp(b_cmp),
-//          .b_ld(b_ld),
-//          .b_st(b_st),
           .ctrl_out(ctrl_out),
-//          .op_immed23(op_immed23),
           .result(result),
           .C(C),
           .Z(Z),
           .N(N),
           .V(V)
-);
+          );
         
 register_bank register_bank (
            .clock(clk),
@@ -147,10 +131,11 @@ interruptcontrol interrupt_control (
         .reset(rst),
         .IE(IE),
         .EA(EA),
+        .SPI_req(SPI_req),
         .ctrl_out(ctrl_out),
         .ISR_vec(isr_vec),
         .ISR_req(ISR_req)
-    );
+        );
 
 mux2_1 muxRegfile(
     .rs1(rs1),
@@ -177,9 +162,10 @@ mux2_1iRegFile mux2_1iRegFile(
     .restomem1 (restomem1),
     .restomem2 (restomem2),
     .d_addrL(d_addrL),
-    .d_addrH(d_addrH),
+    .d_addrH(d_addrH)z,
     .mem_result(mem_result)
     );
     
+
     
 endmodule

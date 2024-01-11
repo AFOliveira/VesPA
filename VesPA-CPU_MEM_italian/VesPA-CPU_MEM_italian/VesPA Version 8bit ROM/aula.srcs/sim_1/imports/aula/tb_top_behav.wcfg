@@ -11,107 +11,94 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="32.197968 us"></ZoomEndTime>
-      <Cursor1Time time="0.607509 us"></Cursor1Time>
+      <ZoomStartTime time="8,253.817 ns"></ZoomStartTime>
+      <ZoomEndTime time="8,644.818 ns"></ZoomEndTime>
+      <Cursor1Time time="8,468.817 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="173"></NameColumnWidth>
-      <ValueColumnWidth column_width="84"></ValueColumnWidth>
+      <NameColumnWidth column_width="124"></NameColumnWidth>
+      <ValueColumnWidth column_width="93"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="23" />
+   <WVObjectSize size="19" />
    <wvobject type="logic" fp_name="/tb_top/uut/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/cpu/ctrl_unit/PCinc">
-      <obj_property name="ElementShortName">PCinc</obj_property>
-      <obj_property name="ObjectShortName">PCinc</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/tb_top/uut/cpu/ctrl_unit/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/cpu/ctrl_unit/PCLoad">
-      <obj_property name="ElementShortName">PCLoad</obj_property>
-      <obj_property name="ObjectShortName">PCLoad</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/uut/spi_slave/i_mosi">
+      <obj_property name="ElementShortName">i_mosi</obj_property>
+      <obj_property name="ObjectShortName">i_mosi</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/PC">
-      <obj_property name="ElementShortName">PC[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   <wvobject type="logic" fp_name="/tb_top/uut/spi_slave/i_scl">
+      <obj_property name="ElementShortName">i_scl</obj_property>
+      <obj_property name="ObjectShortName">i_scl</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/spi_slave/i_cs">
+      <obj_property name="ElementShortName">i_cs</obj_property>
+      <obj_property name="ObjectShortName">i_cs</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/spi_slave/o_miso">
+      <obj_property name="ElementShortName">o_miso</obj_property>
+      <obj_property name="ObjectShortName">o_miso</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/spi_slave/o_sync">
+      <obj_property name="ElementShortName">o_sync</obj_property>
+      <obj_property name="ObjectShortName">o_sync</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/spi_slave/o_data">
+      <obj_property name="ElementShortName">o_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">o_data[31:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/spi_slave/data">
+      <obj_property name="ElementShortName">data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/spi_slave/spi_req">
+      <obj_property name="ElementShortName">spi_req</obj_property>
+      <obj_property name="ObjectShortName">spi_req</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/data_path/interrupt_control/ISR_req">
+      <obj_property name="ElementShortName">ISR_req</obj_property>
+      <obj_property name="ObjectShortName">ISR_req</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/interrupt_control/ISR_vec">
+      <obj_property name="ElementShortName">ISR_vec[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ISR_vec[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/data_path/interrupt_control/SPI_req">
+      <obj_property name="ElementShortName">SPI_req</obj_property>
+      <obj_property name="ObjectShortName">SPI_req</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/data_path/SPI_req">
+      <obj_property name="ElementShortName">SPI_req</obj_property>
+      <obj_property name="ObjectShortName">SPI_req</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/SPI_req">
+      <obj_property name="ElementShortName">SPI_req</obj_property>
+      <obj_property name="ObjectShortName">SPI_req</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_top/uut/cpu/EA">
+      <obj_property name="ElementShortName">EA</obj_property>
+      <obj_property name="ObjectShortName">EA</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/Instruction_Register/IR">
       <obj_property name="ElementShortName">IR[31:0]</obj_property>
       <obj_property name="ObjectShortName">IR[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/d_addrH">
-      <obj_property name="ElementShortName">d_addrH[7:0]</obj_property>
-      <obj_property name="ObjectShortName">d_addrH[7:0]</obj_property>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/Program_Counter/PC">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/d_addrL">
-      <obj_property name="ElementShortName">d_addrL[7:0]</obj_property>
-      <obj_property name="ObjectShortName">d_addrL[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/cpu/IE">
-      <obj_property name="ElementShortName">IE</obj_property>
-      <obj_property name="ObjectShortName">IE</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/IE">
-      <obj_property name="ElementShortName">IE</obj_property>
-      <obj_property name="ObjectShortName">IE</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/EA">
-      <obj_property name="ElementShortName">EA</obj_property>
-      <obj_property name="ObjectShortName">EA</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/ctrl_unit/opcode">
-      <obj_property name="ElementShortName">opcode[4:0]</obj_property>
-      <obj_property name="ObjectShortName">opcode[4:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/Button_debounce/button_pressed">
-      <obj_property name="ElementShortName">button_pressed</obj_property>
-      <obj_property name="ObjectShortName">button_pressed</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/Button_debounce/button_out">
-      <obj_property name="ElementShortName">button_out</obj_property>
-      <obj_property name="ObjectShortName">button_out</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/Button_debounce/counter">
-      <obj_property name="ElementShortName">counter</obj_property>
-      <obj_property name="ObjectShortName">counter</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/cpu/ctrl_unit/ctrl_out[27]">
-      <obj_property name="ElementShortName">[27]</obj_property>
-      <obj_property name="ObjectShortName">[27]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/arith_logic_unit/rs1">
-      <obj_property name="ElementShortName">rs1[4:0]</obj_property>
-      <obj_property name="ObjectShortName">rs1[4:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/arith_logic_unit/result">
-      <obj_property name="ElementShortName">result[32:0]</obj_property>
-      <obj_property name="ObjectShortName">result[32:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/register_bank/regfile/RegFile_i/blk_mem_gen_0/inst/\native_mem_module.blk_mem_gen_v8_4_6_inst /memory[1]">
-      <obj_property name="ElementShortName">[1][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/cpu/data_path/register_bank/regfile/RegFile_i/blk_mem_gen_0/inst/\native_mem_module.blk_mem_gen_v8_4_6_inst /memory[3]">
-      <obj_property name="ElementShortName">[3][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/Button_debounce/button_out">
-      <obj_property name="ElementShortName">button_out</obj_property>
-      <obj_property name="ObjectShortName">button_out</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/tb_top/uut/Button_debounce/button">
-      <obj_property name="ElementShortName">button</obj_property>
-      <obj_property name="ObjectShortName">button</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/tb_top/uut/gr_result">
-      <obj_property name="ElementShortName">gr_result[3:0]</obj_property>
-      <obj_property name="ObjectShortName">gr_result[3:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="array" fp_name="/tb_top/uut/cpu/ctrl_unit/state">
+      <obj_property name="ElementShortName">state[4:0]</obj_property>
+      <obj_property name="ObjectShortName">state[4:0]</obj_property>
    </wvobject>
 </wave_config>

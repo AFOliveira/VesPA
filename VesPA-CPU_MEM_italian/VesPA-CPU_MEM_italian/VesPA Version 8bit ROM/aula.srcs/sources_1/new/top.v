@@ -4,9 +4,11 @@ module top(
         input clk,
         input rst,
         input IE,           //isr button 
-        input EA,      // enable all ISRs
+        input EA,           // enable all ISRs
+        input i_scl,
+        input CS,
         output [3:0]gr_result
-    );
+);
 
     wire [31:0]code_output;        //memory
     wire [7:0] mem_outL;
@@ -26,6 +28,9 @@ module top(
     wire IE_deb;
     wire [31:0] result;
     wire [31:0] ctrl_out;
+    wire spi_req;
+    wire [31:0] spi_data;
+    
     
     CPU cpu(
         .clk(clk),
@@ -36,6 +41,8 @@ module top(
         .mem_outH(mem_outH),
         .IRhigh(IRhigh),
         .IRlow(IRlow),
+        .spi_data(spi_data),
+        .SPI_req(spi_req),
         .immed22(immed22),
         .PC(PC),
         .PClow(PClow),
@@ -74,6 +81,20 @@ module top(
     .button_out(IE_deb)
     );
         
+    wire spi_leds_en;
+    
+    spi_slave spi_slave(
+        .i_scl(i_scl),                  // Master Clock (arduino uno)
+        .i_clk(clk),                  // Zybo Clock
+        .i_rst(rst),                  // Reset
+        .i_mosi(mosi),                // Master Out Slave In (data output from master) 
+        .i_cs(CS),                    // Chip/Slave Select 
+        .o_miso(miso),                // Master In Slave Out (data output from slave)
+        .o_data(spi_data),              // SPI output data
+        .o_sync(spi_leds_en),            // Output Clock Domain Crossing
+        .spi_req(spi_req)
+    );
+
         
   
 endmodule
