@@ -18,7 +18,6 @@ module control_unit(
     input ISR_req,
     
     output ram_write_en,
-
     
     output [31:0]ctrl_out
     );
