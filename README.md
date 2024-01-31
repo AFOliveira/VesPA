@@ -1,5 +1,5 @@
-**VesPA microprocessor FPGA implementation** on Zybo Z7010. \n
-**Requirements and Constraints**
+# VesPA microprocessor FPGA implementation on Zybo Z7010.
+## Requirements and Constraints
 -Verilog
 -Control Unit - Datapath modular design
 -Create memory and register bank using Vivado's IP BRAM blocks
