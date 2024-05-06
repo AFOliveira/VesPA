@@ -1,0 +1,9 @@
++====================+===================+=====================================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                                 |
++====================+===================+=====================================================+
+| clk                | clk               | cpu/data_path/datamemoryHandler/auxresult_reg[12]/D |
+| clk                | clk               | cpu/data_path/Program_Counter/PClow_reg[0]/D        |
+| clk                | clk               | cpu/data_path/interrupt_control/ISR_vec_reg[1]/D    |
+| clk                | clk               | cpu/data_path/interrupt_control/ISR_vec_reg[0]/D    |
+| clk                | clk               | Button_debounce/debounce_counter_reg[29]/D          |
++--------------------+-------------------+-----------------------------------------------------+

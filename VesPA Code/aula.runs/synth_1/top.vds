@@ -1,0 +1,491 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Mon Jan 15 19:25:15 2024
+# Process ID: 20328
+# Current directory: /home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1
+# Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: /home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/top.vds
+# Journal file: /home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/vivado.jou
+# Running On: afonso-Modern-14-B10MW, OS: Linux, CPU Frequency: 4306.295 MHz, CPU Physical cores: 4, Host memory: 8129 MB
+#-----------------------------------------------------------
+source top.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2095.289 ; gain = 150.992 ; free physical = 1311 ; free virtual = 3291
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'.
+Command: read_checkpoint -auto_incremental -incremental {/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/utils_1/imports/synth_1/top.dcp}
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 20365
+INFO: [Synth 8-11241] undeclared symbol 'IRLoad1', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:110]
+INFO: [Synth 8-11241] undeclared symbol 'IRLoad2', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:111]
+INFO: [Synth 8-11241] undeclared symbol 'outdata1', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:114]
+INFO: [Synth 8-11241] undeclared symbol 'outdata2', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:115]
+INFO: [Synth 8-11241] undeclared symbol 'outdataram', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:118]
+INFO: [Synth 8-11241] undeclared symbol 'checkcc', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:121]
+INFO: [Synth 8-11241] undeclared symbol 'branch_en', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:136]
+INFO: [Synth 8-11241] undeclared symbol 'write_data', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:142]
+INFO: [Synth 8-11241] undeclared symbol 'PCinc', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:144]
+INFO: [Synth 8-11241] undeclared symbol 'code_en', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:146]
+INFO: [Synth 8-11241] undeclared symbol 'ram_read_en', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:148]
+INFO: [Synth 8-11241] undeclared symbol 'PCLoad', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:156]
+INFO: [Synth 8-11241] undeclared symbol 'PC_isr', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:158]
+INFO: [Synth 8-11241] undeclared symbol 'b_add', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:169]
+INFO: [Synth 8-11241] undeclared symbol 'b_sub', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:170]
+INFO: [Synth 8-11241] undeclared symbol 'b_and', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:171]
+INFO: [Synth 8-11241] undeclared symbol 'b_or', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:172]
+INFO: [Synth 8-11241] undeclared symbol 'b_xor', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:173]
+INFO: [Synth 8-11241] undeclared symbol 'b_not', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:174]
+INFO: [Synth 8-11241] undeclared symbol 'b_cmp', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:175]
+INFO: [Synth 8-11241] undeclared symbol 'b_ld', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:176]
+INFO: [Synth 8-11241] undeclared symbol 'b_st', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:177]
+INFO: [Synth 8-11241] undeclared symbol 'mosi', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/top.v:90]
+INFO: [Synth 8-11241] undeclared symbol 'miso', assumed default net type 'wire' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/top.v:92]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2829.980 ; gain = 378.699 ; free physical = 310 ; free virtual = 2299
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'CPU' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/CPU.v:4]
+INFO: [Synth 8-6157] synthesizing module 'control_unit' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'control_unit' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/control_unit.v:6]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v:5]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/ALU.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/ALU.v:4]
+WARNING: [Synth 8-7071] port 'immed23' of module 'ALU' is unconnected for instance 'arith_logic_unit' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v:59]
+WARNING: [Synth 8-7071] port 'immed17' of module 'ALU' is unconnected for instance 'arith_logic_unit' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v:59]
+WARNING: [Synth 8-7071] port 'mem_operand' of module 'ALU' is unconnected for instance 'arith_logic_unit' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v:59]
+WARNING: [Synth 8-7023] instance 'arith_logic_unit' of module 'ALU' has 19 connections declared, but only 16 given [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v:59]
+INFO: [Synth 8-6157] synthesizing module 'register_bank' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/register_bank.v:4]
+INFO: [Synth 8-6157] synthesizing module 'RegFile_wrapper' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/imports/hdl/RegFile_wrapper.v:13]
+INFO: [Synth 8-6157] synthesizing module 'RegFile' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/RegFile/synth/RegFile.v:13]
+INFO: [Synth 8-6157] synthesizing module 'RegFile_blk_mem_gen_0_0' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/.Xil/Vivado-20328-afonso-Modern-14-B10MW/realtime/RegFile_blk_mem_gen_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'RegFile_blk_mem_gen_0_0' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/.Xil/Vivado-20328-afonso-Modern-14-B10MW/realtime/RegFile_blk_mem_gen_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'RegFile_blk_mem_gen_0_1' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/.Xil/Vivado-20328-afonso-Modern-14-B10MW/realtime/RegFile_blk_mem_gen_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'RegFile_blk_mem_gen_0_1' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/.Xil/Vivado-20328-afonso-Modern-14-B10MW/realtime/RegFile_blk_mem_gen_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'RegFile' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/RegFile/synth/RegFile.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RegFile_wrapper' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/imports/hdl/RegFile_wrapper.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'register_bank' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/register_bank.v:4]
+INFO: [Synth 8-6157] synthesizing module 'Program_Counter' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/Program_Counter.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'Program_Counter' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/Program_Counter.v:4]
+WARNING: [Synth 8-689] width (4) of port connection 'isr_vec' does not match port width (2) of module 'Program_Counter' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v:101]
+INFO: [Synth 8-6157] synthesizing module 'Instruction_Register' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/Instruction_Register.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'Instruction_Register' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/Instruction_Register.v:4]
+INFO: [Synth 8-6157] synthesizing module 'interruptcontrol' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/interruptcontrol.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'interruptcontrol' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/interruptcontrol.v:4]
+WARNING: [Synth 8-689] width (4) of port connection 'ISR_vec' does not match port width (2) of module 'interruptcontrol' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v:134]
+WARNING: [Synth 8-6104] Input port 'ISR_req' has an internal driver [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v:135]
+INFO: [Synth 8-6157] synthesizing module 'mux2_1' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/mux2_1.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'mux2_1' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/mux2_1.v:4]
+INFO: [Synth 8-6157] synthesizing module 'mux2_1iRegFile' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/mux2_1iRegFile.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'mux2_1iRegFile' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/mux2_1iRegFile.v:3]
+WARNING: [Synth 8-689] width (33) of port connection 'result' does not match port width (32) of module 'mux2_1iRegFile' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v:146]
+INFO: [Synth 8-6157] synthesizing module 'memoryHandler' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/memoryHandler.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'memoryHandler' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/memoryHandler.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/datapath.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'CPU' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/CPU.v:4]
+INFO: [Synth 8-6157] synthesizing module 'memoryAf_wrapper' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/imports/hdl/memoryAf_wrapper.v:13]
+INFO: [Synth 8-6157] synthesizing module 'memoryAf' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/memoryAf/synth/memoryAf.v:13]
+INFO: [Synth 8-6157] synthesizing module 'memoryAf_axi_bram_ctrl_0_bram_0' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/.Xil/Vivado-20328-afonso-Modern-14-B10MW/realtime/memoryAf_axi_bram_ctrl_0_bram_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'memoryAf_axi_bram_ctrl_0_bram_0' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/.Xil/Vivado-20328-afonso-Modern-14-B10MW/realtime/memoryAf_axi_bram_ctrl_0_bram_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'memoryAf_blk_mem_gen_0_1' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/.Xil/Vivado-20328-afonso-Modern-14-B10MW/realtime/memoryAf_blk_mem_gen_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'memoryAf_blk_mem_gen_0_1' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/.Xil/Vivado-20328-afonso-Modern-14-B10MW/realtime/memoryAf_blk_mem_gen_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'memoryAf' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/memoryAf/synth/memoryAf.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'memoryAf_wrapper' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/imports/hdl/memoryAf_wrapper.v:13]
+WARNING: [Synth 8-689] width (8) of port connection 'addra_0' does not match port width (7) of module 'memoryAf_wrapper' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/top.v:62]
+WARNING: [Synth 8-689] width (32) of port connection 'addra_1' does not match port width (8) of module 'memoryAf_wrapper' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/top.v:63]
+WARNING: [Synth 8-689] width (8) of port connection 'addrb_0' does not match port width (7) of module 'memoryAf_wrapper' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/top.v:64]
+WARNING: [Synth 8-689] width (32) of port connection 'addrb_1' does not match port width (8) of module 'memoryAf_wrapper' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/top.v:65]
+INFO: [Synth 8-6157] synthesizing module 'Button_debounce' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/button_debounce.v:4]
+WARNING: [Synth 8-6090] variable 'debounce_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/button_debounce.v:29]
+WARNING: [Synth 8-6090] variable 'button_out' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/button_debounce.v:41]
+WARNING: [Synth 8-6090] variable 'button_pressed' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/button_debounce.v:42]
+WARNING: [Synth 8-6090] variable 'debounce_counter' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/button_debounce.v:43]
+WARNING: [Synth 8-6090] variable 'button_out' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/button_debounce.v:45]
+INFO: [Synth 8-6155] done synthesizing module 'Button_debounce' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/button_debounce.v:4]
+INFO: [Synth 8-6157] synthesizing module 'spi_slave' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/spi_slave.v:16]
+INFO: [Synth 8-6157] synthesizing module 'CDC' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/cdc.v:19]
+INFO: [Synth 8-6155] done synthesizing module 'CDC' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/cdc.v:19]
+INFO: [Synth 8-6155] done synthesizing module 'spi_slave' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/spi_slave.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/top.v:3]
+WARNING: [Synth 8-3848] Net pc_reg_val in module/entity register_bank does not have driver. [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/register_bank.v:15]
+WARNING: [Synth 8-3848] Net operandoutram in module/entity register_bank does not have driver. [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/register_bank.v:18]
+WARNING: [Synth 8-3848] Net ISR_req in module/entity CPU does not have driver. [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/CPU.v:47]
+WARNING: [Synth 8-3848] Net mosi in module/entity top does not have driver. [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/top.v:90]
+WARNING: [Synth 8-7129] Port ctrl_out[31] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[30] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[29] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[27] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[24] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[23] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[22] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[21] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[20] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[19] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[18] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[17] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[16] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[15] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[14] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[13] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[12] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[11] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[10] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[9] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[6] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[5] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[4] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[3] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[2] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[1] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[0] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[31] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[30] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[29] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[28] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[27] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[26] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[25] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[24] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[23] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[22] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[21] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[20] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[19] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[18] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[17] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[16] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[15] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[14] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[13] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[12] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[11] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[10] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[9] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port immed22[8] in module memoryHandler is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[31] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[30] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[29] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[28] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[27] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[25] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[23] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[22] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[21] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[20] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[19] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[18] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[17] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[16] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[15] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[14] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[13] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[12] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[11] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[10] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[9] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[8] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[7] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[6] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[5] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[4] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[3] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[2] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[1] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[0] in module mux2_1iRegFile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[31] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[30] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[29] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[28] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[27] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[26] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[25] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[24] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[22] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[21] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[20] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[19] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[18] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[17] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[16] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[15] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[14] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[13] in module mux2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ctrl_out[12] in module mux2_1 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2903.918 ; gain = 452.637 ; free physical = 213 ; free virtual = 2204
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2921.730 ; gain = 470.449 ; free physical = 212 ; free virtual = 2203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2921.730 ; gain = 470.449 ; free physical = 212 ; free virtual = 2203
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2921.730 ; gain = 0.000 ; free physical = 212 ; free virtual = 2203
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/memoryAf/ip/memoryAf_axi_bram_ctrl_0_bram_0/memoryAf_axi_bram_ctrl_0_bram_0/memoryAf_axi_bram_ctrl_0_bram_0_in_context.xdc] for cell 'memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram'
+Finished Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/memoryAf/ip/memoryAf_axi_bram_ctrl_0_bram_0/memoryAf_axi_bram_ctrl_0_bram_0/memoryAf_axi_bram_ctrl_0_bram_0_in_context.xdc] for cell 'memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram'
+Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/memoryAf_blk_mem_gen_0_1/memoryAf_blk_mem_gen_0_1_in_context.xdc] for cell 'memoryAf_wrapper/memoryAf_i/blk_mem_gen_0'
+Finished Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/memoryAf/ip/memoryAf_blk_mem_gen_0_1/memoryAf_blk_mem_gen_0_1/memoryAf_blk_mem_gen_0_1_in_context.xdc] for cell 'memoryAf_wrapper/memoryAf_i/blk_mem_gen_0'
+Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/RegFile/ip/RegFile_blk_mem_gen_0_0/RegFile_blk_mem_gen_0_0/RegFile_blk_mem_gen_0_0_in_context.xdc] for cell 'cpu/data_path/register_bank/regfile/RegFile_i/blk_mem_gen_0'
+Finished Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/RegFile/ip/RegFile_blk_mem_gen_0_0/RegFile_blk_mem_gen_0_0/RegFile_blk_mem_gen_0_0_in_context.xdc] for cell 'cpu/data_path/register_bank/regfile/RegFile_i/blk_mem_gen_0'
+Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/RegFile/ip/RegFile_blk_mem_gen_0_1/RegFile_blk_mem_gen_0_1/RegFile_blk_mem_gen_0_1_in_context.xdc] for cell 'cpu/data_path/register_bank/regfile/RegFile_i/blk_mem_gen_1'
+Finished Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.gen/sources_1/bd/RegFile/ip/RegFile_blk_mem_gen_0_1/RegFile_blk_mem_gen_0_1/RegFile_blk_mem_gen_0_1_in_context.xdc] for cell 'cpu/data_path/register_bank/regfile/RegFile_i/blk_mem_gen_1'
+Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/constrs_1/new/constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched 'mosi'. [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/constrs_1/new/constraints.xdc:29]
+WARNING: [Vivado 12-584] No ports matched 'mosi'. [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/constrs_1/new/constraints.xdc:30]
+WARNING: [Vivado 12-584] No ports matched 'sclk'. [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/constrs_1/new/constraints.xdc:31]
+WARNING: [Vivado 12-584] No ports matched 'sclk'. [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/constrs_1/new/constraints.xdc:32]
+WARNING: [Vivado 12-584] No ports matched 'miso'. [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/constrs_1/new/constraints.xdc:35]
+WARNING: [Vivado 12-584] No ports matched 'miso'. [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/constrs_1/new/constraints.xdc:36]
+Finished Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/constrs_1/new/constraints.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/constrs_1/new/constraints.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/top_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3068.480 ; gain = 0.000 ; free physical = 201 ; free virtual = 2192
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3068.480 ; gain = 0.000 ; free physical = 201 ; free virtual = 2192
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'cpu/data_path/register_bank/regfile/RegFile_i/blk_mem_gen_0' at clock pin 'clka' is different from the actual clock period '5.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'cpu/data_path/register_bank/regfile/RegFile_i/blk_mem_gen_1' at clock pin 'clka' is different from the actual clock period '5.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram' at clock pin 'clka' is different from the actual clock period '5.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'memoryAf_wrapper/memoryAf_i/blk_mem_gen_0' at clock pin 'clka' is different from the actual clock period '5.000', this can lead to different synthesis results.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 183 ; free virtual = 2174
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 183 ; free virtual = 2174
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for memoryAf_wrapper/memoryAf_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for memoryAf_wrapper/memoryAf_i/axi_bram_ctrl_0_bram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for memoryAf_wrapper/memoryAf_i/blk_mem_gen_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for cpu/data_path/register_bank/regfile/RegFile_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for cpu/data_path/register_bank/regfile/RegFile_i/blk_mem_gen_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for cpu/data_path/register_bank/regfile/RegFile_i/blk_mem_gen_1. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 183 ; free virtual = 2174
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'C_reg' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/ALU.v:59]
+WARNING: [Synth 8-327] inferring latch for variable 'Z_reg' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/ALU.v:60]
+WARNING: [Synth 8-327] inferring latch for variable 'N_reg' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/ALU.v:66]
+WARNING: [Synth 8-327] inferring latch for variable 'V_reg' [/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.srcs/sources_1/new/ALU.v:61]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 181 ; free virtual = 2173
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   33 Bit       Adders := 2     
+	   3 Input   33 Bit       Adders := 2     
+	   2 Input   32 Bit       Adders := 7     
+	   3 Input   32 Bit       Adders := 2     
+	   2 Input   10 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    1 Bit       Adders := 1     
++---XORs : 
+	   2 Input     33 Bit         XORs := 2     
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 7     
+	               16 Bit    Registers := 2     
+	               10 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 7     
+	   2 Input   16 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 4     
+	  23 Input    5 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 1     
+	   5 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 27    
+	  15 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3332] Sequential element (i_3) is unused and will be removed from module ALU.
+WARNING: [Synth 8-3332] Sequential element (i_5) is unused and will be removed from module ALU.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 145 ; free virtual = 2144
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 131 ; free virtual = 2130
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 138 ; free virtual = 2137
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 137 ; free virtual = 2136
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 137 ; free virtual = 2136
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 137 ; free virtual = 2136
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 137 ; free virtual = 2136
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 137 ; free virtual = 2136
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 137 ; free virtual = 2136
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 137 ; free virtual = 2136
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------------------------+----------+
+|      |BlackBox name                   |Instances |
++------+--------------------------------+----------+
+|1     |RegFile_blk_mem_gen_0_0         |         1|
+|2     |RegFile_blk_mem_gen_0_1         |         1|
+|3     |memoryAf_axi_bram_ctrl_0_bram_0 |         1|
+|4     |memoryAf_blk_mem_gen_0_1        |         1|
++------+--------------------------------+----------+
+
+Report Cell Usage: 
++------+------------------------------+------+
+|      |Cell                          |Count |
++------+------------------------------+------+
+|1     |RegFile_blk_mem_gen_0         |     2|
+|3     |memoryAf_axi_bram_ctrl_0_bram |     1|
+|4     |memoryAf_blk_mem_gen_0        |     1|
+|5     |BUFG                          |     2|
+|6     |CARRY4                        |    60|
+|7     |LUT1                          |     4|
+|8     |LUT2                          |   197|
+|9     |LUT3                          |    33|
+|10    |LUT4                          |   104|
+|11    |LUT5                          |    84|
+|12    |LUT6                          |   293|
+|13    |MUXF7                         |     1|
+|14    |FDCE                          |     2|
+|15    |FDRE                          |   150|
+|16    |FDSE                          |     3|
+|17    |LD                            |     4|
+|18    |IBUF                          |     5|
+|19    |OBUF                          |     4|
++------+------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 137 ; free virtual = 2136
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 172 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 3068.480 ; gain = 470.449 ; free physical = 137 ; free virtual = 2136
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 3068.480 ; gain = 617.199 ; free physical = 137 ; free virtual = 2136
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3068.480 ; gain = 0.000 ; free physical = 417 ; free virtual = 2416
+INFO: [Netlist 29-17] Analyzing 65 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3068.480 ; gain = 0.000 ; free physical = 418 ; free virtual = 2417
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  LD => LDCE: 4 instances
+
+Synth Design complete | Checksum: 10cf8d13
+INFO: [Common 17-83] Releasing license: Synthesis
+95 Infos, 139 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:33 . Memory (MB): peak = 3068.480 ; gain = 936.504 ; free physical = 418 ; free virtual = 2417
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2704.331; main = 2403.183; forked = 393.644
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4014.555; main = 3068.484; forked = 978.086
+INFO: [Common 17-1381] The checkpoint '/home/afonso/Documents/VesPA-CPU_MEM_italian/VesPA-CPU_MEM_italian/VesPA Version 8bit ROM/aula.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Jan 15 19:26:01 2024...
